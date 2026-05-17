@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kavro Works — Kamran's Home Installation & Mounting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void:     #08060a;
+  --wood1:    #1c0e04;
+  --wood2:    #3a1e0c;
+  --wood3:    #5c3a1e;
+  --wood4:    #8b5e3c;
+  --s1:       #55606a;
+  --s2:       #8d939e;
+  --s3:       #bec4cd;
+  --s4:       #dde2e9;
+  --s5:       #f0f3f7;
+  --g1:       #7a5820;
+  --g2:       #b08030;
+  --g3:       #d4a843;
+  --g4:       #e8c470;
+  --g5:       #f5e4b0;
+  --cream:    #f7f0e3;
+  --metal:    linear-gradient(135deg,#9ba0ab 0%,#d8dde4 18%,#b0b5c0 38%,#e4e8ee 58%,#a8adb8 78%,#c8cdd8 100%);
+  --woodg:    linear-gradient(155deg,#2a1508 0%,#5c3a1e 45%,#3d2010 100%);
+  --goldg:    linear-gradient(135deg,#8b6520 0%,#d4a843 50%,#b08030 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'DM Sans',sans-serif;background:var(--void);color:var(--cream);overflow-x:hidden;cursor:none}
+
+/* Cursor */
+.cur,.cur-r{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
+.cur{width:10px;height:10px;background:var(--g3);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cur-r{width:34px;height:34px;border:1.5px solid rgba(212,168,67,.6);z-index:9998;transition:width .2s,height .2s}
+
+/* Progress */
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--goldg);z-index:2001;width:0}
+
+/* Wood grain across page */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(88deg,transparent 0,transparent 9px,rgba(255,255,255,.006) 9px,rgba(255,255,255,.006) 10px),
+             repeating-linear-gradient(92deg,transparent 0,transparent 22px,rgba(0,0,0,.01) 22px,rgba(0,0,0,.01) 23px)}
+
+/* NAV */
+nav{position:fixed;top:2px;left:0;right:0;z-index:1000;background:rgba(8,6,10,.85);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid rgba(212,168,67,.1)}
+.ni{max-width:1160px;margin:0 auto;padding:0 28px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+/* Hammer logo */
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
+.lt{display:flex;flex-direction:column;line-height:1}
+.ln{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.01em}
+.ls{font-size:9px;text-transform:uppercase;letter-spacing:.26em;color:var(--g3);margin-top:3px;font-weight:500}
+
+.nl{display:flex;align-items:center;list-style:none;gap:30px}
+.nl a{color:var(--s3);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.04em;transition:color .2s;position:relative}
+.nl a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--g3);transition:width .3s}
+.nl a:hover{color:var(--g4)}.nl a:hover::after{width:100%}
+
+.soc{display:flex;align-items:center;gap:12px}
+.si{width:33px;height:33px;border:1px solid rgba(190,196,205,.18);display:flex;align-items:center;justify-content:center;transition:all .25s;color:var(--s3);text-decoration:none}
+.si:hover{border-color:var(--g3);background:rgba(212,168,67,.1);color:var(--g4)}
+.si svg{width:15px;height:15px;fill:currentColor}
+
+.bbk{background:var(--goldg);color:var(--void);padding:10px 20px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .3s;box-shadow:0 0 18px rgba(212,168,67,.22);flex-shrink:0}
+.bbk:hover{box-shadow:0 0 30px rgba(212,168,67,.5);transform:translateY(-1px)}
+
+.mt{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.mt span{width:24px;height:1.5px;background:var(--s3);transition:.3s}
+.mt.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.mt.open span:nth-child(2){opacity:0}
+.mt.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1160px;margin:0 auto;padding:120px 28px 80px;gap:56px;position:relative;z-index:1}
+
+.tag{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(212,168,67,.28);padding:6px 14px;margin-bottom:26px;font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:500}
+.dot{width:5px;height:5px;background:var(--g3);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+
+h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,80px);line-height:1.0;letter-spacing:-.025em;font-weight:700;margin-bottom:26px}
+.ls1{display:block;background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ls2{display:block;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.ls3{display:block;color:var(--cream)}
+
+.hp{font-size:16px;color:var(--s3);max-width:420px;line-height:1.78;margin-bottom:38px}
+.hbs{display:flex;gap:14px;flex-wrap:wrap}
+.ob{padding:12px 22px;border:1px solid rgba(190,196,205,.32);color:var(--s4);background:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.ob:hover{border-color:var(--g3);color:var(--g4);background:rgba(212,168,67,.05)}
+
+/* Hero hammer illustration */
+.hv{position:relative;display:flex;align-items:center;justify-content:center;z-index:1}
+.hh-wrap{position:relative;width:100%;max-width:400px}
+.glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:280px;height:280px;background:radial-gradient(circle,rgba(212,168,67,.18) 0%,transparent 68%);border-radius:50%;filter:blur(24px);animation:gp 3.5s ease-in-out infinite}
+@keyframes gp{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.18)}}
+.hsvg{width:100%;filter:drop-shadow(0 20px 50px rgba(212,168,67,.18)) drop-shadow(0 0 25px rgba(180,160,180,.08));animation:hf 4.5s ease-in-out infinite}
+@keyframes hf{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(.5deg)}}
+
+/* Strike rings */
+.sr{position:absolute;border-radius:50%;border:1px solid var(--g3);opacity:0;animation:sout 2.8s ease-out infinite}
+.sr:nth-child(1){width:50px;height:50px;bottom:30%;left:8%;animation-delay:0s}
+.sr:nth-child(2){width:78px;height:78px;bottom:25%;left:3%;animation-delay:.35s}
+.sr:nth-child(3){width:108px;height:108px;bottom:19%;left:-3%;animation-delay:.7s}
+@keyframes sout{0%{opacity:0;transform:scale(.4)}18%{opacity:.55}100%{opacity:0;transform:scale(1.9)}}
+
+/* Badge */
+.bdg{position:absolute;bottom:-14px;right:-10px;width:88px;height:88px;border-radius:50%;background:var(--woodg);border:1.5px solid rgba(212,168,67,.28);display:flex;align-items:center;justify-content:center;animation:bsp 20s linear infinite}
+.bdg-in{text-align:center;animation:bsp 20s linear infinite reverse}
+@keyframes bsp{to{transform:rotate(360deg)}}
+
+/* STATS */
+.stats{position:relative;z-index:1;border-top:1px solid rgba(212,168,67,.1);border-bottom:1px solid rgba(212,168,67,.1);background:rgba(28,14,4,.65);backdrop-filter:blur(10px)}
+.si2{max-width:1160px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:30px 0;text-align:center;border-right:1px solid rgba(212,168,67,.07)}
+.st:last-child{border-right:none}
+.sn{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block}
+.sl{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--s2);margin-top:7px}
+
+/* Marquee */
+.mq{background:var(--wood2);border-top:1px solid var(--g1);border-bottom:1px solid var(--g1);overflow:hidden;padding:13px 0;position:relative;z-index:1}
+.mtr{display:flex;width:max-content;animation:msc 20s linear infinite}
+.mtr:hover{animation-play-state:paused}
+.mi{display:flex;align-items:center;gap:16px;padding:0 28px;white-space:nowrap;font-size:12px;text-transform:uppercase;letter-spacing:.26em;color:var(--g3);font-weight:500}
+.ms{width:4px;height:4px;background:var(--s1);transform:rotate(45deg);flex-shrink:0}
+@keyframes msc{to{transform:translateX(-50%)}}
+
+/* SERVICES */
+#services{position:relative;z-index:1;padding:96px 28px 0;max-width:1160px;margin:0 auto}
+.ey{display:flex;align-items:center;gap:11px;font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:var(--g3);font-weight:600;margin-bottom:18px}
+.el{width:30px;height:1px;background:var(--g3)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,52px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--cream);margin-bottom:56px}
+h2 em{font-style:italic;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.08);max-width:1160px;margin:0 auto;position:relative;z-index:1}
+.sv{background:var(--void);padding:34px 26px;transition:all .4s;position:relative;overflow:hidden;cursor:pointer}
+.sv::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(180deg,rgba(212,168,67,.07),transparent);transition:height .4s}
+.sv:hover::before{height:100%}
+.sv:hover{transform:scale(1.025);z-index:2;box-shadow:0 18px 55px rgba(0,0,0,.55)}
+.svn{font-family:'Playfair Display',serif;font-size:12px;color:var(--g2);font-style:italic;margin-bottom:18px;display:block}
+.svi{width:44px;height:44px;margin-bottom:18px;border:1px solid rgba(212,168,67,.18);display:flex;align-items:center;justify-content:center;font-size:20px;transition:border-color .3s,background .3s}
+.sv:hover .svi{border-color:var(--g3);background:rgba(212,168,67,.07)}
+.sv h3{font-family:'Playfair Display',serif;font-size:21px;font-weight:500;color:var(--cream);margin-bottom:10px;line-height:1.2}
+.sv p{color:var(--s2);font-size:13.5px;line-height:1.65}
+
+.cs{margin-top:1px;background:rgba(28,14,4,.85);border:1px solid rgba(212,168,67,.1);padding:18px 28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;font-size:14px;max-width:1160px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.cs strong{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:var(--g4)}
+.cs a{color:var(--s4);text-decoration:none;display:flex;align-items:center;gap:7px;transition:color .2s}
+.cs a:hover{color:var(--g4)}
+
+/* ABOUT */
+#about{position:relative;z-index:1;background:linear-gradient(180deg,var(--wood1) 0%,rgba(8,6,10,0) 100%);border-top:1px solid rgba(212,168,67,.07)}
+.ai{max-width:1160px;margin:0 auto;padding:96px 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.ab p{color:var(--s3);font-size:15.5px;line-height:1.8;margin-bottom:20px}
+.ab p:first-of-type{font-size:17px;color:var(--cream)}
+.ac{background:rgba(255,255,255,.03);border:1px solid rgba(212,168,67,.14);padding:38px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.ac::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--goldg)}
+.ac::after{content:'';position:absolute;bottom:-50px;right:-50px;width:140px;height:140px;background:radial-gradient(circle,rgba(212,168,67,.07),transparent 70%)}
+.kr{display:flex;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04);gap:14px}
+.kr:last-child{border-bottom:none}
+.kk{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--s1);width:72px;flex-shrink:0;padding-top:2px}
+.kv{font-family:'Playfair Display',serif;font-size:16px;color:var(--cream);font-weight:500}
+.acb{margin-top:24px;display:flex;flex-direction:column;gap:9px}
+.al{display:flex;align-items:center;gap:9px;padding:11px 15px;background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.18);color:var(--g4);text-decoration:none;font-size:13.5px;font-weight:500;transition:all .25s}
+.al:hover{background:rgba(212,168,67,.14);color:var(--g5)}
+
+/* PRICING */
+#book{position:relative;z-index:1;background:repeating-linear-gradient(88deg,transparent 0,transparent 9px,rgba(255,255,255,.004) 9px,rgba(255,255,255,.004) 10px),linear-gradient(180deg,#08060a 0%,#1c0e04 50%,#08060a 100%);border-top:1px solid rgba(212,168,67,.07)}
+.bi{max-width:1160px;margin:0 auto;padding:96px 28px}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.pc{border:1px solid rgba(190,196,205,.1);padding:38px 30px;position:relative;transition:all .4s;background:rgba(255,255,255,.02);overflow:hidden}
+.pc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(212,168,67,.06),transparent 70%);opacity:0;transition:opacity .4s}
+.pc:hover{border-color:rgba(212,168,67,.32);transform:translateY(-5px);box-shadow:0 28px 55px rgba(0,0,0,.42)}
+.pc:hover::after{opacity:1}
+.pc.ft{border-color:rgba(212,168,67,.38);background:rgba(212,168,67,.04)}
+.pc.ft::after{opacity:1}
+.ftag{position:absolute;top:0;right:22px;background:var(--goldg);color:var(--void);font-size:9px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;padding:5px 11px}
+.pc h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:var(--cream);margin-bottom:5px}
+.psub{font-size:12.5px;color:var(--s2);margin-bottom:26px}
+.pp{font-family:'Playfair Display',serif;font-size:58px;font-weight:700;line-height:1;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3px}
+.ppn{font-size:11px;color:var(--s1);margin-bottom:26px}
+.pc ul{list-style:none;margin-bottom:30px}
+.pc li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13.5px;color:var(--s3);display:flex;align-items:center;gap:9px}
+.pc li::before{content:'→';color:var(--g3);font-size:11px}
+.pb{display:block;width:100%;padding:13px;background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.28);color:var(--g4);font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:all .3s;position:relative;z-index:1}
+.pb:hover,.pc.ft .pb{background:var(--goldg);border-color:transparent;color:var(--void)}
+.pc.ft .pb:hover{box-shadow:0 0 28px rgba(212,168,67,.4)}
+.snb{margin-top:36px;padding:18px 22px;background:rgba(255,255,255,.03);border-left:2px solid var(--g2);font-size:12.5px;color:var(--s2);line-height:1.7}
+.snb strong{color:var(--g3)}
+.bcc{margin-top:28px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.bcc a{color:var(--s3);text-decoration:none;font-size:14px;transition:color .2s;display:flex;align-items:center;gap:7px}
+.bcc a:hover{color:var(--g4)}
+
+/* CONTACT */
+#contact{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:96px 28px}
+.csp{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.cr{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cr:last-child{border-bottom:none}
+.ci{width:42px;height:42px;flex-shrink:0;background:var(--metal);display:flex;align-items:center;justify-content:center;font-size:16px}
+.cl{font-size:9px;text-transform:uppercase;letter-spacing:.22em;color:var(--s1);margin-bottom:3px}
+.cv{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);text-decoration:none;transition:color .2s;font-weight:500;cursor:default}
+a.cv:hover{color:var(--g4)}
+.cqb{background:var(--woodg);padding:54px 44px;position:relative;overflow:hidden;border:1px solid rgba(212,168,67,.1)}
+.cqb::before{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,rgba(212,168,67,.1),transparent 70%)}
+.bq{font-family:'Playfair Display',serif;font-size:110px;line-height:.7;color:var(--g2);display:block;margin-bottom:16px;font-style:italic}
+blockquote{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;font-weight:400;line-height:1.48;color:var(--cream);margin-bottom:24px;position:relative;z-index:1}
+cite{font-family:'DM Sans',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--g3);font-style:normal}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--wood1);border-top:1px solid rgba(212,168,67,.14)}
+.ft{max-width:1160px;margin:0 auto;padding:56px 28px 38px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:44px}
+.ftag2{font-size:13px;color:var(--s2);line-height:1.65;margin-top:11px;max-width:240px}
+.fsc{display:flex;gap:9px;margin-top:22px}
+.fsc a{width:34px;height:34px;border:1px solid rgba(212,168,67,.18);display:flex;align-items:center;justify-content:center;color:var(--s2);transition:all .25s;text-decoration:none}
+.fsc a:hover{border-color:var(--g3);color:var(--g4);background:rgba(212,168,67,.07)}
+.fsc svg{width:15px;height:15px;fill:currentColor}
+.fc h4{font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:var(--g3);font-weight:700;margin-bottom:18px}
+.fc a,.fc p{display:block;font-size:13.5px;color:var(--s2);text-decoration:none;margin-bottom:9px;transition:color .2s}
+.fc a:hover{color:var(--g4)}
+.fb{max-width:1160px;margin:0 auto;padding:18px 28px;border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--s1);flex-wrap:wrap;gap:10px}
+
+/* Animations */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.rev.in{opacity:1;transform:translateY(0)}
+.revl{opacity:0;transform:translateX(-26px);transition:opacity .8s,transform .8s}
+.revl.in{opacity:1;transform:translateX(0)}
+.revr{opacity:0;transform:translateX(26px);transition:opacity .8s,transform .8s}
+.revr.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}.d6{transition-delay:.6s}
+
+/* Spark */
+.spk{position:fixed;pointer-events:none;z-index:9999;width:5px;height:5px;border-radius:50%;background:var(--g3);animation:spf .55s ease-out forwards}
+@keyframes spf{0%{transform:scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}
+
+/* Responsive */
+@media(max-width:960px){
+  .mt{display:flex}
+  .nl{position:fixed;top:72px;left:0;right:0;background:rgba(8,6,10,.97);backdrop-filter:blur(22px);flex-direction:column;padding:30px 28px;gap:18px;transform:translateY(-115%);transition:transform .4s;border-bottom:1px solid rgba(212,168,67,.08)}
+  .nl.open{transform:translateY(0)}
+  .nl a{font-size:15px}
+  .soc{display:none}
+  .hero{grid-template-columns:1fr;padding:108px 24px 60px;gap:44px}
+  .hv{order:-1;max-width:300px;margin:0 auto;width:100%}
+  .si2{grid-template-columns:repeat(2,1fr)}
+  .st:nth-child(2){border-right:none}
+  .sg{grid-template-columns:1fr 1fr;max-width:100%}
+  .ai{grid-template-columns:1fr;gap:40px}
+  .pg{grid-template-columns:1fr;max-width:380px}
+  .csp{grid-template-columns:1fr;gap:36px}
+  .ft{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){
+  .sg{grid-template-columns:1fr}
+  .si2{grid-template-columns:repeat(2,1fr)}
+  .ft{grid-template-columns:1fr;gap:28px}
+  .cqb{padding:36px 24px}
+  .bq{font-size:72px}
+  blockquote{font-size:17px}
+  h1{font-size:40px}
+  .hbs{flex-direction:column}
+  .bbk,.ob{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div class="prog" id="prog"></div>
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- NAV -->
+<nav>
+<div class="ni">
+  <!-- HAMMER LOGO -->
+  <a href="#top" class="logo">
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="nh" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4D9E0"/><stop offset="30%" stop-color="#ECEEF2"/><stop offset="65%" stop-color="#A0A5B0"/><stop offset="100%" stop-color="#6E7580"/></linearGradient>
+        <linearGradient id="nha" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3d2010"/><stop offset="48%" stop-color="#8b5e3c"/><stop offset="100%" stop-color="#5c3a1e"/></linearGradient>
+        <linearGradient id="nb" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f5e4b0"/><stop offset="100%" stop-color="#b08030"/></linearGradient>
+      </defs>
+      <path d="M18 19.2 Q22 19 42 20.8 L42 23.8 Q22 23 18 22.8 Z" fill="url(#nha)"/>
+      <rect x="3" y="10" width="17" height="22" rx="2" fill="url(#nh)"/>
+      <rect x="3" y="10" width="17" height="3.5" rx="1" fill="rgba(255,255,255,0.28)"/>
+      <rect x="3" y="10" width="3.5" height="22" rx="1" fill="rgba(255,255,255,0.18)"/>
+      <rect x="3" y="28.5" width="17" height="3.5" rx="1" fill="rgba(0,0,0,0.22)"/>
+      <rect x="17" y="17" width="4" height="9" rx="0.5" fill="url(#nb)"/>
+      <line x1="10.5" y1="10" x2="10.5" y2="32" stroke="rgba(0,0,0,0.1)" stroke-width="0.5"/>
+    </svg>
+    <div class="lt">
+      <span class="ln">Kavro Works</span>
+      <span class="ls">Home Installation</span>
+    </div>
+  </a>
+
+  <button class="mt" id="mt" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <ul class="nl" id="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#book">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="soc">
+    <a href="https://instagram.com/" target="_blank" rel="noopener" class="si" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://linkedin.com/" target="_blank" rel="noopener" class="si" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+  </div>
+
+  <a href="#book" class="bbk">Book a Job ↗</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section id="top" style="position:relative;z-index:1">
+<div class="hero">
+  <div class="hero-left">
+    <div class="tag rev d1"><span class="dot"></span> Atlanta, GA · Taking Jobs Now</div>
+    <h1 class="rev d2">
+      <span class="ls1">Mounted.</span>
+      <span class="ls2">Level.</span>
+      <span class="ls3">Built to last.</span>
+    </h1>
+    <p class="hp rev d3">I'm Kamran. I install and mount things right in your home — TVs, shelves, mirrors, smart devices — so nothing wobbles, nothing falls, nothing needs fixing twice.</p>
+    <div class="hbs rev d4">
+      <a href="#book" class="bbk" style="font-size:14px;padding:14px 26px">Book a Job ↗</a>
+      <a href="tel:4049196460" class="ob">📞 (404) 919-6460</a>
+    </div>
+  </div>
+
+  <div class="hv revr d2">
+    <div class="hh-wrap">
+      <div class="glow"></div>
+      <div class="sr"></div><div class="sr"></div><div class="sr"></div>
+
+      <!-- HERO HAMMER SVG -->
+      <svg class="hsvg" viewBox="0 0 320 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="Hht" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ECEEF2"/><stop offset="12%" stop-color="#D4D9E0"/><stop offset="38%" stop-color="#B8BDC8"/>
+            <stop offset="70%" stop-color="#9298A4"/><stop offset="100%" stop-color="#6E7580"/>
+          </linearGradient>
+          <linearGradient id="Hhf" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#F2F5F8"/><stop offset="45%" stop-color="#CDD2D8"/><stop offset="100%" stop-color="#9EA4B0"/>
+          </linearGradient>
+          <linearGradient id="Hhl" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#8b5e3c"/><stop offset="28%" stop-color="#c0855a"/>
+            <stop offset="52%" stop-color="#8b5e3c"/><stop offset="78%" stop-color="#5c3a1e"/><stop offset="100%" stop-color="#3d2010"/>
+          </linearGradient>
+          <linearGradient id="Hgb" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f5e4b0"/><stop offset="50%" stop-color="#d4a843"/><stop offset="100%" stop-color="#8b6520"/>
+          </linearGradient>
+          <linearGradient id="Hsh" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.45)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+          </linearGradient>
+          <filter id="Hds"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="rgba(0,0,0,0.55)"/></filter>
+          <pattern id="Hwg" x="0" y="0" width="7" height="160" patternUnits="userSpaceOnUse">
+            <path d="M3.5 0 Q5 38 2.5 78 Q4.5 118 3.5 160" stroke="rgba(0,0,0,0.05)" stroke-width="1" fill="none"/>
+          </pattern>
+          <pattern id="Hmh" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+            <path d="M0 4 L4 0" stroke="rgba(255,255,255,0.055)" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+
+        <!-- Ground shadow -->
+        <ellipse cx="130" cy="240" rx="120" ry="10" fill="rgba(0,0,0,0.32)" filter="url(#Hds)"/>
+
+        <!-- Handle -->
+        <path d="M142 134 L312 72 L318 92 L150 156 Z" fill="url(#Hhl)"/>
+        <path d="M142 134 L312 72 L318 92 L150 156 Z" fill="url(#Hwg)" opacity=".38"/>
+        <path d="M142 134 L312 72 L313 78 L144 140 Z" fill="rgba(255,255,255,0.1)"/>
+        <path d="M146 152 L316 90 L318 92 L150 156 Z" fill="rgba(0,0,0,0.18)"/>
+
+        <!-- Gold ferrule -->
+        <path d="M139 130 L156 124 L162 144 L145 150 Z" fill="url(#Hgb)"/>
+        <path d="M139 130 L156 124 L157 130 L140 136 Z" fill="rgba(255,255,255,0.28)"/>
+
+        <!-- Hammer head -->
+        <rect x="22" y="52" width="126" height="140" rx="4" fill="url(#Hht)" filter="url(#Hds)"/>
+        <rect x="22" y="52" width="126" height="140" rx="4" fill="url(#Hmh)"/>
+
+        <!-- Striking face (left side) -->
+        <rect x="10" y="60" width="22" height="124" rx="3" fill="url(#Hhf)"/>
+        <rect x="10" y="60" width="22" height="14" rx="2" fill="rgba(255,255,255,0.32)"/>
+        <rect x="10" y="170" width="22" height="14" rx="2" fill="rgba(0,0,0,0.22)"/>
+        <!-- Face grid lines (realism) -->
+        <line x1="21" y1="66" x2="21" y2="182" stroke="rgba(0,0,0,0.12)" stroke-width="0.7"/>
+        <line x1="11" y1="122" x2="30" y2="122" stroke="rgba(0,0,0,0.1)" stroke-width="0.7"/>
+
+        <!-- Head top bevel -->
+        <rect x="22" y="52" width="126" height="13" rx="3" fill="rgba(255,255,255,0.28)"/>
+        <!-- Head bottom shadow -->
+        <rect x="22" y="179" width="126" height="13" rx="3" fill="rgba(0,0,0,0.24)"/>
+        <!-- Head right shadow -->
+        <rect x="135" y="52" width="13" height="140" rx="3" fill="rgba(0,0,0,0.2)"/>
+        <!-- Shine triangle -->
+        <path d="M28 59 L92 59 L28 96 Z" fill="url(#Hsh)" opacity=".28"/>
+
+        <!-- Milling marks on face -->
+        <line x1="13" y1="84" x2="28" y2="84" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+        <line x1="13" y1="94" x2="28" y2="94" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+        <line x1="13" y1="104" x2="28" y2="104" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+        <line x1="13" y1="148" x2="28" y2="148" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+        <line x1="13" y1="158" x2="28" y2="158" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+        <line x1="13" y1="168" x2="28" y2="168" stroke="rgba(100,100,110,.28)" stroke-width="0.5"/>
+
+        <!-- Brand stamp on head -->
+        <text x="85" y="122" font-family="'Playfair Display',serif" font-size="10" fill="rgba(60,40,20,.45)" text-anchor="middle" transform="rotate(90 85 122)" letter-spacing="3">KAVRO WORKS</text>
+      </svg>
+
+      <div class="bdg">
+        <div class="bdg-in">
+          <div style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--g4)">K</div>
+          <div style="font-size:7px;letter-spacing:.1em;color:var(--g3)">PRO</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+<div class="si2">
+  <div class="st rev d1"><span class="sn" data-t="48">0</span><div class="sl">Hr Turnaround</div></div>
+  <div class="st rev d2"><span class="sn" data-t="100" data-s="%">0</span><div class="sl">Level Guaranteed</div></div>
+  <div class="st rev d3"><span class="sn" data-t="0" data-p="$">0</span><div class="sl">Hidden Fees</div></div>
+  <div class="st rev d4"><span class="sn" data-t="6" data-s="+">0</span><div class="sl">Services Offered</div></div>
+</div>
+</div>
+
+<!-- MARQUEE -->
+<div class="mq">
+<div class="mtr">
+  <span class="mi">TV Mounting <span class="ms"></span></span>
+  <span class="mi">Floating Shelves <span class="ms"></span></span>
+  <span class="mi">Mirror Hanging <span class="ms"></span></span>
+  <span class="mi">Curtain Rods <span class="ms"></span></span>
+  <span class="mi">Smart Home <span class="ms"></span></span>
+  <span class="mi">Furniture Assembly <span class="ms"></span></span>
+  <span class="mi">Cable Management <span class="ms"></span></span>
+  <span class="mi">Wall Art <span class="ms"></span></span>
+  <span class="mi">TV Mounting <span class="ms"></span></span>
+  <span class="mi">Floating Shelves <span class="ms"></span></span>
+  <span class="mi">Mirror Hanging <span class="ms"></span></span>
+  <span class="mi">Curtain Rods <span class="ms"></span></span>
+  <span class="mi">Smart Home <span class="ms"></span></span>
+  <span class="mi">Furniture Assembly <span class="ms"></span></span>
+  <span class="mi">Cable Management <span class="ms"></span></span>
+  <span class="mi">Wall Art <span class="ms"></span></span>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+<div style="max-width:1160px;margin:0 auto;padding:96px 28px 0;position:relative;z-index:1">
+  <div class="ey rev"><span class="el"></span> What I Install</div>
+  <h2 class="rev d1">Every job. Done <em>right.</em></h2>
+</div>
+<div class="sg">
+  <div class="sv rev d1"><span class="svn">— 01</span><div class="svi">📺</div><h3>TV Mounting</h3><p>Flat, tilt or full-motion up to 85". Studs found, cables hidden, bracket flush to wall.</p></div>
+  <div class="sv rev d2"><span class="svn">— 02</span><div class="svi">📚</div><h3>Shelving</h3><p>Floating shelves, kitchen storage — properly anchored and dead level every time.</p></div>
+  <div class="sv rev d3"><span class="svn">— 03</span><div class="svi">🪞</div><h3>Mirrors & Art</h3><p>Heavy mirrors and gallery walls with correct hardware for any wall type.</p></div>
+  <div class="sv rev d4"><span class="svn">— 04</span><div class="svi">🪟</div><h3>Curtain Rods</h3><p>Rods at right height, blinds flush, no crooked windows. Standard or wide spans.</p></div>
+  <div class="sv rev d5"><span class="svn">— 05</span><div class="svi">💡</div><h3>Smart Home</h3><p>Doorbells, cameras, thermostats — installed, paired and tested before I leave.</p></div>
+  <div class="sv rev d6"><span class="svn">— 06</span><div class="svi">🛠️</div><h3>Assembly</h3><p>Flat-pack furniture, bed frames, desks — built right and anchored when needed.</p></div>
+</div>
+<div class="cs rev">
+  <strong>Got a question about a job?</strong>
+  <a href="tel:4049196460">📞 (404) 919-6460</a>
+  <a href="mailto:kavroworks@gmail.com">✉ kavroworks@gmail.com</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="ai">
+  <div class="ab revl">
+    <div class="ey"><span class="el"></span> About Kamran</div>
+    <h2>Hands that know <em>where the stud is.</em></h2>
+    <p>I started Kavro Works because too many people told me the same story — a TV crooked on the wall, a shelf that pulled from drywall, a mirror never quite straight.</p>
+    <p>Every job gets careful measuring, the right anchors for your wall type, cables tucked clean, and a tidy workspace when I leave. No shortcuts. If it's not level, I'm not done.</p>
+    <p>Based in Atlanta, serving homes and apartments across the metro. I show up on time, treat your home like my own, and stand behind the work.</p>
+  </div>
+  <div class="ac revr d2">
+    <div class="kr"><span class="kk">Based</span><span class="kv">Atlanta, GA</span></div>
+    <div class="kr"><span class="kk">Focus</span><span class="kv">Mounting & Install</span></div>
+    <div class="kr"><span class="kk">Area</span><span class="kv">Metro Atlanta</span></div>
+    <div class="kr"><span class="kk">Standard</span><span class="kv">Level. Always.</span></div>
+    <div class="acb">
+      <a href="tel:4049196460" class="al">📞 (404) 919-6460</a>
+      <a href="mailto:kavroworks@gmail.com" class="al">✉ kavroworks@gmail.com</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="book">
+<div class="bi">
+  <div class="ey rev"><span class="el"></span> Book & Pay</div>
+  <h2 class="rev d1">Pick your job. <em>Pay with Stripe.</em></h2>
+  <div class="pg">
+    <div class="pc rev d1">
+      <h3>Quick Job</h3><div class="psub">Up to 1 hour · Single item</div>
+      <div class="pp">$79</div><div class="ppn">flat rate · no surprises</div>
+      <ul><li>One mount or install</li><li>Standard hardware</li><li>Basic cable tidy</li><li>Level guaranteed</li></ul>
+      <a href="#" class="pb" data-pkg="Quick Job $79">Pay $79 via Stripe</a>
+    </div>
+    <div class="pc ft rev d2">
+      <div class="ftag">Most Booked</div>
+      <h3>Standard Install</h3><div class="psub">2–3 hours · Multiple items</div>
+      <div class="pp">$179</div><div class="ppn">flat rate · no surprises</div>
+      <ul><li>TV mount + accessories</li><li>2–3 additional mounts</li><li>Full cable management</li><li>Smart device setup</li><li>Cleanup included</li></ul>
+      <a href="#" class="pb" data-pkg="Standard Install $179">Pay $179 via Stripe</a>
+    </div>
+    <div class="pc rev d3">
+      <h3>Full Room</h3><div class="psub">Half-day · Complete setup</div>
+      <div class="pp">$349</div><div class="ppn">flat rate · no surprises</div>
+      <ul><li>Entire room installed</li><li>TV, shelves, art & more</li><li>Hidden cable runs</li><li>Smart home integration</li><li>Furniture anchoring</li></ul>
+      <a href="#" class="pb" data-pkg="Full Room $349">Pay $349 via Stripe</a>
+    </div>
+  </div>
+  <div class="snb rev"><strong>To activate Stripe:</strong> Stripe Dashboard → Products → Payment Links. Create a link per package, then replace <code>href="#"</code> on each button with your Stripe URL. Stripe handles all card processing securely.</div>
+  <div class="bcc rev">
+    <span style="color:var(--s1);font-size:12px;text-transform:uppercase;letter-spacing:.15em">Questions first?</span>
+    <a href="tel:4049196460">📞 (404) 919-6460</a>
+    <a href="mailto:kavroworks@gmail.com">✉ kavroworks@gmail.com</a>
+  </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="csp">
+  <div>
+    <div class="ey rev"><span class="el"></span> Get In Touch</div>
+    <h2 class="rev d1">Easiest? <em>Call me.</em></h2>
+    <div style="display:flex;flex-direction:column">
+      <div class="cr rev d2"><div class="ci">☎</div><div><div class="cl">Call or Text</div><a href="tel:4049196460" class="cv">( 404) 919-6460</a></div></div>
+      <div class="cr rev d3"><div class="ci">✉</div><div><div class="cl">Email</div><a href="mailto:kavroworks@gmail.com" class="cv">kavroworks@gmail.com</a></div></div>
+      <div class="cr rev d4"><div class="ci">⌖</div><div><div class="cl">Area</div><div class="cv">Metro Atlanta, GA</div></div></div>
+    </div>
+  </div>
+  <div class="cqb revr d2">
+    <span class="bq">"</span>
+    <blockquote>If it's worth hanging on your wall, it's worth hanging right. That's the whole job.</blockquote>
+    <cite>— Kamran, Founder · Kavro Works</cite>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="ft">
+  <div>
+    <a href="#top" class="logo" style="margin-bottom:14px;display:inline-flex">
+      <svg width="38" height="38" viewBox="0 0 44 44" fill="none">
+        <defs>
+          <linearGradient id="fh" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#D4D9E0"/><stop offset="50%" stop-color="#A8ADB8"/><stop offset="100%" stop-color="#6E7580"/></linearGradient>
+          <linearGradient id="fha" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3d2010"/><stop offset="50%" stop-color="#8b5e3c"/><stop offset="100%" stop-color="#5c3a1e"/></linearGradient>
+          <linearGradient id="fb2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f5e4b0"/><stop offset="100%" stop-color="#b08030"/></linearGradient>
+        </defs>
+        <path d="M18 19.2 Q22 19 42 20.8 L42 23.8 Q22 23 18 22.8 Z" fill="url(#fha)"/>
+        <rect x="3" y="10" width="17" height="22" rx="2" fill="url(#fh)"/>
+        <rect x="3" y="10" width="17" height="3.5" rx="1" fill="rgba(255,255,255,0.28)"/>
+        <rect x="3" y="10" width="3.5" height="22" rx="1" fill="rgba(255,255,255,0.18)"/>
+        <rect x="3" y="28.5" width="17" height="3.5" rx="1" fill="rgba(0,0,0,0.22)"/>
+        <rect x="17" y="17" width="4" height="9" rx="0.5" fill="url(#fb2)"/>
+      </svg>
+      <div class="lt">
+        <span class="ln" style="font-size:22px">Kavro Works</span>
+        <span class="ls">Est. 2026 · Atlanta, GA</span>
+      </div>
+    </a>
+    <p class="ftag2">Home mounting and installation across metro Atlanta. Done once, done level, done right.</p>
+    <div class="fsc">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="fc">
+    <h4>Navigate</h4>
+    <a href="#top">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#book">Pricing</a><a href="#contact">Contact</a>
+  </div>
+  <div class="fc">
+    <h4>Services</h4>
+    <p>TV Mounting</p><p>Shelving</p><p>Mirrors & Art</p><p>Smart Home</p><p>Assembly</p>
+  </div>
+  <div class="fc">
+    <h4>Contact</h4>
+    <a href="tel:4049196460">(404) 919-6460</a>
+    <a href="mailto:kavroworks@gmail.com">kavroworks@gmail.com</a>
+    <p>Metro Atlanta, GA</p>
+  </div>
+</div>
+<div class="fb">
+  <div>© 2026 Kavro Works · Kamran. All rights reserved.</div>
+  <div>Atlanta's trusted installer.</div>
+</div>
+</footer>
+
+<script>
+// Custom cursor
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cur.style.left=mx+'px';cur.style.top=my+'px';
+});
+(function anim(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
+  curR.style.left=rx+'px';curR.style.top=ry+'px';
+  requestAnimationFrame(anim);
+})();
+document.querySelectorAll('a,button,.sv,.pc').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='34px';curR.style.height='34px';});
+});
+
+// Scroll progress
+const pg=document.getElementById('prog');
+document.addEventListener('scroll',()=>{
+  pg.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';
+});
+
+// Mobile nav
+const mt=document.getElementById('mt'),nl=document.getElementById('nl');
+mt.addEventListener('click',()=>{mt.classList.toggle('open');nl.classList.toggle('open');});
+nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mt.classList.remove('open');nl.classList.remove('open');}));
+
+// Scroll reveal
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');}),{threshold:.1});
+document.querySelectorAll('.rev,.revl,.revr').forEach(el=>obs.observe(el));
+
+// Count-up
+const cobs=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,t=+el.dataset.t,p=el.dataset.p||'',s=el.dataset.s||'';
+  let st=0;
+  const go=ts=>{if(!st)st=ts;const pr=Math.min((ts-st)/1300,1),ea=1-Math.pow(1-pr,3);
+    el.textContent=p+Math.round(ea*t)+s;if(pr<1)requestAnimationFrame(go);};
+  requestAnimationFrame(go);cobs.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('.sn[data-t]').forEach(el=>cobs.observe(el));
+
+// 3D tilt on service cards
+document.querySelectorAll('.sv').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform=`scale(1.03) perspective(500px) rotateX(${-y*9}deg) rotateY(${x*9}deg)`;
+  });
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+// Click sparks
+document.addEventListener('click',e=>{
+  const cs=['#d4a843','#e8c470','#f5e4b0','#bec4cd','#ffffff','#8b5e3c'];
+  for(let i=0;i<9;i++){
+    const s=document.createElement('div');s.className='spk';
+    const a=(i/9)*Math.PI*2,d=28+Math.random()*36;
+    s.style.setProperty('--tx',Math.cos(a)*d+'px');
+    s.style.setProperty('--ty',Math.sin(a)*d+'px');
+    s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';
+    s.style.background=cs[Math.floor(Math.random()*cs.length)];
+    document.body.appendChild(s);setTimeout(()=>s.remove(),600);
+  }
+});
+
+// Stripe buttons
+document.querySelectorAll('.pb').forEach(b=>{
+  b.addEventListener('click',e=>{
+    if(b.getAttribute('href')==='#'){
+      e.preventDefault();
+      alert('Stripe checkout for "'+b.dataset.pkg+'" is not yet connected.\n\nTo activate:\n1. Stripe Dashboard → Products → Payment Links\n2. Create a link for this package\n3. Replace href="#" with your Stripe URL\n\nCall (404) 919-6460 to book now.');
+    }
+  });
+});
+</script>
+</body>
+</html>
