@@ -974,14 +974,17 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 
   <!-- TO REPLACE: replace action URL with your Formspree, Web3Forms, or Jotform endpoint -->
   <form class="qt-form revr d2"
-        action="https://formspree.io/f/YOUR_FORM_ID"
+        action="https://formspree.io/f/xykvyeka"
         method="POST"
         enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="New Kavro Works Quote Request">
+      <input type="hidden" name="_replyto" id="quoteReplyTo">
+      <input type="hidden" name="signed_in_email" id="signedInEmail">
     <div class="qt-row">
       <input type="text" name="name" placeholder="Your name *" required>
       <input type="tel" name="phone" placeholder="Phone *" required>
     </div>
-    <input type="email" name="email" placeholder="Email *" required>
+    <input id="quoteEmail" type="email" name="email" placeholder="Email *" required readonly>
     <input type="text" name="city" placeholder="City (Duluth, Atlanta, etc.)">
     <select name="service" required>
       <option value="">What do you need? *</option>
@@ -1230,6 +1233,10 @@ document.querySelectorAll('.file-up input').forEach(inp=>{
   const authEmail = document.getElementById("authEmail");
   const authPassword = document.getElementById("authPassword");
   const authMessage = document.getElementById("authMessage");
+  const quoteForm = document.getElementById("quoteForm");
+  const quoteEmail = document.getElementById("quoteEmail");
+  const quoteReplyTo = document.getElementById("quoteReplyTo");
+  const signedInEmail = document.getElementById("signedInEmail");
 
   function openModal(){
     authModal.classList.add("open");
@@ -1285,6 +1292,11 @@ document.querySelectorAll('.file-up input').forEach(inp=>{
   onAuthStateChanged(auth, (user) => {
     if(user){
       const name = user.displayName || user.email || "Account";
+      if (quoteEmail && user.email) {
+        quoteEmail.value = user.email;
+        quoteReplyTo.value = user.email;
+        signedInEmail.value = user.email;
+      }
       openAuthBtn.textContent = "👤 " + name.split(" ")[0];
       signOutBtn.style.display = "block";
       googleSignInBtn.style.display = "none";
@@ -1293,6 +1305,9 @@ document.querySelectorAll('.file-up input').forEach(inp=>{
       authEmail.style.display = "none";
       authPassword.style.display = "none";
     }else{
+      if (quoteEmail) quoteEmail.value = "";
+      if (quoteReplyTo) quoteReplyTo.value = "";
+      if (signedInEmail) signedInEmail.value = "";
       openAuthBtn.textContent = "🔐 Sign In";
       signOutBtn.style.display = "none";
       googleSignInBtn.style.display = "block";
@@ -1302,6 +1317,22 @@ document.querySelectorAll('.file-up input').forEach(inp=>{
       authPassword.style.display = "block";
     }
   });
+  if (quoteForm) {
+    quoteForm.addEventListener("submit", (e) => {
+      const user = auth.currentUser;
+  
+      if (!user || !user.email) {
+        e.preventDefault();
+        openModal();
+        authMessage.textContent = "Please sign in before sending a quote request.";
+        return;
+      }
+  
+      quoteEmail.value = user.email;
+      quoteReplyTo.value = user.email;
+      signedInEmail.value = user.email;
+    });
+  }
 </script>
 </body>
 </html>
