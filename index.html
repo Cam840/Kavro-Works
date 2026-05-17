@@ -19,12 +19,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:'DM Sans',sans-serif;background:var(--void);color:var(--cream);overflow-x:hidden;cursor:none}
-
-/* CURSOR */
-.cur,.cur-r{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transform:translate(-50%,-50%)}
-.cur{width:9px;height:9px;background:var(--g3);mix-blend-mode:difference}
-.cur-r{width:30px;height:30px;border:1px solid rgba(200,152,28,.5);z-index:9998}
+body{font-family:'DM Sans',sans-serif;background:var(--void);color:var(--cream);overflow-x:hidden}
 
 /* SCROLL PROGRESS */
 #prg{position:fixed;top:0;left:0;height:3px;background:var(--goldg);z-index:3000;width:0}
@@ -393,8 +388,6 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 <body>
 
 <div id="prg"></div>
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
 
 <!-- BACKGROUNDS -->
 <div class="wood-bg"></div>
@@ -406,6 +399,27 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
   <a href="#top" class="logo">
     <!-- CROSSED WRENCHES LOGO -->
     <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wg" x1="15%" y1="15%" x2="85%" y2="85%">
+      <stop offset="0%" stop-color="#F5941A"/>
+      <stop offset="100%" stop-color="#BF5506"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(50,50) rotate(45)" fill="url(#wg)">
+    <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+    <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+    <rect x="-34" y="7" width="28" height="9" rx="4"/>
+    <rect x="6" y="-16" width="28" height="9" rx="4"/>
+    <rect x="6" y="7" width="28" height="9" rx="4"/>
+  </g>
+  <g transform="translate(50,50) rotate(-45)" fill="url(#wg)">
+    <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+    <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+    <rect x="-34" y="7" width="28" height="9" rx="4"/>
+    <rect x="6" y="-16" width="28" height="9" rx="4"/>
+    <rect x="6" y="7" width="28" height="9" rx="4"/>
+  </g>
+</svg>
       <defs>
         <linearGradient id="wg" x1="15%" y1="15%" x2="85%" y2="85%">
           <stop offset="0%" stop-color="#F5941A"/>
@@ -894,8 +908,6 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 </footer>
 
 <script>
-// Cursor
-const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
