@@ -3,35 +3,37 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kavro Works — Assembly & Mounting by Kamran · Atlanta</title>
+<title>Kavro Works — Mounting & Assembly by Kamran · Atlanta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --void:#06040a;
-  --w1:#160a02;--w2:#271104;--w3:#3e1c08;--w4:#5e3018;--w5:#8a5530;
+  --w1:#160a02;--w2:#271104;--w3:#3e1c08;--w4:#5e3018;
   --s2:#6e7882;--s3:#aab2bc;--s4:#d4dbe4;
   --g2:#8e6012;--g3:#c8981c;--g4:#e2b840;--g5:#f4d878;
-  --cream:#f2e8d2;--rust:#b84820;
+  --or1:#bf5506;--or2:#e07010;--or3:#f5941a;
+  --cream:#f2e8d2;
   --metal:linear-gradient(130deg,#8a9098 0%,#d2d9e2 18%,#a8b0bc 38%,#e0e6ee 58%,#a0a8b4 78%,#c0c8d4 100%);
   --goldg:linear-gradient(130deg,#6a4a08 0%,#c8981c 50%,#8e6012 100%);
+  --orng:linear-gradient(135deg,#f5941a 0%,#bf5506 100%);
   --woodg:linear-gradient(155deg,#1e0c04 0%,#4a2410 50%,#2a1208 100%);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{font-family:'DM Sans',sans-serif;background:var(--void);color:var(--cream);overflow-x:hidden}
+img{max-width:100%;display:block}
 
-/* SCROLL PROGRESS */
 #prg{position:fixed;top:0;left:0;height:3px;background:var(--goldg);z-index:3000;width:0}
 
-/* ═══ NAV ═══ */
+/* NAV */
 nav{position:fixed;top:3px;left:0;right:0;z-index:1000;background:rgba(6,4,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,152,28,.1)}
 .ni{max-width:1140px;margin:0 auto;padding:0 24px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0}
 .ln{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.ls{font-size:9px;text-transform:uppercase;letter-spacing:.24em;color:var(--g3);margin-top:2px;font-weight:600;font-family:'DM Sans',sans-serif}
+.ls{font-size:9px;text-transform:uppercase;letter-spacing:.24em;color:var(--g3);margin-top:2px;font-weight:600}
 .lt{display:flex;flex-direction:column;line-height:1}
-.nl{display:flex;align-items:center;list-style:none;gap:26px}
+.nl{display:flex;align-items:center;list-style:none;gap:22px}
 .nl a{color:var(--s3);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.03em;transition:color .2s;position:relative}
 .nl a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--g3);transition:width .3s}
 .nl a:hover{color:var(--g4)}.nl a:hover::after{width:100%}
@@ -39,7 +41,7 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:1000;background:rgba(6,4,10,.9
 .nsi{width:31px;height:31px;border:1px solid rgba(170,178,188,.16);display:flex;align-items:center;justify-content:center;color:var(--s3);text-decoration:none;transition:all .22s}
 .nsi:hover{border-color:var(--g3);color:var(--g4)}
 .nsi svg{width:13px;height:13px;fill:currentColor}
-.nbk{background:var(--goldg);color:var(--void);padding:10px 18px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .3s;box-shadow:0 0 18px rgba(200,152,28,.2);white-space:nowrap;flex-shrink:0}
+.nbk{background:var(--goldg);color:var(--void);padding:10px 18px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .3s;box-shadow:0 0 18px rgba(200,152,28,.2);white-space:nowrap;flex-shrink:0}
 .nbk:hover{box-shadow:0 0 34px rgba(200,152,28,.5);transform:translateY(-1px)}
 .mbt{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
 .mbt span{width:23px;height:1.5px;background:var(--s3);transition:.3s}
@@ -47,424 +49,362 @@ nav{position:fixed;top:3px;left:0;right:0;z-index:1000;background:rgba(6,4,10,.9
 .mbt.open span:nth-child(2){opacity:0}
 .mbt.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* ═══ HERO WITH WOOD TEXTURE ═══ */
-.hero-section{
-  position:relative;min-height:100vh;
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;
-  max-width:1140px;margin:0 auto;
-  padding:110px 24px 80px;gap:48px;
-  z-index:1;
-}
-
-/* WOOD TEXTURE BACKGROUND - visible planks */
-.wood-bg{
-  position:fixed;inset:0;z-index:0;
-  background:
-    /* Plank separation — dark lines between planks */
-    repeating-linear-gradient(180deg,
-      transparent 0, transparent 82px,
-      rgba(0,0,0,.55) 82px, rgba(0,0,0,.55) 86px,
-      rgba(255,255,255,.018) 86px, rgba(255,255,255,.018) 89px,
-      transparent 89px, transparent 114px,
-      rgba(0,0,0,.4) 114px, rgba(0,0,0,.4) 117px,
-      transparent 117px, transparent 164px,
-      rgba(0,0,0,.5) 164px, rgba(0,0,0,.5) 168px
-    ),
-    /* Fine grain lines within planks */
-    repeating-linear-gradient(89deg,
-      transparent 0, transparent 7px,
-      rgba(0,0,0,.04) 7px, rgba(0,0,0,.04) 8px,
-      transparent 8px, transparent 19px,
-      rgba(255,255,255,.012) 19px, rgba(255,255,255,.012) 20px
-    ),
-    /* Color warmth variation per plank */
-    repeating-linear-gradient(180deg,
-      rgba(90,50,14,.18) 0px, rgba(90,50,14,.18) 82px,
-      rgba(50,22,4,.12) 82px, rgba(50,22,4,.12) 114px,
-      rgba(75,38,10,.15) 114px, rgba(75,38,10,.15) 164px,
-      rgba(60,28,6,.1) 164px, rgba(60,28,6,.1) 220px
-    ),
-    /* Base dark wood */
-    linear-gradient(160deg,#130802 0%,#231006 35%,#170904 70%,#0e0502 100%);
-}
-
-/* Warm workshop glow */
-.hero-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 80% 35%, rgba(200,152,28,.07) 0%, transparent 50%),
-    radial-gradient(ellipse at 15% 70%, rgba(94,48,24,.15) 0%, transparent 45%)}
+/* HERO + WOOD BG */
+.hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;max-width:1140px;margin:0 auto;padding:110px 24px 80px;gap:48px;z-index:1}
+.wood-bg{position:fixed;inset:0;z-index:0;background:repeating-linear-gradient(180deg,transparent 0,transparent 82px,rgba(0,0,0,.55) 82px,rgba(0,0,0,.55) 86px,rgba(255,255,255,.018) 86px,rgba(255,255,255,.018) 89px,transparent 89px,transparent 114px,rgba(0,0,0,.4) 114px,rgba(0,0,0,.4) 117px,transparent 117px,transparent 164px,rgba(0,0,0,.5) 164px,rgba(0,0,0,.5) 168px),repeating-linear-gradient(89deg,transparent 0,transparent 7px,rgba(0,0,0,.04) 7px,rgba(0,0,0,.04) 8px,transparent 8px,transparent 19px,rgba(255,255,255,.012) 19px,rgba(255,255,255,.012) 20px),repeating-linear-gradient(180deg,rgba(90,50,14,.18) 0,rgba(90,50,14,.18) 82px,rgba(50,22,4,.12) 82px,rgba(50,22,4,.12) 114px,rgba(75,38,10,.15) 114px,rgba(75,38,10,.15) 164px,rgba(60,28,6,.1) 164px,rgba(60,28,6,.1) 220px),linear-gradient(160deg,#130802 0%,#231006 35%,#170904 70%,#0e0502 100%)}
+.hero-glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 80% 35%,rgba(200,152,28,.07) 0%,transparent 50%),radial-gradient(ellipse at 15% 70%,rgba(94,48,24,.15) 0%,transparent 45%)}
 
 .tag{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(200,152,28,.22);padding:6px 13px;margin-bottom:22px;font-size:10px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:600}
 .tdot{width:5px;height:5px;background:var(--g3);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-
-h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,80px);line-height:.98;letter-spacing:-.025em;font-weight:700;margin-bottom:22px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,78px);line-height:.98;letter-spacing:-.025em;font-weight:700;margin-bottom:22px}
 .hs1{display:block;background:var(--metal);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hs2{display:block;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.hs2{display:block;background:var(--orng);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
 .hs3{display:block;color:var(--cream)}
 .hp{font-size:16px;color:var(--s3);max-width:420px;line-height:1.78;margin-bottom:32px}
-
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.ob{padding:11px 20px;border:1px solid rgba(170,178,188,.25);color:var(--s4);background:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .28s}
+.ob{padding:11px 20px;border:1px solid rgba(170,178,188,.25);color:var(--s4);background:none;font-size:13px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .28s}
 .ob:hover{border-color:var(--g3);color:var(--g4)}
 
-/* ── Hero hammer ── */
+/* Hero illustration: crossed wrenches XL */
 .hv{position:relative;z-index:1;display:flex;align-items:center;justify-content:center}
-.hh-w{position:relative;width:100%;max-width:430px}
-.hglow{position:absolute;top:50%;left:42%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(200,152,28,.14) 0%,transparent 68%);border-radius:50%;filter:blur(28px);animation:gp 4s ease-in-out infinite}
-@keyframes gp{0%,100%{opacity:.45;transform:translate(-50%,-50%) scale(1)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.18)}}
-.hsvg{width:100%;animation:hf 4.5s ease-in-out infinite;filter:drop-shadow(0 20px 50px rgba(200,152,28,.16)) drop-shadow(4px 8px 30px rgba(0,0,0,.72))}
-@keyframes hf{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1deg)}}
-.ir{position:absolute;border-radius:50%;border:1px solid rgba(200,152,28,.65);opacity:0;animation:ir 2.8s ease-out infinite}
-.ir:nth-child(1){width:42px;height:42px;top:53%;left:7%;animation-delay:0s}
-.ir:nth-child(2){width:68px;height:68px;top:48%;left:2%;animation-delay:.35s}
-.ir:nth-child(3){width:94px;height:94px;top:42%;left:-3%;animation-delay:.7s}
-@keyframes ir{0%{opacity:0;transform:scale(.45)}15%{opacity:.5}100%{opacity:0;transform:scale(1.9)}}
+.hh-w{position:relative;width:100%;max-width:420px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.hglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;background:radial-gradient(circle,rgba(245,148,26,.18) 0%,transparent 65%);border-radius:50%;filter:blur(30px);animation:gp 4s ease-in-out infinite}
+@keyframes gp{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.95;transform:translate(-50%,-50%) scale(1.18)}}
+.hsvg{width:80%;animation:hf 5s ease-in-out infinite;filter:drop-shadow(0 18px 50px rgba(245,148,26,.25)) drop-shadow(4px 8px 30px rgba(0,0,0,.7))}
+@keyframes hf{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(4deg)}}
+.ir{position:absolute;border-radius:50%;border:1px solid rgba(245,148,26,.6);opacity:0;animation:ir 2.8s ease-out infinite}
+.ir:nth-child(1){width:60px;height:60px;top:50%;left:50%;margin-top:-30px;margin-left:-30px;animation-delay:0s}
+.ir:nth-child(2){width:120px;height:120px;top:50%;left:50%;margin-top:-60px;margin-left:-60px;animation-delay:.4s}
+.ir:nth-child(3){width:180px;height:180px;top:50%;left:50%;margin-top:-90px;margin-left:-90px;animation-delay:.8s}
+@keyframes ir{0%{opacity:0;transform:scale(.5)}15%{opacity:.45}100%{opacity:0;transform:scale(1.7)}}
 
-/* ═══ STATS ═══ */
+/* STATS */
 .stbar{position:relative;z-index:1;background:rgba(22,10,2,.82);backdrop-filter:blur(14px);border-top:1px solid rgba(200,152,28,.1);border-bottom:1px solid rgba(200,152,28,.1)}
 .stbar-in{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr)}
-.stit{padding:26px 0;text-align:center;border-right:1px solid rgba(200,152,28,.07)}
+.stit{padding:24px 0;text-align:center;border-right:1px solid rgba(200,152,28,.07)}
 .stit:last-child{border-right:none}
-.stn{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block}
+.stn{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;display:block}
 .stl{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--s2);margin-top:5px}
 
-/* ═══ MARQUEE ═══ */
+/* MARQUEE */
 .mq{background:var(--w2);border-top:1px solid var(--g2);border-bottom:1px solid var(--g2);overflow:hidden;padding:11px 0;position:relative;z-index:1}
-.mtr{display:flex;width:max-content;animation:msc 18s linear infinite}
+.mtr{display:flex;width:max-content;animation:msc 22s linear infinite}
 .mtr:hover{animation-play-state:paused}
 .mi{display:flex;align-items:center;gap:14px;padding:0 26px;white-space:nowrap;font-size:12px;text-transform:uppercase;letter-spacing:.24em;color:var(--g3);font-weight:600}
 .msep{width:4px;height:4px;background:var(--s2);transform:rotate(45deg);flex-shrink:0}
 @keyframes msc{to{transform:translateX(-50%)}}
 
-/* ═══ CTA STRIP — periodic ═══ */
-.cta-strip{
-  position:relative;z-index:1;
-  background:var(--goldg);
-  padding:0;overflow:hidden;
-}
-.cta-strip-in{
-  max-width:1140px;margin:0 auto;padding:28px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
-}
+/* CTA STRIP */
+.cta-strip{position:relative;z-index:1;background:var(--orng);overflow:hidden}
+.cta-strip-in{max-width:1140px;margin:0 auto;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .cta-strip-text strong{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--void);display:block;line-height:1.1}
-.cta-strip-text span{font-size:13px;color:rgba(6,4,10,.65);font-weight:500;margin-top:4px;display:block}
-.cta-strip-btns{display:flex;gap:12px;flex-wrap:wrap}
-.cta-btn-dark{background:var(--void);color:var(--g4);padding:12px 22px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s;border:1px solid transparent}
-.cta-btn-dark:hover{background:var(--w2);border-color:var(--g4)}
-.cta-btn-out{background:transparent;color:var(--void);padding:12px 22px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid var(--void);transition:all .25s}
+.cta-strip-text span{font-size:13px;color:rgba(6,4,10,.7);font-weight:500;margin-top:4px;display:block}
+.cta-strip-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cta-btn-dark{background:var(--void);color:var(--g4);padding:11px 20px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .25s}
+.cta-btn-dark:hover{background:var(--w2)}
+.cta-btn-out{background:transparent;color:var(--void);padding:11px 20px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:7px;border:2px solid var(--void);transition:all .25s}
 .cta-btn-out:hover{background:rgba(6,4,10,.12)}
 
-/* ═══ ABOUT (with PHOTO PLACEHOLDER) ═══ */
-#about{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
-.about-in{max-width:1140px;margin:0 auto;padding:96px 24px;display:grid;grid-template-columns:1fr 1.15fr;gap:68px;align-items:start}
-
-/* PHOTO PLACEHOLDER — looks like a real photo spot */
-.photo-area{position:relative;flex-shrink:0}
-.photo-frame{
-  position:relative;
-  width:100%;
-  aspect-ratio:3/4;
-  overflow:hidden;
-  box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(200,152,28,.25);
-}
-/* Workshop scene background inside placeholder */
-.photo-scene{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 30% 15%, rgba(200,152,28,.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 80%, rgba(94,48,24,.3) 0%, transparent 50%),
-    repeating-linear-gradient(180deg,
-      transparent 0, transparent 60px,
-      rgba(0,0,0,.3) 60px, rgba(0,0,0,.3) 62px
-    ),
-    repeating-linear-gradient(89deg,
-      transparent 0, transparent 8px,
-      rgba(0,0,0,.04) 8px, rgba(0,0,0,.04) 9px
-    ),
-    linear-gradient(160deg, #1e0c04 0%, #2e1608 40%, #1a0a03 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:0;
-}
-/* Silhouette person — detailed, warm lit from side */
-.person-silhouette{
-  width:55%;max-width:160px;
-  filter:drop-shadow(0 0 30px rgba(200,152,28,.25));
-}
-.photo-label-bar{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:16px 20px;
-  background:linear-gradient(0deg, rgba(6,4,10,.92) 0%, transparent 100%);
-  display:flex;align-items:flex-end;justify-content:space-between;
-}
-.photo-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream)}
-.photo-hint{font-family:'Caveat',cursive;font-size:14px;color:var(--g3);text-align:right;line-height:1.3}
-/* Gold top bar */
-.photo-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--goldg);z-index:2}
-/* Corner marks */
-.photo-frame::after{content:'';position:absolute;bottom:0;right:0;width:36px;height:36px;border-bottom:2px solid var(--g3);border-right:2px solid var(--g3);z-index:2}
-.ph-corner-tl{position:absolute;top:0;left:0;width:36px;height:36px;border-top:2px solid var(--g3);border-left:2px solid var(--g3);z-index:2}
-
-/* About handwritten accent */
-.about-accent{font-family:'Caveat',cursive;font-size:17px;color:var(--g3);margin-bottom:6px;transform:rotate(-1.5deg);display:inline-block}
-.about-content h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--cream);margin-bottom:24px}
-.about-content h2 em{font-style:italic;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.about-p{color:var(--s3);font-size:15.5px;line-height:1.8;margin-bottom:16px}
-.about-p:first-of-type{font-size:17px;color:var(--cream)}
-.acard{background:rgba(255,255,255,.025);border:1px solid rgba(200,152,28,.14);padding:28px;margin-top:22px;position:relative}
-.acard::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--goldg)}
-.krow{display:flex;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.045);gap:12px}
-.krow:last-child{border-bottom:none}
-.kkey{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--s2);width:64px;flex-shrink:0;padding-top:2px}
-.kval{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);font-weight:500}
-.about-ctas{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-.al{display:flex;align-items:center;gap:8px;padding:11px 16px;background:rgba(200,152,28,.08);border:1px solid rgba(200,152,28,.2);color:var(--g4);text-decoration:none;font-size:13px;font-weight:600;transition:all .24s}
-.al:hover{background:rgba(200,152,28,.16);color:var(--g5)}
-
-/* ═══ SERVICES — 2 ONLY, BIG ═══ */
-#services{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.06)}
-.svc-head{max-width:1140px;margin:0 auto;padding:96px 24px 48px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
-.svc-head-l .ey{display:flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:700;margin-bottom:14px}
-.ey-line{width:28px;height:1px;background:var(--g3)}
-.svc-head-l h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,60px);font-weight:700;line-height:1.0;letter-spacing:-.025em;color:var(--cream)}
-.svc-head-l h2 em{font-style:italic;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.svc-head-r{font-family:'Caveat',cursive;font-size:20px;color:var(--g3);text-align:right;line-height:1.4;max-width:220px}
-
-/* Service cards — BIG, 2-col, asymmetric */
-.svc-grid{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(200,152,28,.08)}
-
-.scard{
-  background:var(--void);
-  padding:64px 52px;
-  position:relative;overflow:hidden;cursor:pointer;
-  transition:all .45s cubic-bezier(.23,1,.32,1);
-}
-/* Big number watermark */
-.scard-num-bg{
-  position:absolute;bottom:-20px;right:-10px;
-  font-family:'Playfair Display',serif;font-size:180px;font-weight:700;
-  color:rgba(200,152,28,.04);line-height:1;
-  pointer-events:none;user-select:none;
-  transition:color .45s;
-}
-.scard:hover .scard-num-bg{color:rgba(200,152,28,.07)}
-.scard::before{content:'';position:absolute;top:0;left:0;width:5px;height:0;background:var(--goldg);transition:height .5s cubic-bezier(.23,1,.32,1)}
-.scard::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,152,28,.055) 0%,transparent 65%);opacity:0;transition:opacity .45s}
-.scard:hover{transform:scale(1.015);box-shadow:0 28px 60px rgba(0,0,0,.65),0 0 0 1px rgba(200,152,28,.18)}
-.scard:hover::before{height:100%}
-.scard:hover::after{opacity:1}
-.scard-icon{font-size:44px;margin-bottom:28px;display:block;filter:drop-shadow(0 4px 12px rgba(200,152,28,.3))}
-.scard h3{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--cream);margin-bottom:16px;line-height:1.0}
-.scard-sub{font-family:'Caveat',cursive;font-size:18px;color:var(--g3);margin-bottom:20px}
-.scard p{color:var(--s3);font-size:15px;line-height:1.72;margin-bottom:28px}
-.scard ul{list-style:none;margin-bottom:32px}
-.scard li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14px;color:var(--s3);display:flex;align-items:center;gap:10px}
-.scard li::before{content:'—';color:var(--g3);font-size:10px;flex-shrink:0}
-.scard-cta{display:inline-flex;align-items:center;gap:8px;color:var(--g4);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;border-bottom:1px solid rgba(200,152,28,.35);padding-bottom:3px;transition:all .22s}
-.scard-cta:hover{color:var(--g5);border-bottom-color:var(--g5)}
-
-/* ═══ BIG BOLD CTA BANNER (mid-page) ═══ */
-.cta-banner{
-  position:relative;z-index:1;overflow:hidden;
-  background:var(--woodg);
-  border-top:1px solid rgba(200,152,28,.12);
-  border-bottom:1px solid rgba(200,152,28,.12);
-}
-.cta-banner::before{content:'';position:absolute;top:-40%;right:-10%;width:70%;height:200%;background:radial-gradient(ellipse,rgba(200,152,28,.12),transparent 65%)}
-.cta-banner-in{
-  max-width:1140px;margin:0 auto;padding:80px 24px;
-  display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;position:relative;z-index:1;
-}
-.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,58px);font-weight:700;line-height:1.04;letter-spacing:-.025em;color:var(--cream);margin-bottom:8px}
-.cta-banner h2 em{font-style:italic;color:var(--g4)}
-.cta-banner-sub{font-family:'Caveat',cursive;font-size:22px;color:var(--g3);margin-bottom:0}
-.cta-banner-actions{display:flex;flex-direction:column;gap:14px}
-.big-call-btn{background:var(--goldg);color:var(--void);padding:20px 28px;font-weight:700;font-size:18px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;transition:all .28s;box-shadow:0 8px 30px rgba(200,152,28,.3)}
-.big-call-btn:hover{box-shadow:0 12px 44px rgba(200,152,28,.5);transform:translateY(-2px)}
-.big-call-btn span{font-size:13px;opacity:.75;font-weight:500;display:block;margin-top:2px}
-.email-btn{background:rgba(255,255,255,.06);border:1px solid rgba(200,152,28,.28);color:var(--g4);padding:16px 22px;font-weight:600;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:10px;transition:all .25s}
-.email-btn:hover{background:rgba(200,152,28,.1);border-color:var(--g4)}
-
-/* ═══ PRICING ═══ */
-#book{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
-.book-in{max-width:1140px;margin:0 auto;padding:96px 24px}
+/* SECTION HELPERS */
 .sec-ey{display:flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:700;margin-bottom:14px}
 .ey-l{width:28px;height:1px;background:var(--g3)}
-.book-in h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,50px);font-weight:700;line-height:1.06;letter-spacing:-.02em;color:var(--cream);margin-bottom:48px}
-.book-in h2 em{font-style:italic;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(200,152,28,.07)}
-.pcard{background:var(--void);padding:40px 32px;position:relative;transition:all .38s;overflow:hidden}
-.pcard::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(200,152,28,.05),transparent 65%);opacity:0;transition:opacity .38s}
-.pcard:hover{transform:translateY(-5px);box-shadow:0 28px 55px rgba(0,0,0,.45);z-index:2}
-.pcard:hover::after{opacity:1}
-.pcard.ft{background:rgba(200,152,28,.04);border:1px solid rgba(200,152,28,.3)}
-.pcard.ft::after{opacity:1}
-.ftag{position:absolute;top:0;right:18px;background:var(--goldg);color:var(--void);font-size:9px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;padding:4px 10px}
-.pcard h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--cream);margin-bottom:4px}
-.psub{font-size:12px;color:var(--s2);margin-bottom:20px}
-.ptier{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;color:var(--g4);font-style:italic;margin-bottom:20px}
-.pcard ul{list-style:none;margin-bottom:28px}
-.pcard li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--s3);display:flex;align-items:center;gap:8px}
-.pcard li::before{content:'→';color:var(--g3);font-size:11px;flex-shrink:0}
-.pbtn{display:block;width:100%;padding:14px;background:rgba(200,152,28,.1);border:1px solid rgba(200,152,28,.28);color:var(--g4);font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:all .28s;position:relative;z-index:1}
-.pbtn:hover,.pcard.ft .pbtn{background:var(--goldg);border-color:transparent;color:var(--void)}
-.pnote{margin-top:28px;padding:16px 20px;background:rgba(255,255,255,.025);border-left:2px solid var(--g2);font-size:13px;color:var(--s2);line-height:1.65}
-.pnote strong{color:var(--g3)}
-.pricing-cta{margin-top:20px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.pricing-cta a{color:var(--s3);text-decoration:none;font-size:14px;transition:color .2s;display:flex;align-items:center;gap:6px}
-.pricing-cta a:hover{color:var(--g4)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,52px);font-weight:700;line-height:1.06;letter-spacing:-.02em;color:var(--cream);margin-bottom:32px}
+h2 em{font-style:italic;background:var(--orng);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-/* ═══ CONTACT ═══ */
-#contact{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:96px 24px}
-.con-sp{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
-.con-sp .sec-ey{margin-bottom:14px}
-.con-sp h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,50px);font-weight:700;line-height:1.06;letter-spacing:-.02em;color:var(--cream);margin-bottom:32px}
-.con-sp h2 em{font-style:italic;background:var(--goldg);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.crow{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+/* ABOUT */
+#about{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
+.about-in{max-width:1140px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:start}
+.photo-frame{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(200,152,28,.25)}
+.photo-scene{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 15%,rgba(245,148,26,.22) 0%,transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(94,48,24,.3) 0%,transparent 50%),repeating-linear-gradient(180deg,transparent 0,transparent 60px,rgba(0,0,0,.3) 60px,rgba(0,0,0,.3) 62px),linear-gradient(160deg,#1e0c04 0%,#2e1608 40%,#1a0a03 100%);display:flex;align-items:center;justify-content:center}
+.person-silhouette{width:55%;max-width:160px;filter:drop-shadow(0 0 30px rgba(245,148,26,.25))}
+.photo-frame::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--orng);z-index:2}
+.photo-frame::after{content:'';position:absolute;bottom:0;right:0;width:36px;height:36px;border-bottom:2px solid var(--or2);border-right:2px solid var(--or2);z-index:2}
+.ph-tl{position:absolute;top:0;left:0;width:36px;height:36px;border-top:2px solid var(--or2);border-left:2px solid var(--or2);z-index:2}
+.photo-label-bar{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(0deg,rgba(6,4,10,.92) 0%,transparent 100%);display:flex;align-items:flex-end;justify-content:space-between}
+.photo-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--cream)}
+.photo-hint{font-family:'Caveat',cursive;font-size:13px;color:var(--g3);text-align:right;line-height:1.3}
+
+.about-accent{font-family:'Caveat',cursive;font-size:17px;color:var(--g3);margin-bottom:6px;transform:rotate(-1.5deg);display:inline-block}
+.about-p{color:var(--s3);font-size:15px;line-height:1.78;margin-bottom:14px}
+.about-p:first-of-type{font-size:16px;color:var(--cream)}
+.acard{background:rgba(255,255,255,.025);border:1px solid rgba(200,152,28,.14);padding:24px;margin-top:18px;position:relative}
+.acard::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
+.krow{display:flex;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.045);gap:12px}
+.krow:last-child{border-bottom:none}
+.kkey{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--s2);width:62px;flex-shrink:0;padding-top:2px}
+.kval{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);font-weight:500}
+.about-ctas{margin-top:18px;display:flex;gap:9px;flex-wrap:wrap}
+.al{display:flex;align-items:center;gap:7px;padding:10px 14px;background:rgba(245,148,26,.08);border:1px solid rgba(245,148,26,.2);color:var(--or3);text-decoration:none;font-size:13px;font-weight:600;transition:all .24s}
+.al:hover{background:rgba(245,148,26,.16)}
+
+/* SERVICES - 5 cards */
+#services{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.06)}
+.svc-head{max-width:1140px;margin:0 auto;padding:88px 24px 40px}
+.svc-head h2{margin-bottom:8px}
+.svc-tag{font-family:'Caveat',cursive;font-size:18px;color:var(--g3)}
+.svc-grid{max-width:1140px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(200,152,28,.08)}
+.scard{background:var(--void);padding:32px 22px;position:relative;overflow:hidden;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.scard::after{content:'';position:absolute;top:0;left:0;width:5px;height:0;background:var(--orng);transition:height .5s cubic-bezier(.23,1,.32,1)}
+.scard:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(0,0,0,.6),0 0 0 1px rgba(245,148,26,.15)}
+.scard:hover::after{height:100%}
+.scard-num{font-family:'Playfair Display',serif;font-size:11px;color:var(--or2);font-style:italic;display:block;margin-bottom:14px;font-weight:600}
+.scard-icon{font-size:32px;margin-bottom:16px;display:block}
+.scard h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--cream);margin-bottom:10px;line-height:1.1}
+.scard p{color:var(--s2);font-size:13px;line-height:1.6}
+
+/* GALLERY CAROUSEL */
+#gallery{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07);padding:88px 0 64px;overflow:hidden}
+.gal-head{max-width:1140px;margin:0 auto;padding:0 24px 36px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px}
+.gal-head h2{margin-bottom:6px}
+.gal-sub{font-family:'Caveat',cursive;font-size:18px;color:var(--g3)}
+.carousel{position:relative;max-width:1140px;margin:0 auto;padding:0 24px}
+.car-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:18px;scrollbar-width:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-slide{flex:0 0 calc(50% - 9px);scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;height:280px;position:relative;border:1px solid rgba(245,148,26,.15)}
+.ba-img{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ba-img::before{content:attr(data-label);position:absolute;top:10px;left:10px;background:rgba(6,4,10,.85);color:var(--g4);font-size:10px;font-weight:700;letter-spacing:.15em;padding:4px 9px;text-transform:uppercase;z-index:2}
+.ba-img.before{background:radial-gradient(ellipse at 30% 40%,rgba(60,40,20,.5),transparent 60%),linear-gradient(135deg,#1a0e04 0%,#2a1808 100%)}
+.ba-img.after{background:radial-gradient(ellipse at 70% 30%,rgba(245,148,26,.2),transparent 55%),linear-gradient(135deg,#3d2810 0%,#231408 100%)}
+.ba-img svg{width:55%;height:55%;opacity:.55}
+.ba-img.after svg{opacity:.85;filter:drop-shadow(0 0 14px rgba(245,148,26,.4))}
+.gal-cap{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--s3);padding:0 2px}
+.gal-cap strong{font-family:'Playfair Display',serif;font-size:16px;color:var(--cream);font-weight:500}
+.gal-cap em{font-style:normal;font-family:'Caveat',cursive;font-size:15px;color:var(--g3)}
+.car-controls{max-width:1140px;margin:20px auto 0;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.car-btn{width:44px;height:44px;border:1px solid rgba(245,148,26,.3);background:rgba(245,148,26,.07);color:var(--or3);font-size:18px;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center}
+.car-btn:hover{background:var(--orng);color:var(--void);border-color:transparent}
+.car-dots{display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(245,148,26,.25);border:none;cursor:pointer;transition:all .25s;padding:0}
+.dot.active{background:var(--or3);width:24px;border-radius:4px}
+
+.gal-note{max-width:1140px;margin:24px auto 0;padding:14px 24px;font-family:'Caveat',cursive;font-size:15px;color:var(--g3);text-align:center}
+.gal-note code{font-family:'DM Sans',sans-serif;font-size:11px;background:rgba(245,148,26,.1);padding:2px 6px;color:var(--g4)}
+
+/* CTA BANNER (big mid-page) */
+.cta-banner{position:relative;z-index:1;overflow:hidden;background:var(--woodg);border-top:1px solid rgba(200,152,28,.12);border-bottom:1px solid rgba(200,152,28,.12)}
+.cta-banner::before{content:'';position:absolute;top:-40%;right:-10%;width:70%;height:200%;background:radial-gradient(ellipse,rgba(245,148,26,.12),transparent 65%)}
+.cta-banner-in{max-width:1140px;margin:0 auto;padding:72px 24px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+.cta-banner h2{font-size:clamp(30px,4.5vw,54px);margin-bottom:6px}
+.cta-banner-sub{font-family:'Caveat',cursive;font-size:21px;color:var(--g3)}
+.cta-banner-actions{display:flex;flex-direction:column;gap:12px}
+.big-call-btn{background:var(--orng);color:var(--void);padding:18px 24px;font-weight:700;font-size:17px;text-decoration:none;display:flex;align-items:center;justify-content:space-between;transition:all .28s;box-shadow:0 8px 30px rgba(245,148,26,.3)}
+.big-call-btn:hover{box-shadow:0 12px 44px rgba(245,148,26,.5);transform:translateY(-2px)}
+.big-call-btn span{font-size:12px;opacity:.75;font-weight:500;display:block;margin-top:2px}
+.email-btn{background:rgba(255,255,255,.06);border:1px solid rgba(245,148,26,.28);color:var(--or3);padding:14px 20px;font-weight:600;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:9px;transition:all .25s}
+.email-btn:hover{background:rgba(245,148,26,.1);border-color:var(--or3)}
+
+/* REVIEWS */
+#reviews{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07);background:linear-gradient(180deg,rgba(22,10,2,.6) 0%,rgba(6,4,10,0) 100%)}
+.rev-in{max-width:1140px;margin:0 auto;padding:88px 24px}
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px;margin-bottom:40px}
+.rev-head h2{margin-bottom:8px}
+.rev-rating{display:flex;align-items:center;gap:10px}
+.rev-stars-big{color:var(--g4);font-size:20px;letter-spacing:2px}
+.rev-rating-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);font-weight:500}
+.rev-rating-text span{font-size:12px;color:var(--s2);font-family:'DM Sans',sans-serif;font-weight:400;margin-left:6px}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.review{background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.12);padding:28px 24px;position:relative;transition:all .3s}
+.review:hover{border-color:rgba(245,148,26,.3);transform:translateY(-4px)}
+.review::before{content:'"';position:absolute;top:-10px;left:18px;font-family:'Playfair Display',serif;font-size:60px;color:var(--or3);font-style:italic;line-height:1}
+.rev-stars{color:var(--g4);font-size:14px;letter-spacing:1px;margin-bottom:14px;margin-top:18px}
+.review p{color:var(--s3);font-size:14px;line-height:1.7;margin-bottom:18px;font-style:italic}
+.review footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid rgba(255,255,255,.05)}
+.rev-name{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);font-weight:600}
+.rev-city{font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em;margin-top:2px;display:block}
+.rev-svc{font-family:'Caveat',cursive;font-size:14px;color:var(--g3)}
+.rev-cta{margin-top:32px;text-align:center}
+.rev-cta a{display:inline-flex;align-items:center;gap:8px;background:rgba(245,148,26,.1);border:1px solid rgba(245,148,26,.3);color:var(--or3);padding:14px 26px;text-decoration:none;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;transition:all .25s}
+.rev-cta a:hover{background:var(--orng);color:var(--void);border-color:transparent}
+
+/* SERVICE AREA + MAP */
+#area{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
+.area-in{max-width:1140px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:center}
+.area-in h2{margin-bottom:18px}
+.area-in p.area-lead{color:var(--s3);font-size:15px;line-height:1.7;margin-bottom:24px}
+.cities{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;margin-bottom:20px}
+.cities li{display:flex;align-items:center;gap:9px;font-size:14px;color:var(--cream);font-family:'Playfair Display',serif;font-weight:500}
+.cities li::before{content:'📍';font-size:12px}
+.area-ask{font-family:'Caveat',cursive;font-size:18px;color:var(--g3);margin-top:6px}
+.map-wrap{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border:1px solid rgba(245,148,26,.2);background:#1a0c04}
+.map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.3) brightness(.85)}
+.map-overlay{position:absolute;top:0;left:0;right:0;padding:12px 16px;background:linear-gradient(180deg,rgba(6,4,10,.85),transparent);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--g4);font-weight:600;letter-spacing:.1em;text-transform:uppercase;pointer-events:none;z-index:2}
+
+/* PRICING / STRIPE */
+#book{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07);background:linear-gradient(180deg,#06040a 0%,#190c03 55%,#06040a 100%)}
+.book-in{max-width:1140px;margin:0 auto;padding:88px 24px}
+.book-in h2{margin-bottom:8px}
+.book-sub{font-family:'Caveat',cursive;font-size:19px;color:var(--g3);margin-bottom:40px}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(245,148,26,.07)}
+.pcard{background:var(--void);padding:36px 30px;position:relative;transition:all .38s;overflow:hidden}
+.pcard::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top,rgba(245,148,26,.05),transparent 65%);opacity:0;transition:opacity .38s}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 26px 50px rgba(0,0,0,.45);z-index:2}
+.pcard:hover::after{opacity:1}
+.pcard.ft{background:rgba(245,148,26,.04);border:1px solid rgba(245,148,26,.3)}
+.pcard.ft::after{opacity:1}
+.ftag{position:absolute;top:0;right:18px;background:var(--orng);color:var(--void);font-size:9px;text-transform:uppercase;letter-spacing:.16em;font-weight:700;padding:4px 10px}
+.pcard h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cream);margin-bottom:5px}
+.psub{font-size:12px;color:var(--s2);margin-bottom:18px;line-height:1.5}
+.ptier{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1;background:var(--orng);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px}
+.pcard ul{list-style:none;margin-bottom:24px}
+.pcard li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--s3);display:flex;align-items:center;gap:8px}
+.pcard li::before{content:'→';color:var(--or3);font-size:11px;flex-shrink:0}
+.pbtn{display:block;width:100%;padding:14px;background:rgba(245,148,26,.1);border:1px solid rgba(245,148,26,.28);color:var(--or3);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:all .28s;position:relative;z-index:1}
+.pbtn:hover,.pcard.ft .pbtn{background:var(--orng);border-color:transparent;color:var(--void)}
+.pnote{margin-top:28px;padding:16px 20px;background:rgba(255,255,255,.025);border-left:2px solid var(--or2);font-size:13px;color:var(--s2);line-height:1.65}
+.pnote strong{color:var(--or3)}
+
+/* QUOTE FORM + CALENDLY */
+#quote{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
+.qt-in{max-width:1140px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start}
+.qt-side h2{margin-bottom:16px}
+.qt-side p{color:var(--s3);font-size:15px;line-height:1.7;margin-bottom:24px}
+.cal-promo{background:rgba(245,148,26,.06);border:1px solid rgba(245,148,26,.2);padding:22px;position:relative}
+.cal-promo::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
+.cal-promo-label{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--g3);font-weight:700;margin-bottom:8px}
+.cal-promo h4{font-family:'Playfair Display',serif;font-size:19px;color:var(--cream);font-weight:500;margin-bottom:12px;line-height:1.3}
+.cal-promo a{display:inline-flex;align-items:center;gap:7px;color:var(--or3);font-weight:700;text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid rgba(245,148,26,.4);padding-bottom:3px}
+.cal-promo a:hover{color:var(--g5);border-bottom-color:var(--g5)}
+
+.qt-form{background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:32px;display:flex;flex-direction:column;gap:14px;position:relative}
+.qt-form::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
+.qt-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qt-form input,.qt-form select,.qt-form textarea{width:100%;padding:13px 14px;background:rgba(6,4,10,.6);border:1px solid rgba(170,178,188,.15);color:var(--cream);font-family:inherit;font-size:14px;transition:all .22s}
+.qt-form input:focus,.qt-form select:focus,.qt-form textarea:focus{outline:none;border-color:var(--or3);background:rgba(6,4,10,.85)}
+.qt-form input::placeholder,.qt-form textarea::placeholder{color:var(--s2)}
+.qt-form select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23c8981c' d='M6 8L0 0h12z'/></svg>");background-position:right 14px center;background-repeat:no-repeat;padding-right:36px}
+.qt-form textarea{resize:vertical;min-height:80px;font-family:inherit}
+.file-up{display:flex;align-items:center;gap:10px;padding:13px 14px;background:rgba(6,4,10,.6);border:1px dashed rgba(245,148,26,.3);color:var(--s3);font-size:13px;cursor:pointer;transition:all .25s}
+.file-up:hover{border-color:var(--or3);color:var(--or3)}
+.file-up input{display:none}
+.qt-submit{background:var(--orng);color:var(--void);border:none;padding:16px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:all .25s;margin-top:6px}
+.qt-submit:hover{box-shadow:0 0 30px rgba(245,148,26,.5)}
+.qt-disclaimer{font-size:11px;color:var(--s2);line-height:1.5;text-align:center;margin-top:4px}
+.qt-disclaimer a{color:var(--or3)}
+
+/* CONTACT + GOOGLE BUTTONS */
+#contact{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:88px 24px}
+.con-sp{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.con-sp h2{margin-bottom:24px}
+.crow{display:flex;align-items:center;gap:16px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .crow:last-child{border-bottom:none}
 .cico{width:42px;height:42px;flex-shrink:0;background:var(--metal);display:flex;align-items:center;justify-content:center;font-size:16px}
 .clbl{font-size:9px;text-transform:uppercase;letter-spacing:.2em;color:var(--s2);margin-bottom:3px}
 .cval{font-family:'Playfair Display',serif;font-size:19px;color:var(--cream);text-decoration:none;transition:color .2s;font-weight:500}
-a.cval:hover{color:var(--g4)}
-.cqbox{background:var(--woodg);padding:52px 42px;position:relative;overflow:hidden;border:1px solid rgba(200,152,28,.1)}
-.cqbox::before{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,rgba(200,152,28,.1),transparent 70%)}
-.bigq{font-family:'Playfair Display',serif;font-size:110px;line-height:.68;color:var(--g2);display:block;margin-bottom:16px;font-style:italic}
-blockquote{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;font-weight:400;line-height:1.5;color:var(--cream);margin-bottom:22px;position:relative;z-index:1}
-cite{font-family:'Caveat',cursive;font-size:16px;color:var(--g3);font-style:normal}
+a.cval:hover{color:var(--or3)}
 
-/* ═══ FOOTER ═══ */
-footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgba(200,152,28,.14)}
-.ftop{max-width:1140px;margin:0 auto;padding:52px 24px 36px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
+/* Google Business Buttons */
+.gbp-block{margin-top:28px;background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:24px;position:relative}
+.gbp-block::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#4285F4 0%,#34A853 25%,#FBBC05 50%,#EA4335 75%,#4285F4 100%)}
+.gbp-label{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--g3);font-weight:700;margin-bottom:14px}
+.gbp-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gbp-btn{display:flex;align-items:center;gap:8px;padding:11px 14px;background:rgba(245,148,26,.06);border:1px solid rgba(245,148,26,.2);color:var(--cream);text-decoration:none;font-size:13px;font-weight:600;transition:all .22s}
+.gbp-btn:hover{background:rgba(245,148,26,.14);color:var(--or3);border-color:rgba(245,148,26,.4)}
+
+.cqbox{background:var(--woodg);padding:48px 38px;position:relative;overflow:hidden;border:1px solid rgba(245,148,26,.1)}
+.cqbox::before{content:'';position:absolute;top:0;right:0;width:170px;height:170px;background:radial-gradient(circle,rgba(245,148,26,.1),transparent 70%)}
+.bigq{font-family:'Playfair Display',serif;font-size:100px;line-height:.68;color:var(--or2);display:block;margin-bottom:14px;font-style:italic}
+blockquote{font-family:'Playfair Display',serif;font-size:19px;font-style:italic;font-weight:400;line-height:1.5;color:var(--cream);margin-bottom:20px;position:relative;z-index:1}
+cite{font-family:'Caveat',cursive;font-size:15px;color:var(--g3);font-style:normal}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgba(245,148,26,.14)}
+.ftop{max-width:1140px;margin:0 auto;padding:52px 24px 36px;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
 .ftag2{font-size:13px;color:var(--s2);line-height:1.65;margin-top:11px;max-width:240px}
-.fsoc{display:flex;gap:8px;margin-top:20px}
-.fsoc a{width:32px;height:32px;border:1px solid rgba(200,152,28,.18);display:flex;align-items:center;justify-content:center;color:var(--s2);transition:all .22s;text-decoration:none}
-.fsoc a:hover{border-color:var(--g3);color:var(--g4);background:rgba(200,152,28,.07)}
+.fsoc{display:flex;gap:8px;margin-top:18px}
+.fsoc a{width:32px;height:32px;border:1px solid rgba(245,148,26,.18);display:flex;align-items:center;justify-content:center;color:var(--s2);transition:all .22s;text-decoration:none}
+.fsoc a:hover{border-color:var(--or3);color:var(--or3);background:rgba(245,148,26,.07)}
 .fsoc svg{width:13px;height:13px;fill:currentColor}
-.fc h4{font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:700;margin-bottom:16px}
+.fc h4{font-size:9px;text-transform:uppercase;letter-spacing:.28em;color:var(--g3);font-weight:700;margin-bottom:14px}
 .fc a,.fc p{display:block;font-size:13px;color:var(--s2);text-decoration:none;margin-bottom:8px;transition:color .2s}
-.fc a:hover{color:var(--g4)}
+.fc a:hover{color:var(--or3)}
 .fbot{max-width:1140px;margin:0 auto;padding:16px 24px;border-top:1px solid rgba(255,255,255,.04);display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--s2);flex-wrap:wrap;gap:10px}
-/* Footer call block */
-.footer-call{background:rgba(200,152,28,.08);border:1px solid rgba(200,152,28,.18);padding:16px 20px;margin-top:10px}
-.footer-call p{color:var(--g4);font-family:'Playfair Display',serif;font-size:17px;font-weight:500}
+.footer-call{background:rgba(245,148,26,.08);border:1px solid rgba(245,148,26,.18);padding:14px 18px;margin-top:8px}
+.footer-call p{color:var(--or3);font-family:'Playfair Display',serif;font-size:17px;font-weight:500}
 .footer-call small{color:var(--s2);font-size:11px;display:block;margin-top:3px}
 
-/* ═══ ANIMATIONS ═══ */
-.rev{opacity:0;transform:translateY(26px);transition:opacity .82s,transform .82s}
-.revl{opacity:0;transform:translateX(-26px);transition:opacity .82s,transform .82s}
-.revr{opacity:0;transform:translateX(26px);transition:opacity .82s,transform .82s}
+/* Animations */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .82s,transform .82s}
+.revl{opacity:0;transform:translateX(-24px);transition:opacity .82s,transform .82s}
+.revr{opacity:0;transform:translateX(24px);transition:opacity .82s,transform .82s}
 .rev.in,.revl.in,.revr.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.17s}.d3{transition-delay:.27s}.d4{transition-delay:.37s}.d5{transition-delay:.47s}
-.spk{position:fixed;pointer-events:none;z-index:9999;width:5px;height:5px;border-radius:50%;animation:spf .54s ease-out forwards}
-@keyframes spf{0%{transform:scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}
+.d1{transition-delay:.07s}.d2{transition-delay:.15s}.d3{transition-delay:.24s}.d4{transition-delay:.34s}.d5{transition-delay:.44s}
 
-/* ═══ RESPONSIVE ═══ */
-@media(max-width:960px){
+/* RESPONSIVE */
+@media(max-width:980px){
   .mbt{display:flex}
-  .nl{position:fixed;top:70px;left:0;right:0;background:rgba(6,4,10,.97);backdrop-filter:blur(22px);flex-direction:column;padding:26px;gap:18px;transform:translateY(-115%);transition:transform .4s;border-bottom:1px solid rgba(200,152,28,.09)}
+  .nl{position:fixed;top:70px;left:0;right:0;background:rgba(6,4,10,.97);backdrop-filter:blur(22px);flex-direction:column;padding:24px;gap:16px;transform:translateY(-115%);transition:transform .4s;border-bottom:1px solid rgba(245,148,26,.09)}
   .nl.open{transform:translateY(0)}.nl a{font-size:15px}.nsoc{display:none}
-  .hero-section{grid-template-columns:1fr;padding:104px 20px 60px;gap:40px}
-  .hv{order:-1;max-width:290px;margin:0 auto}
+  .hero{grid-template-columns:1fr;padding:104px 20px 60px;gap:36px}
+  .hv{order:-1;max-width:280px;margin:0 auto}
   .stbar-in{grid-template-columns:repeat(2,1fr)}.stit:nth-child(2){border-right:none}
   .about-in{grid-template-columns:1fr;gap:36px}
   .photo-frame{aspect-ratio:4/3}
-  .svc-grid{grid-template-columns:1fr}
-  .scard{padding:48px 36px}
-  .cta-banner-in{grid-template-columns:1fr;gap:32px}
-  .pg{grid-template-columns:1fr;max-width:380px}
-  .con-sp{grid-template-columns:1fr;gap:36px}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .car-slide{flex:0 0 calc(100% - 0px)}
+  .review-grid{grid-template-columns:1fr;gap:14px}
+  .cta-banner-in,.area-in,.qt-in,.con-sp{grid-template-columns:1fr;gap:32px}
+  .pg{grid-template-columns:1fr;max-width:380px;margin:0 auto}
   .ftop{grid-template-columns:1fr 1fr}
-  .cta-strip-in{flex-direction:column;align-items:flex-start;gap:18px}
+  .cta-strip-in{flex-direction:column;align-items:flex-start;gap:14px}
+  .qt-row{grid-template-columns:1fr}
 }
 @media(max-width:520px){
-  h1{font-size:38px}.hero-btns{flex-direction:column}.scard{padding:38px 26px}
-  .scard h3{font-size:30px}.cqbox{padding:34px 24px}.bigq{font-size:80px}
-  blockquote{font-size:17px}.ftop{grid-template-columns:1fr;gap:26px}
-  .big-call-btn{font-size:16px}
+  h1{font-size:38px}.hero-btns{flex-direction:column}
+  .svc-grid{grid-template-columns:1fr}.cqbox{padding:32px 22px}
+  .bigq{font-size:78px}blockquote{font-size:16px}
+  .ftop{grid-template-columns:1fr;gap:24px}
+  .ba-pair{height:220px}
+  .gbp-buttons{grid-template-columns:1fr}
+  .cities{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
 <div id="prg"></div>
-
-<!-- BACKGROUNDS -->
 <div class="wood-bg"></div>
 <div class="hero-glow"></div>
 
-<!-- ══════ NAV ══════ -->
+<!-- ══ NAV ══ -->
 <nav>
 <div class="ni">
   <a href="#top" class="logo">
     <!-- CROSSED WRENCHES LOGO -->
     <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="wg" x1="15%" y1="15%" x2="85%" y2="85%">
-      <stop offset="0%" stop-color="#F5941A"/>
-      <stop offset="100%" stop-color="#BF5506"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(50,50) rotate(45)" fill="url(#wg)">
-    <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-    <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-    <rect x="-34" y="7" width="28" height="9" rx="4"/>
-    <rect x="6" y="-16" width="28" height="9" rx="4"/>
-    <rect x="6" y="7" width="28" height="9" rx="4"/>
-  </g>
-  <g transform="translate(50,50) rotate(-45)" fill="url(#wg)">
-    <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-    <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-    <rect x="-34" y="7" width="28" height="9" rx="4"/>
-    <rect x="6" y="-16" width="28" height="9" rx="4"/>
-    <rect x="6" y="7" width="28" height="9" rx="4"/>
-  </g>
-</svg>
       <defs>
         <linearGradient id="wg" x1="15%" y1="15%" x2="85%" y2="85%">
           <stop offset="0%" stop-color="#F5941A"/>
-          <stop offset="55%" stop-color="#E07010"/>
-          <stop offset="100%" stop-color="#C05808"/>
+          <stop offset="100%" stop-color="#BF5506"/>
         </linearGradient>
-        <linearGradient id="wgh" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="rgba(255,200,120,.22)"/>
-          <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
-        </linearGradient>
-        <filter id="wshadow"><feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="rgba(0,0,0,.5)"/></filter>
       </defs>
-      <!-- Wrench 1 at 45° -->
-      <g transform="translate(50,50) rotate(45)" fill="url(#wg)" filter="url(#wshadow)">
-        <rect x="-21" y="-5" width="42" height="10" rx="5"/>
-        <rect x="-21" y="-17" width="9" height="34"/>
-        <rect x="-39" y="-17" width="26" height="9" rx="4.5"/>
-        <rect x="-39" y="8"  width="26" height="9" rx="4.5"/>
-        <rect x="12"  y="-17" width="9" height="34"/>
-        <rect x="13"  y="-17" width="26" height="9" rx="4.5"/>
-        <rect x="13"  y="8"  width="26" height="9" rx="4.5"/>
+      <g transform="translate(50,50) rotate(45)" fill="url(#wg)">
+        <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+        <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+        <rect x="-34" y="7" width="28" height="9" rx="4"/>
+        <rect x="6" y="-16" width="28" height="9" rx="4"/>
+        <rect x="6" y="7" width="28" height="9" rx="4"/>
       </g>
-      <!-- Wrench 2 at -45° -->
-      <g transform="translate(50,50) rotate(-45)" fill="url(#wg)" filter="url(#wshadow)">
-        <rect x="-21" y="-5" width="42" height="10" rx="5"/>
-        <rect x="-21" y="-17" width="9" height="34"/>
-        <rect x="-39" y="-17" width="26" height="9" rx="4.5"/>
-        <rect x="-39" y="8"  width="26" height="9" rx="4.5"/>
-        <rect x="12"  y="-17" width="9" height="34"/>
-        <rect x="13"  y="-17" width="26" height="9" rx="4.5"/>
-        <rect x="13"  y="8"  width="26" height="9" rx="4.5"/>
+      <g transform="translate(50,50) rotate(-45)" fill="url(#wg)">
+        <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+        <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+        <rect x="-34" y="7" width="28" height="9" rx="4"/>
+        <rect x="6" y="-16" width="28" height="9" rx="4"/>
+        <rect x="6" y="7" width="28" height="9" rx="4"/>
       </g>
-      <!-- Shine overlay -->
-      <ellipse cx="50" cy="38" rx="22" ry="14" fill="url(#wgh)"/>
     </svg>
-    <div class="lt"><span class="ln">Kavro Works</span><span class="ls">Assembly & Mounting</span></div>
+    <div class="lt"><span class="ln">Kavro Works</span><span class="ls">Mounting & Assembly</span></div>
   </a>
 
   <button class="mbt" id="mbt" aria-label="Menu"><span></span><span></span><span></span></button>
 
   <ul class="nl" id="nl">
-    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#book">Pricing</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#area">Service Area</a></li>
+    <li><a href="#quote">Get Quote</a></li>
   </ul>
 
   <div class="nsoc">
@@ -480,100 +420,55 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 </div>
 </nav>
 
-<!-- ══════ HERO ══════ -->
+<!-- ══ HERO ══ -->
 <section id="top" style="position:relative;z-index:1">
-<div class="hero-section">
+<div class="hero">
   <div>
     <div class="tag rev d1"><span class="tdot"></span> Atlanta, GA · Open for Jobs</div>
     <h1 class="rev d2">
-      <span class="hs1">Assembled.</span>
-      <span class="hs2">Mounted.</span>
+      <span class="hs1">Mounted.</span>
+      <span class="hs2">Assembled.</span>
       <span class="hs3">Done right.</span>
     </h1>
-    <p class="hp rev d3">I'm Kamran. I assemble furniture and mount things in your home the way they're supposed to be — solid, level, and built to stay.</p>
+    <p class="hp rev d3">I'm Kamran. I mount TVs, shelves, mirrors, and assemble furniture — properly, so nothing wobbles, falls, or needs fixing twice.</p>
     <div class="hero-btns rev d4">
-      <a href="tel:4049196460" class="nbk" style="font-size:14px;padding:14px 26px">📞 Call Now — (404) 919-6460</a>
-      <a href="mailto:kavroworks@gmail.com" class="ob">✉ Email Me</a>
+      <a href="tel:4049196460" class="nbk" style="font-size:14px;padding:14px 26px">📞 Call (404) 919-6460</a>
+      <a href="#quote" class="ob">✉ Get a Free Quote</a>
     </div>
   </div>
 
-  <!-- HERO HAMMER — correct proportions, tall head + long handle -->
+  <!-- HERO CROSSED WRENCHES -->
   <div class="hv revr d2">
     <div class="hh-w">
       <div class="hglow"></div>
       <div class="ir"></div><div class="ir"></div><div class="ir"></div>
-      <svg class="hsvg" viewBox="0 0 440 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="hsvg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="Hh" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#E8EEF6"/><stop offset="14%" stop-color="#CDD5E2"/>
-            <stop offset="42%" stop-color="#A2AAB8"/><stop offset="74%" stop-color="#747E8E"/>
-            <stop offset="100%" stop-color="#585F6C"/>
+          <linearGradient id="hwg" x1="15%" y1="15%" x2="85%" y2="85%">
+            <stop offset="0%" stop-color="#F5A53A"/>
+            <stop offset="50%" stop-color="#E07010"/>
+            <stop offset="100%" stop-color="#A04004"/>
           </linearGradient>
-          <linearGradient id="Hf" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#F2F7FC"/><stop offset="55%" stop-color="#C6D0DC"/>
-            <stop offset="100%" stop-color="#92A0AE"/>
+          <linearGradient id="hwgs" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,220,150,.3)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
           </linearGradient>
-          <linearGradient id="Hha" x1="100%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#6a4020"/><stop offset="24%" stop-color="#a86838"/>
-            <stop offset="52%" stop-color="#6a4020"/><stop offset="80%" stop-color="#3e1c08"/>
-            <stop offset="100%" stop-color="#1e0c04"/>
-          </linearGradient>
-          <linearGradient id="Hgb" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f4e28a"/><stop offset="50%" stop-color="#c8981c"/>
-            <stop offset="100%" stop-color="#6a4a08"/>
-          </linearGradient>
-          <linearGradient id="Hsh" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(255,255,255,.42)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-          </linearGradient>
-          <filter id="Hds"><feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="rgba(0,0,0,.68)"/></filter>
-          <pattern id="Hwg" x="0" y="0" width="6" height="180" patternUnits="userSpaceOnUse">
-            <path d="M3 0 Q5 38 2 80 Q4.5 122 3 180" stroke="rgba(0,0,0,.058)" stroke-width="1" fill="none"/>
-          </pattern>
-          <pattern id="Hmx" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
-            <path d="M0 4L4 0" stroke="rgba(255,255,255,.05)" stroke-width=".5" fill="none"/>
-          </pattern>
         </defs>
-
-        <!-- Ground shadow -->
-        <ellipse cx="175" cy="252" rx="160" ry="8" fill="rgba(0,0,0,.4)" filter="url(#Hds)"/>
-
-        <!-- Rotated -15deg for dynamism -->
-        <g transform="rotate(-15, 220, 130)">
-          <!-- HANDLE — long and thin (270px × 26px) -->
-          <path d="M108 117 Q230 113 410 107 L410 133 Q230 139 108 143 Z" fill="url(#Hha)"/>
-          <path d="M108 117 Q230 113 410 107 L410 112 Q230 118 108 122 Z" fill="rgba(255,255,255,.1)"/>
-          <path d="M108 139 Q230 135 410 129 L410 133 Q230 139 108 143 Z" fill="rgba(0,0,0,.18)"/>
-          <path d="M108 117 Q230 113 410 107 L410 133 Q230 139 108 143 Z" fill="url(#Hwg)" opacity=".4"/>
-
-          <!-- FERRULE -->
-          <path d="M102 109 L122 105 L128 151 L108 155 Z" fill="url(#Hgb)"/>
-          <path d="M102 109 L122 105 L123 113 L103 117 Z" fill="rgba(255,255,255,.3)"/>
-
-          <!-- HAMMER HEAD — tall narrow portrait (88w × 168h), CORRECT proportions -->
-          <rect x="14" y="42" width="96" height="168" rx="5" fill="url(#Hh)" filter="url(#Hds)"/>
-          <rect x="14" y="42" width="96" height="168" rx="5" fill="url(#Hmx)"/>
-          <rect x="14" y="42" width="96" height="18" rx="4" fill="rgba(255,255,255,.3)"/>
-          <rect x="14" y="192" width="96" height="18" rx="4" fill="rgba(0,0,0,.27)"/>
-          <rect x="94" y="42" width="16" height="168" rx="4" fill="rgba(0,0,0,.21)"/>
-          <path d="M20 48 L76 48 L20 96 Z" fill="url(#Hsh)" opacity=".22"/>
-
-          <!-- STRIKING FACE — narrow vertical strip on left edge -->
-          <rect x="2" y="52" width="22" height="148" rx="4" fill="url(#Hf)"/>
-          <rect x="2" y="52" width="22" height="20" rx="3" fill="rgba(255,255,255,.4)"/>
-          <rect x="2" y="180" width="22" height="20" rx="3" fill="rgba(0,0,0,.24)"/>
-          <!-- Center line on face -->
-          <line x1="13" y1="57" x2="13" y2="196" stroke="rgba(0,0,0,.12)" stroke-width=".8"/>
-          <!-- Milling marks -->
-          <line x1="4" y1="86" x2="22" y2="86" stroke="rgba(70,80,90,.28)" stroke-width=".6"/>
-          <line x1="4" y1="98" x2="22" y2="98" stroke="rgba(70,80,90,.28)" stroke-width=".6"/>
-          <line x1="4" y1="158" x2="22" y2="158" stroke="rgba(70,80,90,.28)" stroke-width=".6"/>
-          <line x1="4" y1="170" x2="22" y2="170" stroke="rgba(70,80,90,.28)" stroke-width=".6"/>
-
-          <!-- Brand stamp -->
-          <text x="62" y="126" font-family="'Playfair Display',serif" font-size="10.5"
-            fill="rgba(48,32,14,.42)" text-anchor="middle"
-            transform="rotate(90 62 126)" letter-spacing="3.5">KAVRO WORKS</text>
+        <g transform="translate(50,50) rotate(45)" fill="url(#hwg)">
+          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+          <rect x="-34" y="7" width="28" height="9" rx="4"/>
+          <rect x="6" y="-16" width="28" height="9" rx="4"/>
+          <rect x="6" y="7" width="28" height="9" rx="4"/>
         </g>
+        <g transform="translate(50,50) rotate(-45)" fill="url(#hwg)">
+          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+          <rect x="-34" y="7" width="28" height="9" rx="4"/>
+          <rect x="6" y="-16" width="28" height="9" rx="4"/>
+          <rect x="6" y="7" width="28" height="9" rx="4"/>
+        </g>
+        <ellipse cx="50" cy="38" rx="22" ry="12" fill="url(#hwgs)"/>
       </svg>
     </div>
   </div>
@@ -586,100 +481,67 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
   <div class="stit rev d1"><span class="stn" data-t="48">0</span><div class="stl">Hr Turnaround</div></div>
   <div class="stit rev d2"><span class="stn" data-t="100" data-s="%">0</span><div class="stl">Level Guaranteed</div></div>
   <div class="stit rev d3"><span class="stn" data-t="0" data-p="$">0</span><div class="stl">Hidden Fees</div></div>
-  <div class="stit rev d4"><span class="stn" data-t="2" data-s=" Trades">0</span><div class="stl">Core Services</div></div>
+  <div class="stit rev d4"><span class="stn" data-t="5" data-s=" Services">0</span><div class="stl">Specialties</div></div>
 </div>
 </div>
 
 <!-- MARQUEE -->
 <div class="mq">
 <div class="mtr">
-  <span class="mi">Assembly <span class="msep"></span></span>
-  <span class="mi">Mounting <span class="msep"></span></span>
   <span class="mi">TV Mounting <span class="msep"></span></span>
-  <span class="mi">Furniture Assembly <span class="msep"></span></span>
   <span class="mi">Shelf Mounting <span class="msep"></span></span>
-  <span class="mi">Mirror Hanging <span class="msep"></span></span>
-  <span class="mi">Flat-Pack Builds <span class="msep"></span></span>
-  <span class="mi">Wall Art <span class="msep"></span></span>
-  <span class="mi">Assembly <span class="msep"></span></span>
-  <span class="mi">Mounting <span class="msep"></span></span>
+  <span class="mi">Furniture Assembly <span class="msep"></span></span>
+  <span class="mi">Curtain Rod Installation <span class="msep"></span></span>
+  <span class="mi">Picture & Mirror Hanging <span class="msep"></span></span>
+  <span class="mi">Atlanta · Duluth · Lawrenceville <span class="msep"></span></span>
   <span class="mi">TV Mounting <span class="msep"></span></span>
-  <span class="mi">Furniture Assembly <span class="msep"></span></span>
   <span class="mi">Shelf Mounting <span class="msep"></span></span>
-  <span class="mi">Mirror Hanging <span class="msep"></span></span>
-  <span class="mi">Flat-Pack Builds <span class="msep"></span></span>
-  <span class="mi">Wall Art <span class="msep"></span></span>
+  <span class="mi">Furniture Assembly <span class="msep"></span></span>
+  <span class="mi">Curtain Rod Installation <span class="msep"></span></span>
+  <span class="mi">Picture & Mirror Hanging <span class="msep"></span></span>
+  <span class="mi">Atlanta · Duluth · Lawrenceville <span class="msep"></span></span>
 </div>
 </div>
 
-<!-- ═══ FIRST CTA STRIP ═══ -->
+<!-- CTA STRIP -->
 <div class="cta-strip">
 <div class="cta-strip-in">
   <div class="cta-strip-text">
-    <strong>Need something mounted or built today?</strong>
-    <span>Fast response · Free quote · Metro Atlanta</span>
+    <strong>Need something mounted or built this week?</strong>
+    <span>Free quotes · Same-week scheduling · Metro Atlanta</span>
   </div>
   <div class="cta-strip-btns">
     <a href="tel:4049196460" class="cta-btn-dark">📞 Call (404) 919-6460</a>
-    <a href="mailto:kavroworks@gmail.com" class="cta-btn-out">✉ Email for a Quote</a>
+    <a href="#quote" class="cta-btn-out">✉ Get a Quote</a>
   </div>
 </div>
 </div>
 
-<!-- ══════ ABOUT ══════ -->
+<!-- ══ ABOUT ══ -->
 <section id="about">
 <div class="about-in">
-  <!-- PHOTO PLACEHOLDER — workshop scene silhouette -->
-  <div class="photo-area revl">
+  <div class="revl">
     <div class="photo-frame">
-      <div class="ph-corner-tl"></div>
+      <div class="ph-tl"></div>
       <div class="photo-scene">
-        <!-- Workshop scene SVG silhouette -->
+        <!-- TO REPLACE: delete the <svg> below and paste <img src="yourphoto.jpg" style="width:100%;height:100%;object-fit:cover"> -->
         <svg class="person-silhouette" viewBox="0 0 220 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="wlight" cx="25%" cy="12%"><stop offset="0%" stop-color="rgba(220,160,60,.28)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient>
-            <radialGradient id="floorglow" cx="50%" cy="100%"><stop offset="0%" stop-color="rgba(200,152,28,.12)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient>
-          </defs>
-          <!-- Background floor/wall -->
           <rect width="220" height="340" fill="#1a0a03"/>
-          <!-- Wood plank lines -->
           <line x1="0" y1="68" x2="220" y2="68" stroke="rgba(0,0,0,.38)" stroke-width="2"/>
           <line x1="0" y1="152" x2="220" y2="152" stroke="rgba(0,0,0,.3)" stroke-width="1.5"/>
           <line x1="0" y1="236" x2="220" y2="236" stroke="rgba(0,0,0,.38)" stroke-width="2"/>
-          <!-- Wood grain -->
-          <line x1="30" y1="0" x2="28" y2="340" stroke="rgba(255,255,255,.018)" stroke-width="1"/>
-          <line x1="80" y1="0" x2="78" y2="340" stroke="rgba(255,255,255,.014)" stroke-width="1"/>
-          <line x1="140" y1="0" x2="138" y2="340" stroke="rgba(255,255,255,.018)" stroke-width="1"/>
-          <line x1="190" y1="0" x2="188" y2="340" stroke="rgba(255,255,255,.014)" stroke-width="1"/>
-          <!-- Workshop lamp glow -->
+          <defs>
+            <radialGradient id="wlight" cx="25%" cy="12%"><stop offset="0%" stop-color="rgba(245,148,26,.3)"/><stop offset="100%" stop-color="rgba(0,0,0,0)"/></radialGradient>
+          </defs>
           <rect width="220" height="340" fill="url(#wlight)"/>
-          <rect width="220" height="340" fill="url(#floorglow)"/>
-
-          <!-- PERSON SILHOUETTE — craftsman holding a hammer -->
-          <!-- Body -->
           <path d="M68 340 L68 228 Q70 196 88 184 Q100 178 110 176 Q120 178 132 184 Q150 196 152 228 L152 340 Z" fill="#0e0604"/>
-          <!-- Chest highlight (subtle workshop lamp) -->
-          <path d="M88 184 Q100 178 110 176 Q100 185 90 200 Z" fill="rgba(200,152,28,.06)"/>
-          <!-- Neck -->
           <rect x="100" y="160" width="20" height="26" rx="8" fill="#0e0604"/>
-          <!-- Head -->
           <ellipse cx="110" cy="138" rx="34" ry="38" fill="#0e0604"/>
-          <!-- Head highlight (lamp side) -->
-          <path d="M82 128 Q86 110 98 108 Q86 120 82 138 Z" fill="rgba(200,152,28,.08)"/>
-
-          <!-- ARM holding hammer — right arm extended slightly -->
+          <path d="M82 128 Q86 110 98 108 Q86 120 82 138 Z" fill="rgba(245,148,26,.1)"/>
           <path d="M148 210 Q162 208 174 215 L176 240 Q162 238 148 242 Z" fill="#0e0604"/>
-          <!-- Hammer in hand — small scale -->
           <rect x="168" y="196" width="10" height="28" rx="2" fill="#4a4e56"/>
           <rect x="164" y="190" width="18" height="10" rx="2" fill="#6a7080"/>
-          <rect x="174" y="195" width="6" height="12" rx="1" fill="#b08020"/>
-
-          <!-- Left arm down -->
           <path d="M72 218 Q56 224 52 240 L56 258 Q72 250 76 238 Z" fill="#0e0604"/>
-
-          <!-- Tool belt hint -->
-          <rect x="72" y="226" width="76" height="10" rx="3" fill="#1e1006" opacity=".8"/>
-          <rect x="98" y="222" width="14" height="18" rx="2" fill="#0e0604"/>
         </svg>
       </div>
       <div class="photo-label-bar">
@@ -689,157 +551,363 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
     </div>
   </div>
 
-  <!-- ABOUT TEXT -->
-  <div class="about-content">
+  <div>
     <div class="about-accent rev">— Atlanta based, since 2026</div>
-    <div class="sec-ey rev d1"><span class="ey-line"></span> About Me</div>
+    <div class="sec-ey rev d1"><span class="ey-l"></span> About Me</div>
     <h2 class="rev d2">I build it right.<br><em>First time.</em></h2>
     <div class="rev d3">
-      <p class="about-p">I started Kavro Works because I kept seeing the same problems — furniture that wobbled, TVs that weren't level, shelves that pulled clean out of drywall.</p>
-      <p class="about-p">I'm Kamran. Every job I take on gets careful measuring, the right hardware for your wall, and a clean space when I leave. No shortcuts. If it's not solid, I'm not done.</p>
-      <p class="about-p">Serving homes and apartments all across metro Atlanta. I show up on time, I'm straight with you about what needs to happen, and I stand behind the work.</p>
+      <p class="about-p">I'm Kamran. I started Kavro Works because too many people told me the same story — wobbly furniture, crooked TVs, shelves that pulled out of drywall.</p>
+      <p class="about-p">Every job gets careful measuring, the right hardware for your wall, and a clean space when I leave. No shortcuts. If it's not solid, I'm not done.</p>
+      <p class="about-p">Serving homes and apartments across metro Atlanta. I show up on time and stand behind the work.</p>
     </div>
     <div class="acard revr d4">
       <div class="krow"><span class="kkey">Based</span><span class="kval">Atlanta, GA</span></div>
-      <div class="krow"><span class="kkey">Services</span><span class="kval">Assembly · Mounting</span></div>
-      <div class="krow"><span class="kkey">Coverage</span><span class="kval">Metro Atlanta Area</span></div>
+      <div class="krow"><span class="kkey">Coverage</span><span class="kval">Metro Atlanta area</span></div>
       <div class="krow"><span class="kkey">Standard</span><span class="kval">Level. Solid. Done right.</span></div>
     </div>
     <div class="about-ctas rev d5">
-      <a href="tel:4049196460" class="al">📞 Call (404) 919-6460</a>
+      <a href="tel:4049196460" class="al">📞 (404) 919-6460</a>
       <a href="mailto:kavroworks@gmail.com" class="al">✉ Email Me</a>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ══════ SERVICES — 2 ONLY ══════ -->
+<!-- ══ SERVICES (5) ══ -->
 <section id="services">
 <div class="svc-head">
-  <div class="svc-head-l">
-    <div class="ey rev"><span class="ey-line"></span> What I Do</div>
-    <h2 class="rev d1">Two things.<br><em>Both done perfectly.</em></h2>
-  </div>
-  <div class="svc-head-r rev d2">No fluff.<br>Just the work<br>you actually need.</div>
+  <div class="sec-ey rev"><span class="ey-l"></span> What I Do</div>
+  <h2 class="rev d1">Five services. <em>Done right.</em></h2>
+  <div class="svc-tag rev d2">Call me for anything that needs mounting or building.</div>
 </div>
 
 <div class="svc-grid">
-  <!-- ASSEMBLY -->
-  <div class="scard rev d1">
-    <span class="scard-num-bg">01</span>
-    <span class="scard-icon">🔩</span>
-    <h3>Assembly</h3>
-    <div class="scard-sub">Furniture built the right way</div>
-    <p>Flat-pack furniture, ready-to-assemble pieces, anything that comes in a box — built solid, square, and anchored to the wall when safety calls for it.</p>
-    <ul>
-      <li>IKEA & flat-pack furniture</li>
-      <li>Bed frames & wardrobes</li>
-      <li>Desks, chairs & office setups</li>
-      <li>Bookshelves & storage units</li>
-      <li>Kids' furniture & cribs</li>
-      <li>Wall anchoring included</li>
-    </ul>
-    <a href="tel:4049196460" class="scard-cta">Book Assembly Job ↗</a>
-  </div>
-
-  <!-- MOUNTING -->
-  <div class="scard rev d2">
-    <span class="scard-num-bg">02</span>
-    <span class="scard-icon">📺</span>
-    <h3>Mounting</h3>
-    <div class="scard-sub">Hung level, every time</div>
-    <p>TVs, shelves, mirrors, art — mounted to the stud, hung straight, cables tucked. I find where it's safe to drill so nothing ever comes off your wall.</p>
-    <ul>
-      <li>TVs up to 85″ — any bracket type</li>
-      <li>Floating shelves & shelving</li>
-      <li>Mirrors & heavy framed art</li>
-      <li>Gallery walls</li>
-      <li>Curtain rods & blinds</li>
-      <li>Cable management included</li>
-    </ul>
-    <a href="tel:4049196460" class="scard-cta">Book Mounting Job ↗</a>
-  </div>
-</div>
-
-<!-- AFTER SERVICES CTA -->
-<div style="max-width:1140px;margin:3px auto 0;background:rgba(22,10,2,.85);border:1px solid rgba(200,152,28,.1);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;position:relative;z-index:1">
-  <div style="font-family:'Caveat',cursive;font-size:19px;color:var(--g3)">Not sure which one you need? Just call — I'll tell you.</div>
-  <div style="display:flex;gap:12px;flex-wrap:wrap">
-    <a href="tel:4049196460" class="nbk">📞 (404) 919-6460</a>
-    <a href="mailto:kavroworks@gmail.com" class="ob">✉ kavroworks@gmail.com</a>
-  </div>
+  <div class="scard rev d1"><span class="scard-num">01</span><span class="scard-icon">📺</span><h3>TV Mounting</h3><p>Flat, tilt, or full-motion mounts up to 85". Studs found, cables hidden, bracket flush.</p></div>
+  <div class="scard rev d2"><span class="scard-num">02</span><span class="scard-icon">📚</span><h3>Shelf Mounting</h3><p>Floating shelves, bookshelves, kitchen storage — anchored properly and dead level.</p></div>
+  <div class="scard rev d3"><span class="scard-num">03</span><span class="scard-icon">🔩</span><h3>Furniture Assembly</h3><p>Flat-pack, IKEA, bed frames, desks, wardrobes — built solid, anchored when needed.</p></div>
+  <div class="scard rev d4"><span class="scard-num">04</span><span class="scard-icon">🪟</span><h3>Curtain Rods & Blinds</h3><p>Rods at the right height. Blinds flush. No crooked windows, no gaps.</p></div>
+  <div class="scard rev d5"><span class="scard-num">05</span><span class="scard-icon">🖼️</span><h3>Picture & Mirror Hanging</h3><p>Heavy mirrors, framed art, gallery walls — correct hardware for any wall type.</p></div>
 </div>
 </section>
 
-<!-- ══════ BIG BOLD MID-PAGE CTA ══════ -->
+<!-- ══ BEFORE & AFTER GALLERY (CAROUSEL) ══ -->
+<section id="gallery">
+<div class="gal-head">
+  <div>
+    <div class="sec-ey rev"><span class="ey-l"></span> Recent Work</div>
+    <h2 class="rev d1">Before & <em>after.</em></h2>
+    <div class="gal-sub rev d2">Real jobs from real Atlanta homes.</div>
+  </div>
+</div>
+
+<div class="carousel">
+  <div class="car-track" id="carTrack">
+    <!-- TO REPLACE: swap each <svg> with <img src="before.jpg"> and <img src="after.jpg"> -->
+    <div class="car-slide">
+      <div class="ba-pair">
+        <div class="ba-img before" data-label="Before">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="20" y="35" width="60" height="35" stroke="#5a3a18" stroke-width="2" stroke-dasharray="3 3" fill="none"/><text x="50" y="58" text-anchor="middle" fill="#5a3a18" font-size="9" font-family="DM Sans">Empty wall</text></svg>
+        </div>
+        <div class="ba-img after" data-label="After">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="18" y="32" width="64" height="40" rx="2" fill="#1a1a1e" stroke="#f5941a" stroke-width="1.5"/><rect x="22" y="36" width="56" height="32" fill="#0a0a0e"/><circle cx="50" cy="52" r="3" fill="#f5941a"/><rect x="46" y="72" width="8" height="6" fill="#1a1a1e"/></svg>
+        </div>
+      </div>
+      <div class="gal-cap"><div><strong>75" TV Mount</strong><br><span style="font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em">Duluth, GA</span></div><em>Done in 50 min</em></div>
+    </div>
+
+    <div class="car-slide">
+      <div class="ba-pair">
+        <div class="ba-img before" data-label="Before">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="20" y="20" width="60" height="60" stroke="#5a3a18" stroke-width="2" stroke-dasharray="3 3" fill="none"/><text x="50" y="55" text-anchor="middle" fill="#5a3a18" font-size="8" font-family="DM Sans">Box of parts</text></svg>
+        </div>
+        <div class="ba-img after" data-label="After">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="22" y="30" width="56" height="50" fill="#3a2a1a" stroke="#f5941a" stroke-width="1.5"/><rect x="22" y="42" width="56" height="2" fill="#1a1206"/><rect x="22" y="60" width="56" height="2" fill="#1a1206"/><rect x="48" y="30" width="2" height="50" fill="#1a1206"/></svg>
+        </div>
+      </div>
+      <div class="gal-cap"><div><strong>IKEA Wardrobe</strong><br><span style="font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em">Lawrenceville, GA</span></div><em>2 hr assembly</em></div>
+    </div>
+
+    <div class="car-slide">
+      <div class="ba-pair">
+        <div class="ba-img before" data-label="Before">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="15" y="40" width="70" height="20" stroke="#5a3a18" stroke-width="2" stroke-dasharray="3 3" fill="none"/><text x="50" y="55" text-anchor="middle" fill="#5a3a18" font-size="8" font-family="DM Sans">Bare wall</text></svg>
+        </div>
+        <div class="ba-img after" data-label="After">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="14" y="32" width="72" height="3" fill="#8b5e3c"/><rect x="14" y="50" width="72" height="3" fill="#8b5e3c"/><rect x="14" y="68" width="72" height="3" fill="#8b5e3c"/><circle cx="30" cy="42" r="3" fill="#f5941a"/><rect x="50" y="38" width="8" height="10" fill="#f5941a"/></svg>
+        </div>
+      </div>
+      <div class="gal-cap"><div><strong>Floating Shelves</strong><br><span style="font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em">Suwanee, GA</span></div><em>3 shelves · level</em></div>
+    </div>
+
+    <div class="car-slide">
+      <div class="ba-pair">
+        <div class="ba-img before" data-label="Before">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="22" y="18" width="56" height="64" stroke="#5a3a18" stroke-width="2" stroke-dasharray="3 3" fill="none"/><text x="50" y="55" text-anchor="middle" fill="#5a3a18" font-size="8" font-family="DM Sans">Bare window</text></svg>
+        </div>
+        <div class="ba-img after" data-label="After">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="18" y="14" width="64" height="3" fill="#8b5e3c"/><path d="M22 17 L22 84 M30 17 L30 84 M38 17 L38 84 M46 17 L46 84 M54 17 L54 84 M62 17 L62 84 M70 17 L70 84 M78 17 L78 84" stroke="#f5e4b0" stroke-width="1" opacity=".6"/><circle cx="20" cy="15" r="2" fill="#f5941a"/><circle cx="80" cy="15" r="2" fill="#f5941a"/></svg>
+        </div>
+      </div>
+      <div class="gal-cap"><div><strong>Blinds + Curtain Rod</strong><br><span style="font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em">Snellville, GA</span></div><em>Same day install</em></div>
+    </div>
+
+    <div class="car-slide">
+      <div class="ba-pair">
+        <div class="ba-img before" data-label="Before">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="25" y="20" width="50" height="60" stroke="#5a3a18" stroke-width="2" stroke-dasharray="3 3" fill="none"/><text x="50" y="55" text-anchor="middle" fill="#5a3a18" font-size="8" font-family="DM Sans">Bare wall</text></svg>
+        </div>
+        <div class="ba-img after" data-label="After">
+          <svg viewBox="0 0 100 100" fill="none"><rect x="28" y="22" width="44" height="56" fill="#1a1206" stroke="#f5e4b0" stroke-width="2"/><rect x="32" y="26" width="36" height="48" fill="#3a2818" opacity=".4"/><path d="M40 40 L60 40 M40 50 L60 50 M40 60 L60 60" stroke="#f5e4b0" stroke-width=".5" opacity=".5"/></svg>
+        </div>
+      </div>
+      <div class="gal-cap"><div><strong>Heavy Mirror Hang</strong><br><span style="font-size:11px;color:var(--s2);text-transform:uppercase;letter-spacing:.15em">Lilburn, GA</span></div><em>Secured to studs</em></div>
+    </div>
+  </div>
+
+  <div class="car-controls">
+    <button class="car-btn" id="carPrev" aria-label="Previous">←</button>
+    <div class="car-dots" id="carDots"></div>
+    <button class="car-btn" id="carNext" aria-label="Next">→</button>
+  </div>
+</div>
+
+<p class="gal-note">↑ <strong>To use your real photos:</strong> Replace each placeholder graphic with <code>&lt;img src="yourphoto.jpg"&gt;</code></p>
+</section>
+
+<!-- ══ BIG MID-PAGE CTA ══ -->
 <div class="cta-banner">
 <div class="cta-banner-in">
   <div>
-    <h2>Ready to get it<br><em>done this week?</em></h2>
+    <h2>Ready to get it <em>done this week?</em></h2>
     <div class="cta-banner-sub">Most jobs booked within 24–48 hours.</div>
   </div>
   <div class="cta-banner-actions">
     <a href="tel:4049196460" class="big-call-btn">
-      <div>
-        📞 Call or Text Now
-        <span>(404) 919-6460</span>
-      </div>
-      <span style="font-size:22px;opacity:.6">→</span>
+      <div>📞 Call or Text Now<span>(404) 919-6460</span></div>
+      <span style="font-size:20px;opacity:.6">→</span>
     </a>
-    <a href="mailto:kavroworks@gmail.com" class="email-btn">
-      ✉ kavroworks@gmail.com · Free Quote
-    </a>
+    <a href="#quote" class="email-btn">✉ Get a Free Quote</a>
   </div>
 </div>
 </div>
 
-<!-- ══════ PRICING ══════ -->
-<section id="book">
-<div class="book-in">
-  <div class="sec-ey rev"><span class="ey-l"></span> Pricing</div>
-  <h2 class="rev d1">Every job is <em>priced for the job.</em></h2>
-  <div class="pg">
-    <div class="pcard rev d1">
-      <h3>Small Job</h3><div class="psub">Single item · Quick</div>
-      <div class="ptier">Starting around $50</div>
-      <ul><li>One piece of furniture</li><li>Single mount or hang</li><li>Under an hour</li><li>Quote on contact</li></ul>
-      <a href="tel:4049196460" class="pbtn">📞 Call for a Quote</a>
+<!-- ══ REVIEWS ══ -->
+<section id="reviews">
+<div class="rev-in">
+  <div class="rev-head">
+    <div>
+      <div class="sec-ey rev"><span class="ey-l"></span> Reviews</div>
+      <h2 class="rev d1">What people <em>say.</em></h2>
     </div>
-    <div class="pcard ft rev d2">
-      <div class="ftag">Most Common</div>
-      <h3>Standard Job</h3><div class="psub">1–3 items · 1–2 hours</div>
-      <div class="ptier">Starting around $100</div>
-      <ul><li>TV + 1–2 other mounts</li><li>Furniture + wall anchor</li><li>Most common job size</li><li>No hidden charges</li><li>Quote before any work</li></ul>
-      <a href="tel:4049196460" class="pbtn">📞 Call for a Quote</a>
-    </div>
-    <div class="pcard rev d3">
-      <h3>Big Job</h3><div class="psub">Multiple items · Half day+</div>
-      <div class="ptier">Custom Quote</div>
-      <ul><li>Full room assembly</li><li>Multiple large mounts</li><li>Priced by scope</li><li>Contact for exact quote</li></ul>
-      <a href="tel:4049196460" class="pbtn">📞 Call or Text to Book</a>
+    <div class="rev-rating rev d2">
+      <span class="rev-stars-big">★★★★★</span>
+      <div class="rev-rating-text">5.0 <span>· based on Google reviews</span></div>
     </div>
   </div>
-  <div class="pnote rev"><strong>How it works:</strong> Price depends on what the object is, what needs doing, and how big it is. Call or text Kamran — most quotes are free and fast. No surprises when I show up.</div>
-  <div class="pricing-cta rev">
-    <span style="color:var(--s2);font-size:11px;text-transform:uppercase;letter-spacing:.14em">Free quote:</span>
-    <a href="tel:4049196460">📞 (404) 919-6460</a>
-    <a href="mailto:kavroworks@gmail.com">✉ kavroworks@gmail.com</a>
+
+  <div class="review-grid">
+    <article class="review rev d1">
+      <div class="rev-stars">★★★★★</div>
+      <p>Kamran showed up on time and mounted my 65" TV in under an hour. Found the studs, hid all the cables, left the place spotless. Highly recommend.</p>
+      <footer>
+        <div><div class="rev-name">Sarah M.</div><span class="rev-city">Duluth, GA</span></div>
+        <span class="rev-svc">TV Mount</span>
+      </footer>
+    </article>
+
+    <article class="review rev d2">
+      <div class="rev-stars">★★★★★</div>
+      <p>Assembled my entire IKEA bedroom set in one afternoon — bed frame, wardrobe, two nightstands. Everything is solid and level. Worth every penny.</p>
+      <footer>
+        <div><div class="rev-name">James K.</div><span class="rev-city">Lawrenceville, GA</span></div>
+        <span class="rev-svc">Assembly</span>
+      </footer>
+    </article>
+
+    <article class="review rev d3">
+      <div class="rev-stars">★★★★★</div>
+      <p>Hung 4 heavy mirrors and installed curtain rods across three rooms. Fast, clean, friendly. He's the only person I'll call for this stuff now.</p>
+      <footer>
+        <div><div class="rev-name">Maria R.</div><span class="rev-city">Snellville, GA</span></div>
+        <span class="rev-svc">Mirrors + Rods</span>
+      </footer>
+    </article>
+  </div>
+
+  <div class="rev-cta rev">
+    <!-- TO REPLACE: paste your Google Business profile review URL -->
+    <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" rel="noopener">⭐ Leave a Google Review</a>
   </div>
 </div>
 </section>
 
-<!-- ══════ CONTACT ══════ -->
+<!-- ══ SERVICE AREA + MAP ══ -->
+<section id="area">
+<div class="area-in">
+  <div class="revl">
+    <div class="sec-ey"><span class="ey-l"></span> Service Area</div>
+    <h2>Where I <em>work.</em></h2>
+    <p class="area-lead">Serving the whole metro Atlanta area. If you're within an hour of the city, I can probably get out to you this week.</p>
+    <ul class="cities">
+      <li>Atlanta</li>
+      <li>Lawrenceville</li>
+      <li>Duluth</li>
+      <li>Suwanee</li>
+      <li>Lilburn</li>
+      <li>Snellville</li>
+      <li>Norcross</li>
+      <li>Tucker</li>
+    </ul>
+    <p class="area-ask">Don't see your city? Just ask — most likely yes.</p>
+  </div>
+
+  <div class="map-wrap revr d2">
+    <div class="map-overlay">📍 Service Area</div>
+    <!-- TO REPLACE: get your embed code from Google Maps → Share → Embed a map → and paste the src URL below -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d215000!2d-84.30!3d33.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+</section>
+
+<!-- ══ PRICING / STRIPE ══ -->
+<section id="book">
+<div class="book-in">
+  <div class="sec-ey rev"><span class="ey-l"></span> Book & Pay</div>
+  <h2 class="rev d1">Pay deposits <em>online.</em></h2>
+  <div class="book-sub rev d2">Quick, secure card payments via Stripe.</div>
+
+  <div class="pg">
+    <div class="pcard rev d1">
+      <h3>Estimate Deposit</h3>
+      <div class="psub">For complex jobs needing an in-person look</div>
+      <div class="ptier">$25</div>
+      <ul>
+        <li>Credited to total job cost</li>
+        <li>On-site assessment</li>
+        <li>Detailed quote</li>
+        <li>Refundable if I can't help</li>
+      </ul>
+      <!-- TO REPLACE: paste your Stripe Payment Link URL -->
+      <a href="https://buy.stripe.com/YOUR_ESTIMATE_LINK" class="pbtn" target="_blank">Pay $25 via Stripe</a>
+    </div>
+
+    <div class="pcard ft rev d2">
+      <div class="ftag">Most Common</div>
+      <h3>Booking Deposit</h3>
+      <div class="psub">Reserve your spot for any job</div>
+      <div class="ptier">$50</div>
+      <ul>
+        <li>Locks in your time slot</li>
+        <li>Credited to total cost</li>
+        <li>Reschedule anytime</li>
+        <li>Most common option</li>
+      </ul>
+      <!-- TO REPLACE: paste your Stripe Payment Link URL -->
+      <a href="https://buy.stripe.com/YOUR_BOOKING_LINK" class="pbtn" target="_blank">Pay $50 via Stripe</a>
+    </div>
+
+    <div class="pcard rev d3">
+      <h3>Pay Balance</h3>
+      <div class="psub">Pay remaining balance after job done</div>
+      <div class="ptier">$ —</div>
+      <ul>
+        <li>After work is complete</li>
+        <li>Enter custom amount</li>
+        <li>Card, Apple Pay, Google Pay</li>
+        <li>Secure via Stripe</li>
+      </ul>
+      <!-- TO REPLACE: paste your Stripe Payment Link URL (with custom amount enabled) -->
+      <a href="https://buy.stripe.com/YOUR_BALANCE_LINK" class="pbtn" target="_blank">Pay Balance</a>
+    </div>
+  </div>
+
+  <div class="pnote rev">
+    <strong>How pricing works:</strong> Final price depends on the object, what needs doing, and size. Quotes are free — call or text first, then pay a deposit to lock in your time.
+  </div>
+</div>
+</section>
+
+<!-- ══ QUOTE FORM + CALENDLY ══ -->
+<section id="quote">
+<div class="qt-in">
+  <div class="qt-side revl">
+    <div class="sec-ey"><span class="ey-l"></span> Get a Quote</div>
+    <h2>Send job details. <em>Get a quote.</em></h2>
+    <p>Fill the form and I'll get back to you fast. Add photos of the wall, the item, or the box — it helps me give an accurate price.</p>
+
+    <div class="cal-promo">
+      <div class="cal-promo-label">Prefer to schedule directly?</div>
+      <h4>Pick a time on my calendar.</h4>
+      <!-- TO REPLACE: paste your Calendly URL (e.g. https://calendly.com/your-username) -->
+      <a href="https://calendly.com/YOUR_USERNAME" target="_blank" rel="noopener">📅 Open my calendar →</a>
+    </div>
+  </div>
+
+  <!-- TO REPLACE: replace action URL with your Formspree, Web3Forms, or Jotform endpoint -->
+  <form class="qt-form revr d2"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        enctype="multipart/form-data">
+    <div class="qt-row">
+      <input type="text" name="name" placeholder="Your name *" required>
+      <input type="tel" name="phone" placeholder="Phone *" required>
+    </div>
+    <input type="email" name="email" placeholder="Email *" required>
+    <input type="text" name="city" placeholder="City (Duluth, Atlanta, etc.)">
+    <select name="service" required>
+      <option value="">What do you need? *</option>
+      <option>TV Mounting</option>
+      <option>Shelf Mounting</option>
+      <option>Furniture Assembly</option>
+      <option>Curtain Rod / Blinds Install</option>
+      <option>Picture / Mirror Hanging</option>
+      <option>Multiple items</option>
+      <option>Something else</option>
+    </select>
+    <input type="text" name="datetime" placeholder="Preferred date/time (e.g. this Saturday afternoon)">
+    <textarea name="details" placeholder="Anything else? (size of TV, wall type, etc.)"></textarea>
+    <label class="file-up">
+      📎 <span>Add photos of the job (optional)</span>
+      <input type="file" name="photos" multiple accept="image/*">
+    </label>
+    <button type="submit" class="qt-submit">Send Quote Request →</button>
+    <div class="qt-disclaimer">By submitting, you agree to be contacted by Kavro Works. I'll never share your info.</div>
+  </form>
+</div>
+</section>
+
+<!-- ══ CONTACT ══ -->
 <section id="contact">
 <div class="con-sp">
   <div>
     <div class="sec-ey rev"><span class="ey-l"></span> Get In Touch</div>
     <h2 class="rev d1">Easiest? <em>Just call.</em></h2>
-    <div class="crows rev d2" style="display:flex;flex-direction:column">
+    <div class="rev d2" style="display:flex;flex-direction:column">
       <div class="crow"><div class="cico">☎</div><div><div class="clbl">Call or Text</div><a href="tel:4049196460" class="cval">(404) 919-6460</a></div></div>
       <div class="crow"><div class="cico">✉</div><div><div class="clbl">Email</div><a href="mailto:kavroworks@gmail.com" class="cval">kavroworks@gmail.com</a></div></div>
       <div class="crow"><div class="cico">⌖</div><div><div class="clbl">Service Area</div><div class="cval">Metro Atlanta, GA</div></div></div>
     </div>
+
+    <!-- Google Business Profile Buttons -->
+    <div class="gbp-block rev d3">
+      <div class="gbp-label">Find me on Google</div>
+      <div class="gbp-buttons">
+        <a href="tel:4049196460" class="gbp-btn">📞 Call Now</a>
+        <!-- TO REPLACE: paste your Google review URL -->
+        <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" class="gbp-btn" target="_blank" rel="noopener">⭐ Leave Review</a>
+        <!-- TO REPLACE: paste your Google Business Profile URL -->
+        <a href="https://g.page/YOUR_BUSINESS" class="gbp-btn" target="_blank" rel="noopener">📍 View on Google</a>
+        <!-- TO REPLACE: paste your Google Maps directions URL -->
+        <a href="https://maps.google.com/?q=Kavro+Works+Atlanta" class="gbp-btn" target="_blank" rel="noopener">🗺️ Get Directions</a>
+      </div>
+    </div>
   </div>
+
   <div class="cqbox revr d2">
     <span class="bigq">"</span>
     <blockquote>If it's worth putting on your wall, it's worth doing right. That's the whole job.</blockquote>
@@ -848,47 +916,41 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 </div>
 </section>
 
-<!-- ══════ FOOTER ══════ -->
+<!-- ══ FOOTER ══ -->
 <footer>
 <div class="ftop">
   <div>
     <a href="#top" class="logo" style="display:inline-flex;margin-bottom:12px">
-      <!-- CROSSED WRENCHES LOGO (footer) -->
       <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="fwg" x1="15%" y1="15%" x2="85%" y2="85%">
             <stop offset="0%" stop-color="#F5941A"/>
-            <stop offset="55%" stop-color="#E07010"/>
-            <stop offset="100%" stop-color="#C05808"/>
+            <stop offset="100%" stop-color="#BF5506"/>
           </linearGradient>
         </defs>
         <g transform="translate(50,50) rotate(45)" fill="url(#fwg)">
-          <rect x="-21" y="-5" width="42" height="10" rx="5"/>
-          <rect x="-21" y="-17" width="9" height="34"/>
-          <rect x="-39" y="-17" width="26" height="9" rx="4.5"/>
-          <rect x="-39" y="8"  width="26" height="9" rx="4.5"/>
-          <rect x="12"  y="-17" width="9" height="34"/>
-          <rect x="13"  y="-17" width="26" height="9" rx="4.5"/>
-          <rect x="13"  y="8"  width="26" height="9" rx="4.5"/>
+          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+          <rect x="-34" y="7" width="28" height="9" rx="4"/>
+          <rect x="6" y="-16" width="28" height="9" rx="4"/>
+          <rect x="6" y="7" width="28" height="9" rx="4"/>
         </g>
         <g transform="translate(50,50) rotate(-45)" fill="url(#fwg)">
-          <rect x="-21" y="-5" width="42" height="10" rx="5"/>
-          <rect x="-21" y="-17" width="9" height="34"/>
-          <rect x="-39" y="-17" width="26" height="9" rx="4.5"/>
-          <rect x="-39" y="8"  width="26" height="9" rx="4.5"/>
-          <rect x="12"  y="-17" width="9" height="34"/>
-          <rect x="13"  y="-17" width="26" height="9" rx="4.5"/>
-          <rect x="13"  y="8"  width="26" height="9" rx="4.5"/>
+          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
+          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
+          <rect x="-34" y="7" width="28" height="9" rx="4"/>
+          <rect x="6" y="-16" width="28" height="9" rx="4"/>
+          <rect x="6" y="7" width="28" height="9" rx="4"/>
         </g>
       </svg>
       <div class="lt"><span class="ln" style="font-size:20px">Kavro Works</span><span class="ls">Est. 2026 · Atlanta</span></div>
     </a>
-    <p class="ftag2">Assembly and mounting done right across metro Atlanta. Show up on time. Work clean. Stand behind it.</p>
+    <p class="ftag2">Mounting and assembly done right across metro Atlanta. Show up. Work clean. Stand behind it.</p>
     <div class="footer-call">
       <p>📞 (404) 919-6460</p>
-      <small>Call or text — I'll get back to you fast</small>
+      <small>Call or text — I'll get back fast</small>
     </div>
-    <div class="fsoc" style="margin-top:14px">
+    <div class="fsoc" style="margin-top:12px">
       <a href="https://instagram.com/" target="_blank" rel="noopener" title="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
       </a>
@@ -897,25 +959,17 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
       </a>
     </div>
   </div>
-  <div class="fc"><h4>Navigate</h4><a href="#top">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#book">Pricing</a><a href="#contact">Contact</a></div>
-  <div class="fc"><h4>Services</h4><p>Furniture Assembly</p><p>TV Mounting</p><p>Shelf Mounting</p><p>Mirror Hanging</p><p>Gallery Walls</p></div>
-  <div class="fc"><h4>Contact</h4><a href="tel:4049196460">(404) 919-6460</a><a href="mailto:kavroworks@gmail.com">kavroworks@gmail.com</a><p>Metro Atlanta, GA</p></div>
+  <div class="fc"><h4>Services</h4><a href="#services">TV Mounting</a><a href="#services">Shelf Mounting</a><a href="#services">Furniture Assembly</a><a href="#services">Curtain Rods</a><a href="#services">Mirror Hanging</a></div>
+  <div class="fc"><h4>Site</h4><a href="#top">Home</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#area">Service Area</a></div>
+  <div class="fc"><h4>Contact</h4><a href="tel:4049196460">(404) 919-6460</a><a href="mailto:kavroworks@gmail.com">kavroworks@gmail.com</a><a href="#quote">Get a Quote</a><p>Metro Atlanta, GA</p></div>
 </div>
 <div class="fbot">
   <div>© 2026 Kavro Works · Kamran. All rights reserved.</div>
-  <div style="font-family:'Caveat',cursive;font-size:14px;color:var(--g3)">Atlanta's go-to for assembly & mounting.</div>
+  <div style="font-family:'Caveat',cursive;font-size:14px;color:var(--g3)">Atlanta's go-to mounting & assembly pro.</div>
 </div>
 </footer>
 
 <script>
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,button,.scard,.pcard').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';curR.style.width='50px';curR.style.height='50px'});
-  el.addEventListener('mouseleave',()=>{cur.style.width='9px';cur.style.height='9px';curR.style.width='30px';curR.style.height='30px'});
-});
-
 // Scroll progress
 const prg=document.getElementById('prg');
 window.addEventListener('scroll',()=>prg.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%');
@@ -929,27 +983,7 @@ nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mbt.classLis
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
 document.querySelectorAll('.rev,.revl,.revr').forEach(el=>ro.observe(el));
 
-// Count-up
-const co=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;
-  const el=e.target,t=+el.dataset.t,p=el.dataset.p||'',s=el.dataset.s||'';
-  let st=0;
-  (function go(ts){if(!st)st=ts;const pr=Math.min((ts-st)/1100,1),ea=1-Math.pow(1-pr,3);
-    el.textContent=p+Math.round(ea*t)+s;if(pr<1)requestAnimationFrame(go)})(0);
-  co.unobserve(el);
-}),{threshold:.5});
-document.querySelectorAll('.stn[data-t]').forEach(el=>co.observe(el));
-
-// 3D tilt on service cards
-document.querySelectorAll('.scard').forEach(c=>{
-  c.addEventListener('mousemove',e=>{
-    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    c.style.transform=`scale(1.015) perspective(700px) rotateX(${-y*7}deg) rotateY(${x*7}deg)`;
-  });
-  c.addEventListener('mouseleave',()=>c.style.transform='');
-});
-
-// Count-up fix (re-trigger properly)
+// Count-up stats
 document.querySelectorAll('.stn[data-t]').forEach(el=>{
   const obs=new IntersectionObserver(([e])=>{
     if(!e.isIntersecting)return;
@@ -962,14 +996,47 @@ document.querySelectorAll('.stn[data-t]').forEach(el=>{
   obs.observe(el);
 });
 
-// Click sparks
-document.addEventListener('click',e=>{
-  const cs=['#c8981c','#e2b840','#f4d878','#aab2bc','#ffffff','#5e3018'];
-  cs.forEach((col,i)=>{
-    const s=document.createElement('div');s.className='spk';
-    const a=(i/cs.length)*Math.PI*2,d=22+Math.random()*36;
-    s.style.cssText=`--tx:${Math.cos(a)*d}px;--ty:${Math.sin(a)*d}px;left:${e.clientX}px;top:${e.clientY}px;background:${col}`;
-    document.body.appendChild(s);setTimeout(()=>s.remove(),560);
+// Carousel
+const track=document.getElementById('carTrack');
+const slides=track.querySelectorAll('.car-slide');
+const dotsWrap=document.getElementById('carDots');
+let current=0;
+
+slides.forEach((_,i)=>{
+  const d=document.createElement('button');
+  d.className='dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goTo(i));
+  dotsWrap.appendChild(d);
+});
+const dots=dotsWrap.querySelectorAll('.dot');
+
+function goTo(i){
+  current=(i+slides.length)%slides.length;
+  const slideWidth=slides[0].offsetWidth+18;
+  track.scrollTo({left:current*slideWidth,behavior:'smooth'});
+  dots.forEach((d,idx)=>d.classList.toggle('active',idx===current));
+}
+document.getElementById('carPrev').addEventListener('click',()=>goTo(current-1));
+document.getElementById('carNext').addEventListener('click',()=>goTo(current+1));
+
+// Auto-advance carousel
+let autoPlay=setInterval(()=>goTo(current+1),5500);
+track.addEventListener('mouseenter',()=>clearInterval(autoPlay));
+track.addEventListener('mouseleave',()=>autoPlay=setInterval(()=>goTo(current+1),5500));
+
+// Sync dots on manual scroll
+track.addEventListener('scroll',()=>{
+  const slideWidth=slides[0].offsetWidth+18;
+  const idx=Math.round(track.scrollLeft/slideWidth);
+  if(idx!==current){current=idx;dots.forEach((d,i)=>d.classList.toggle('active',i===current))}
+});
+
+// File upload label feedback
+document.querySelectorAll('.file-up input').forEach(inp=>{
+  inp.addEventListener('change',e=>{
+    const lbl=inp.parentElement.querySelector('span');
+    const n=e.target.files.length;
+    lbl.textContent=n>0?`${n} photo${n>1?'s':''} attached`:'Add photos of the job (optional)';
   });
 });
 </script>
