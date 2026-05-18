@@ -71,7 +71,7 @@ h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,78px);line-heig
 .hh-w{position:relative;width:100%;max-width:420px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
 .hglow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:330px;height:330px;background:radial-gradient(circle,rgba(245,148,26,.18) 0%,transparent 65%);border-radius:50%;filter:blur(30px);animation:gp 4s ease-in-out infinite}
 @keyframes gp{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.95;transform:translate(-50%,-50%) scale(1.18)}}
-.hsvg{width:80%;animation:hf 5s ease-in-out infinite;filter:drop-shadow(0 18px 50px rgba(245,148,26,.25)) drop-shadow(4px 8px 30px rgba(0,0,0,.7))}
+.hsvg{width:78%;max-width:390px;animation:hf 5s ease-in-out infinite;filter:drop-shadow(0 14px 34px rgba(245,148,26,.28));object-fit:contain}
 @keyframes hf{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(4deg)}}
 .ir{position:absolute;border-radius:50%;border:1px solid rgba(245,148,26,.6);opacity:0;animation:ir 2.8s ease-out infinite}
 .ir:nth-child(1){width:60px;height:60px;top:50%;left:50%;margin-top:-30px;margin-left:-30px;animation-delay:0s}
@@ -366,28 +366,7 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 <div class="ni">
   <a href="#top" class="logo">
     <!-- CROSSED WRENCHES LOGO -->
-    <svg width="38" height="38" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="wg" x1="15%" y1="15%" x2="85%" y2="85%">
-          <stop offset="0%" stop-color="#F5941A"/>
-          <stop offset="100%" stop-color="#BF5506"/>
-        </linearGradient>
-      </defs>
-      <g transform="translate(50,50) rotate(45)" fill="url(#wg)">
-        <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-        <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-        <rect x="-34" y="7" width="28" height="9" rx="4"/>
-        <rect x="6" y="-16" width="28" height="9" rx="4"/>
-        <rect x="6" y="7" width="28" height="9" rx="4"/>
-      </g>
-      <g transform="translate(50,50) rotate(-45)" fill="url(#wg)">
-        <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-        <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-        <rect x="-34" y="7" width="28" height="9" rx="4"/>
-        <rect x="6" y="-16" width="28" height="9" rx="4"/>
-        <rect x="6" y="7" width="28" height="9" rx="4"/>
-      </g>
-    </svg>
+    <img src="images/LOGOKAVRO.png" alt="Kavro Works logo" style="width:38px;height:38px;object-fit:contain;display:block;">
     <div class="lt"><span class="ln">Kavro Works</span><span class="ls">Mounting & Assembly</span></div>
   </a>
 
@@ -433,36 +412,7 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
   <!-- HERO CROSSED WRENCHES -->
   <div class="hv revr d2">
     <div class="hh-w">
-      <div class="hglow"></div>
-      <div class="ir"></div><div class="ir"></div><div class="ir"></div>
-      <svg class="hsvg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="hwg" x1="15%" y1="15%" x2="85%" y2="85%">
-            <stop offset="0%" stop-color="#F5A53A"/>
-            <stop offset="50%" stop-color="#E07010"/>
-            <stop offset="100%" stop-color="#A04004"/>
-          </linearGradient>
-          <linearGradient id="hwgs" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="rgba(255,220,150,.3)"/>
-            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
-          </linearGradient>
-        </defs>
-        <g transform="translate(50,50) rotate(45)" fill="url(#hwg)">
-          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-          <rect x="-34" y="7" width="28" height="9" rx="4"/>
-          <rect x="6" y="-16" width="28" height="9" rx="4"/>
-          <rect x="6" y="7" width="28" height="9" rx="4"/>
-        </g>
-        <g transform="translate(50,50) rotate(-45)" fill="url(#hwg)">
-          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-          <rect x="-34" y="7" width="28" height="9" rx="4"/>
-          <rect x="6" y="-16" width="28" height="9" rx="4"/>
-          <rect x="6" y="7" width="28" height="9" rx="4"/>
-        </g>
-        <ellipse cx="50" cy="38" rx="22" ry="12" fill="url(#hwgs)"/>
-      </svg>
+      <img src="images/LOGOKAVRO.png" alt="Kavro Works crossed wrenches logo" class="hsvg">
     </div>
   </div>
 </div>
@@ -909,28 +859,7 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 <div class="ftop">
   <div>
     <a href="#top" class="logo" style="display:inline-flex;margin-bottom:12px">
-      <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="fwg" x1="15%" y1="15%" x2="85%" y2="85%">
-            <stop offset="0%" stop-color="#F5941A"/>
-            <stop offset="100%" stop-color="#BF5506"/>
-          </linearGradient>
-        </defs>
-        <g transform="translate(50,50) rotate(45)" fill="url(#fwg)">
-          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-          <rect x="-34" y="7" width="28" height="9" rx="4"/>
-          <rect x="6" y="-16" width="28" height="9" rx="4"/>
-          <rect x="6" y="7" width="28" height="9" rx="4"/>
-        </g>
-        <g transform="translate(50,50) rotate(-45)" fill="url(#fwg)">
-          <rect x="-11" y="-5" width="22" height="10" rx="5"/>
-          <rect x="-34" y="-16" width="28" height="9" rx="4"/>
-          <rect x="-34" y="7" width="28" height="9" rx="4"/>
-          <rect x="6" y="-16" width="28" height="9" rx="4"/>
-          <rect x="6" y="7" width="28" height="9" rx="4"/>
-        </g>
-      </svg>
+      <img src="images/LOGOKAVRO.png" alt="Kavro Works logo" style="width:36px;height:36px;object-fit:contain;display:block;">
       <div class="lt"><span class="ln" style="font-size:20px">Kavro Works</span><span class="ls">Est. 2026 · Atlanta</span></div>
     </a>
     <p class="ftag2">Mounting and assembly done right across metro Atlanta. Show up. Work clean. Stand behind it.</p>
