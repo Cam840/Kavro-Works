@@ -231,8 +231,16 @@ h2 em{font-style:italic;background:var(--orng);-webkit-background-clip:text;-web
 .map-wrap iframe{width:100%;height:100%;border:0;filter:grayscale(.3) brightness(.85)}
 .map-overlay{position:absolute;top:0;left:0;right:0;padding:12px 16px;background:linear-gradient(180deg,rgba(6,4,10,.85),transparent);display:flex;align-items:center;gap:10px;font-size:12px;color:var(--g4);font-weight:600;letter-spacing:.1em;text-transform:uppercase;pointer-events:none;z-index:2}
 
-/* PRICING / STRIPE */
+/* PRICING / STARTING PRICES */
 #book{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07);background:linear-gradient(180deg,#06040a 0%,#190c03 55%,#06040a 100%)}
+.how-box{margin-top:34px;background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:28px 30px;position:relative}
+.how-box::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
+.how-label{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--g3);font-weight:700;margin-bottom:16px}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.how-step{display:flex;gap:12px;align-items:flex-start}
+.how-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;background:var(--orng);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;flex-shrink:0}
+.how-step strong{display:block;color:var(--cream);font-size:13px;font-weight:600;margin-bottom:3px;font-family:'Playfair Display',serif}
+.how-step span{display:block;color:var(--s3);font-size:12px;line-height:1.55}
 .book-in{max-width:1140px;margin:0 auto;padding:88px 24px}
 .book-in h2{margin-bottom:8px}
 .book-sub{font-family:'Caveat',cursive;font-size:19px;color:var(--g3);margin-bottom:40px}
@@ -255,16 +263,22 @@ h2 em{font-style:italic;background:var(--orng);-webkit-background-clip:text;-web
 .pnote{margin-top:28px;padding:16px 20px;background:rgba(255,255,255,.025);border-left:2px solid var(--or2);font-size:13px;color:var(--s2);line-height:1.65}
 .pnote strong{color:var(--or3)}
 
-/* QUOTE FORM */
+/* QUOTE FORM + CALENDAR */
 #quote{position:relative;z-index:1;border-top:1px solid rgba(200,152,28,.07)}
-.qt-in{max-width:1140px;margin:0 auto;padding:88px 24px;display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start}
+.qt-in{max-width:1140px;margin:0 auto;padding:88px 24px}
+.qt-head{margin-bottom:36px;max-width:760px}
+.qt-head h2{margin-bottom:14px}
+.qt-head p{color:var(--s3);font-size:15px;line-height:1.7}
+.qt-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:30px;align-items:start}
 .qt-side h2{margin-bottom:16px}
 .qt-side p{color:var(--s3);font-size:15px;line-height:1.7;margin-bottom:24px}
+.qt-row-label{font-size:11px;color:var(--g3);font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin-top:10px;margin-bottom:-4px;display:block}
 
-.qt-form{background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:32px;display:flex;flex-direction:column;gap:14px;position:relative}
+.qt-form{background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:30px;display:flex;flex-direction:column;gap:12px;position:relative}
 .qt-form::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
-.qt-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qt-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .qt-form input,.qt-form select,.qt-form textarea{width:100%;padding:13px 14px;background:rgba(6,4,10,.6);border:1px solid rgba(170,178,188,.15);color:var(--cream);font-family:inherit;font-size:14px;transition:all .22s}
+.qt-form input[type="date"]{color-scheme:dark}
 .qt-form input:focus,.qt-form select:focus,.qt-form textarea:focus{outline:none;border-color:var(--or3);background:rgba(6,4,10,.85)}
 .qt-form input::placeholder,.qt-form textarea::placeholder{color:var(--s2)}
 .qt-form select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%23c8981c' d='M6 8L0 0h12z'/></svg>");background-position:right 14px center;background-repeat:no-repeat;padding-right:36px}
@@ -272,10 +286,20 @@ h2 em{font-style:italic;background:var(--orng);-webkit-background-clip:text;-web
 .file-up{display:flex;align-items:center;gap:10px;padding:13px 14px;background:rgba(6,4,10,.6);border:1px dashed rgba(245,148,26,.3);color:var(--s3);font-size:13px;cursor:pointer;transition:all .25s}
 .file-up:hover{border-color:var(--or3);color:var(--or3)}
 .file-up input{display:none}
+.qt-note{font-size:12px;color:var(--s3);line-height:1.6;padding:12px 14px;background:rgba(245,148,26,.06);border-left:2px solid var(--or2);margin-top:4px}
 .qt-submit{background:var(--orng);color:var(--void);border:none;padding:16px;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:all .25s;margin-top:6px}
 .qt-submit:hover{box-shadow:0 0 30px rgba(245,148,26,.5)}
 .qt-disclaimer{font-size:11px;color:var(--s2);line-height:1.5;text-align:center;margin-top:4px}
 .qt-disclaimer a{color:var(--or3)}
+
+/* Calendar box */
+.qt-cal{background:rgba(255,255,255,.025);border:1px solid rgba(245,148,26,.14);padding:24px;position:relative;position:sticky;top:90px}
+.qt-cal::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--orng)}
+.qt-cal-label{font-size:10px;text-transform:uppercase;letter-spacing:.22em;color:var(--g3);font-weight:700;margin-bottom:10px}
+.qt-cal h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--cream);margin-bottom:12px;line-height:1.2}
+.qt-cal-hint{font-size:13px;color:var(--s3);line-height:1.6;margin-bottom:18px}
+.qt-cal-frame{position:relative;width:100%;background:#0f0905;border:1px solid rgba(245,148,26,.18);overflow:hidden}
+.qt-cal-frame iframe{display:block;width:100%;height:520px;border:0;filter:invert(.92) hue-rotate(180deg) brightness(1.05)}
 
 /* CONTACT + GOOGLE BUTTONS */
 #contact{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:88px 24px}
@@ -338,7 +362,10 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .car-slide{flex:0 0 calc(100% - 0px)}
   .review-grid{grid-template-columns:1fr;gap:14px}
-  .cta-banner-in,.area-in,.qt-in,.con-sp{grid-template-columns:1fr;gap:32px}
+  .cta-banner-in,.area-in,.con-sp{grid-template-columns:1fr;gap:32px}
+  .qt-grid{grid-template-columns:1fr;gap:24px}
+  .qt-cal{position:static}
+  .how-steps{grid-template-columns:1fr 1fr;gap:16px}
   .pg{grid-template-columns:1fr;max-width:380px;margin:0 auto}
   .ftop{grid-template-columns:1fr 1fr}
   .cta-strip-in{flex-direction:column;align-items:flex-start;gap:14px}
@@ -352,6 +379,8 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
   .ba-pair{height:220px}
   .gbp-buttons{grid-template-columns:1fr}
   .cities{grid-template-columns:1fr}
+  .how-steps{grid-template-columns:1fr}
+  .qt-cal-frame iframe{height:440px}
 }
 </style>
 </head>
@@ -388,7 +417,7 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
   </div>
-  <a href="tel:4049196460" class="nbk">📞 Book Now</a>
+  <a href="#quote" class="nbk">Get Quote</a>
 </div>
 </nav>
 
@@ -717,105 +746,187 @@ footer{position:relative;z-index:1;background:var(--w1);border-top:1px solid rgb
 </div>
 </section>
 
-<!-- ══ PRICING / STRIPE ══ -->
+<!-- ══ STARTING PRICES ══ -->
 <section id="book">
 <div class="book-in">
-  <div class="sec-ey rev"><span class="ey-l"></span> Book & Pay</div>
-  <h2 class="rev d1">Pay deposits <em>online.</em></h2>
-  <div class="book-sub rev d2">Quick, secure card payments via Stripe.</div>
+  <div class="sec-ey rev"><span class="ey-l"></span> Pricing</div>
+  <h2 class="rev d1">Starting <em>prices.</em></h2>
+  <div class="book-sub rev d2">Final price depends on size, weight, wall type, complexity, and location. Submit a quote request with photos for an accurate price.</div>
 
   <div class="pg">
     <div class="pcard rev d1">
-      <h3>Estimate Deposit</h3>
-      <div class="psub">For complex jobs needing an in-person look</div>
-      <div class="ptier">$25</div>
+      <h3>TV Mounting</h3>
+      <div class="psub">Flat, tilt, or full-motion mounts</div>
+      <div class="ptier">From $75</div>
       <ul>
-        <li>Credited to total job cost</li>
-        <li>On-site assessment</li>
-        <li>Detailed quote</li>
-        <li>Refundable if I can't help</li>
+        <li>Price varies by TV size</li>
+        <li>Mount type (flat/tilt/full-motion)</li>
+        <li>Wall type (drywall/brick/tile)</li>
+        <li>Wire concealment add-on</li>
       </ul>
-      <!-- TO REPLACE: paste your Stripe Payment Link URL -->
-      <a href="https://buy.stripe.com/YOUR_ESTIMATE_LINK" class="pbtn" target="_blank">Pay $25 via Stripe</a>
+      <a href="#quote" class="pbtn">Get Quote</a>
     </div>
 
     <div class="pcard ft rev d2">
       <div class="ftag">Most Common</div>
-      <h3>Booking Deposit</h3>
-      <div class="psub">Reserve your spot for any job</div>
-      <div class="ptier">$50</div>
+      <h3>Furniture Assembly</h3>
+      <div class="psub">Flat-pack, IKEA, bed frames, etc.</div>
+      <div class="ptier">From $60</div>
       <ul>
-        <li>Locks in your time slot</li>
-        <li>Credited to total cost</li>
-        <li>Reschedule anytime</li>
-        <li>Most common option</li>
+        <li>Price varies by item size</li>
+        <li>Complexity & number of pieces</li>
+        <li>Wall anchoring if needed</li>
+        <li>Multi-item discounts</li>
       </ul>
-      <!-- TO REPLACE: paste your Stripe Payment Link URL -->
-      <a href="https://buy.stripe.com/YOUR_BOOKING_LINK" class="pbtn" target="_blank">Pay $50 via Stripe</a>
+      <a href="#quote" class="pbtn">Get Quote</a>
     </div>
 
     <div class="pcard rev d3">
-      <h3>Pay Balance</h3>
-      <div class="psub">Pay remaining balance after job done</div>
-      <div class="ptier">$ —</div>
+      <h3>Shelves · Mirrors · Pictures</h3>
+      <div class="psub">Mounting & hanging of any kind</div>
+      <div class="ptier">From $45</div>
       <ul>
-        <li>After work is complete</li>
-        <li>Enter custom amount</li>
-        <li>Card, Apple Pay, Google Pay</li>
-        <li>Secure via Stripe</li>
+        <li>Price varies by item weight</li>
+        <li>Wall type & hardware needed</li>
+        <li>Number of items</li>
+        <li>Gallery walls available</li>
       </ul>
-      <!-- TO REPLACE: paste your Stripe Payment Link URL (with custom amount enabled) -->
-      <a href="https://buy.stripe.com/YOUR_BALANCE_LINK" class="pbtn" target="_blank">Pay Balance</a>
+      <a href="#quote" class="pbtn">Get Quote</a>
     </div>
   </div>
 
   <div class="pnote rev">
-    <strong>How pricing works:</strong> Final price depends on the object, what needs doing, and size. Quotes are free — call or text first, then pay a deposit to lock in your time.
+    <strong>Note:</strong> Payment is collected only after your quote and appointment time are confirmed. Some jobs may require a deposit before scheduling.
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-box rev">
+    <div class="how-label">How It Works</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <span class="how-num">1</span>
+        <div><strong>Submit Details</strong><span>Send job photos and preferred time through the quote form.</span></div>
+      </div>
+      <div class="how-step">
+        <span class="how-num">2</span>
+        <div><strong>I Review</strong><span>I review your request and confirm the final price.</span></div>
+      </div>
+      <div class="how-step">
+        <span class="how-num">3</span>
+        <div><strong>Time Confirmed</strong><span>I confirm an available appointment time by text or email.</span></div>
+      </div>
+      <div class="how-step">
+        <span class="how-num">4</span>
+        <div><strong>Payment</strong><span>Payment/deposit is collected only after the quote is approved.</span></div>
+      </div>
+    </div>
   </div>
 </div>
 </section>
 
-<!-- ══ QUOTE FORM + CALENDLY ══ -->
+<!-- ══ QUOTE FORM + AVAILABILITY CALENDAR ══ -->
 <section id="quote">
 <div class="qt-in">
-  <div class="qt-side revl">
+  <div class="qt-head revl">
     <div class="sec-ey"><span class="ey-l"></span> Get a Quote</div>
-    <h2>Send job details. <em>Get a quote.</em></h2>
-    <p>Fill the form and I'll get back to you fast. Add photos of the wall, the item, or the box — it helps me give an accurate price.</p>
-
+    <h2>Send job details. <em>Pick a time.</em></h2>
+    <p>Fill in the form with your job details and preferred time. Add photos of the wall, the item, or the box — it helps me give an accurate price. I'll confirm the final price and appointment time after reviewing your request.</p>
   </div>
 
-  <!-- TO REPLACE: replace action URL with your Formspree, Web3Forms, or Jotform endpoint -->
-  <form class="qt-form revr d2"
-        action="https://formspree.io/f/xykvyeka"
-        method="POST"
-        enctype="multipart/form-data">
+  <div class="qt-grid">
+    <!-- QUOTE FORM -->
+    <form class="qt-form revl d1"
+          action="https://formspree.io/f/xykvyeka"
+          method="POST"
+          enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New Kavro Works Quote Request">
-    <div class="qt-row">
-      <input type="text" name="name" placeholder="Your name *" required>
-      <input type="tel" name="phone" placeholder="Phone *" required>
+
+      <label class="qt-row-label">Your Info</label>
+      <div class="qt-row">
+        <input type="text" name="name" placeholder="Your name *" required>
+        <input type="tel" name="phone" placeholder="Phone *" required>
+      </div>
+      <input type="email" name="email" placeholder="Email *" required>
+
+      <label class="qt-row-label">Location</label>
+      <div class="qt-row">
+        <input type="text" name="city" placeholder="City (Duluth, Atlanta, etc.)">
+        <input type="text" name="address" placeholder="Address or area">
+      </div>
+
+      <label class="qt-row-label">The Job</label>
+      <select name="service" required>
+        <option value="">What do you need? *</option>
+        <option>TV Mounting</option>
+        <option>Shelf Mounting</option>
+        <option>Furniture Assembly</option>
+        <option>Curtain Rod / Blinds Install</option>
+        <option>Picture / Mirror Hanging</option>
+        <option>Multiple items</option>
+        <option>Something else</option>
+      </select>
+      <div class="qt-row">
+        <input type="text" name="item_size" placeholder='Item size / TV size (e.g. 65")'>
+        <input type="text" name="item_weight" placeholder="Approx. weight (if known)">
+      </div>
+      <select name="wall_type">
+        <option value="">Wall type (if known)</option>
+        <option>Drywall</option>
+        <option>Plaster</option>
+        <option>Brick</option>
+        <option>Concrete</option>
+        <option>Tile</option>
+        <option>Not sure</option>
+      </select>
+      <textarea name="details" placeholder="Job details / anything else I should know"></textarea>
+      <label class="file-up">
+        📎 <span>Add photos of the job (optional)</span>
+        <input type="file" name="photos" multiple accept="image/*">
+      </label>
+
+      <label class="qt-row-label">Preferred Scheduling</label>
+      <div class="qt-row">
+        <input type="date" name="preferred_date" required>
+        <select name="preferred_time_window" required>
+          <option value="">Preferred time window *</option>
+          <option value="Morning: 8 AM - 12 PM">Morning: 8 AM - 12 PM</option>
+          <option value="Afternoon: 12 PM - 4 PM">Afternoon: 12 PM - 4 PM</option>
+          <option value="Evening: 4 PM - 8 PM">Evening: 4 PM - 8 PM</option>
+          <option value="Other / see message">Other / see message</option>
+        </select>
+      </div>
+      <div class="qt-row">
+        <input type="date" name="backup_date">
+        <select name="backup_time_window">
+          <option value="">Backup time window</option>
+          <option value="Morning: 8 AM - 12 PM">Morning: 8 AM - 12 PM</option>
+          <option value="Afternoon: 12 PM - 4 PM">Afternoon: 12 PM - 4 PM</option>
+          <option value="Evening: 4 PM - 8 PM">Evening: 4 PM - 8 PM</option>
+          <option value="Other / see message">Other / see message</option>
+        </select>
+      </div>
+
+      <div class="qt-note">
+        Preferred times are not guaranteed. I'll confirm the final price and appointment time after reviewing your job details and photos.
+      </div>
+
+      <button type="submit" class="qt-submit">Request Quote & Time →</button>
+      <div class="qt-disclaimer">By submitting, you agree to be contacted by Kavro Works. I'll never share your info.</div>
+    </form>
+
+    <!-- AVAILABILITY CALENDAR -->
+    <div class="qt-cal revr d2">
+      <div class="qt-cal-label">Step 1</div>
+      <h3>Check Available Times</h3>
+      <p class="qt-cal-hint">Use the calendar to view available time windows, then enter your preferred date and time in the form. Appointment times are not guaranteed until confirmed by text or email.</p>
+      <div class="qt-cal-frame">
+        <!-- TO REPLACE: paste your Google Calendar embed URL between the quotes below.
+             In Google Calendar: Settings → Settings for my calendars → pick calendar →
+             "Integrate calendar" → copy the "Embed code" src URL. -->
+        <iframe src="PASTE_GOOGLE_CALENDAR_EMBED_LINK_HERE" frameborder="0" scrolling="no"></iframe>
+      </div>
     </div>
-    <input type="email" name="email" placeholder="Email *" required>
-    <input type="text" name="city" placeholder="City (Duluth, Atlanta, etc.)">
-    <select name="service" required>
-      <option value="">What do you need? *</option>
-      <option>TV Mounting</option>
-      <option>Shelf Mounting</option>
-      <option>Furniture Assembly</option>
-      <option>Curtain Rod / Blinds Install</option>
-      <option>Picture / Mirror Hanging</option>
-      <option>Multiple items</option>
-      <option>Something else</option>
-    </select>
-    <input type="text" name="datetime" placeholder="Preferred date/time (e.g. this Saturday afternoon)">
-    <textarea name="details" placeholder="Anything else? (size of TV, wall type, etc.)"></textarea>
-    <label class="file-up">
-      📎 <span>Add photos of the job (optional)</span>
-      <input type="file" name="photos" multiple accept="image/*">
-    </label>
-    <button type="submit" class="qt-submit">Send Quote Request →</button>
-    <div class="qt-disclaimer">By submitting, you agree to be contacted by Kavro Works. I'll never share your info.</div>
-  </form>
+  </div>
 </div>
 </section>
 
