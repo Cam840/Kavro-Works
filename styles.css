@@ -508,3 +508,14 @@ nav{
     margin-left:0;
   }
 }
+
+@media(max-width:980px){
+  .qt-cal{
+    order:1;
+    position:static;
+  }
+
+  .qt-form{
+    order:2;
+  }
+}
