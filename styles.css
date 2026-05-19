@@ -519,3 +519,44 @@ nav{
     order:2;
   }
 }
+
+/* MAKE MOBILE HAMBURGER MORE VISIBLE */
+@media(max-width:980px){
+  .mbt{
+    display:flex;
+    width:42px;
+    height:42px;
+    align-items:center;
+    justify-content:center;
+    background:rgba(245,148,26,.12);
+    border:1px solid rgba(245,148,26,.45);
+    border-radius:10px;
+    box-shadow:0 0 16px rgba(245,148,26,.16);
+    position:relative;
+    z-index:1200;
+  }
+
+  .mbt span{
+    width:22px;
+    height:2px;
+    background:var(--g4);
+    border-radius:999px;
+    box-shadow:0 0 8px rgba(226,184,64,.35);
+  }
+
+  .mbt:hover{
+    background:rgba(245,148,26,.2);
+    border-color:var(--or3);
+  }
+
+  .mbt.open{
+    background:var(--orng);
+    border-color:transparent;
+    box-shadow:0 0 24px rgba(245,148,26,.45);
+  }
+
+  .mbt.open span{
+    background:var(--void);
+    box-shadow:none;
+  }
+}
