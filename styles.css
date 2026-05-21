@@ -841,7 +841,7 @@ nav{
   .home-hero-bg{
     background:
       linear-gradient(180deg, rgba(6,4,10,.62) 0%, rgba(6,4,10,.78) 38%, rgba(6,4,10,.96) 100%),
-      url("images/hero-furniture-bg.png") 58% center / cover no-repeat;
+      url("images/background.png") 58% center / cover no-repeat;
   }
 
   .home-hero-bg .hero{
