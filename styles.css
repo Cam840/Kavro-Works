@@ -560,3 +560,33 @@ nav{
     box-shadow:none;
   }
 }
+/* TEMPORARY N/A PLACEHOLDERS */
+.ba-img.na-img{
+  background:
+    radial-gradient(ellipse at center, rgba(245,148,26,.08), transparent 65%),
+    linear-gradient(135deg, rgba(6,4,10,.75), rgba(22,10,2,.9));
+}
+
+.ba-img.na-img span{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  font-weight:700;
+  color:rgba(242,232,210,.45);
+  letter-spacing:.08em;
+}
+
+.rev-cta .review-disabled{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(170,178,188,.18);
+  color:var(--s2);
+  padding:14px 26px;
+  font-weight:700;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  opacity:.65;
+  cursor:not-allowed;
+}
