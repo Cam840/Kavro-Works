@@ -590,3 +590,13 @@ nav{
   opacity:.65;
   cursor:not-allowed;
 }
+
+/* QUOTE PAGE WITHOUT CALENDAR */
+.quote-only-grid{
+  grid-template-columns:minmax(0,820px)!important;
+  justify-content:center;
+}
+
+.quote-only-grid .qt-form{
+  width:100%;
+}
