@@ -1,211 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kavro Works</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="images/favicon-circle-no-bg.png">
-<link rel="apple-touch-icon" href="images/favicon-circle-no-bg.png">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div id="prg"></div>
-<div class="wood-bg"></div>
-<div class="hero-glow"></div>
-<!-- ══ NAV ══ -->
-<nav>
-<div class="ni">
-  <a href="index.html" class="logo">
-    <img src="images/LOGOKAVRO (1).png" alt="Kavro Works logo" style="width:38px;height:38px;object-fit:contain;display:block;">
-    <div class="lt"><span class="ln">Kavro Works</span><span class="ls">Mounting & Assembly</span></div>
-  </a>
-
-  <button class="mbt" id="mbt" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-
-  <ul class="nl" id="nl">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="services.html" class="">Services & Pricing</a></li>
-    <li><a href="work.html" class="">Work & Reviews</a></li>
-    <li><a href="quote.html#quote" class="">Quote & Contact</a></li>
-  </ul>
-
-  <div class="nsoc">
-    <a href="https://www.instagram.com/kavroworks" target="_blank" rel="noopener" class="nsi" title="Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
-  
-    <a href="https://www.linkedin.com/in/kamran-bokhari-012978368/" target="_blank" rel="noopener" class="nsi" title="LinkedIn">
-      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    </a>
-  </div>
-
-  <a href="quote.html#quote" class="nbk nav-cta">Get Quote</a>
-</div>
-</nav>
-<main class="page-main">
-<!-- ══ HERO ══ -->
-<section id="top" class="home-hero-bg">
-<div class="hero">
-  <div>
-    <div class="tag rev d1"><span class="tdot"></span> Atlanta, GA · OPEN FOR JOBS</div>
-    <h1 class="rev d2">
-      <span class="hs1">Furniture assembled.</span>
-      <span class="hs2">Shelves mounted.</span>
-      <span class="hs3">Done right.</span>
-    </h1>
-    <p class="hp rev d3">Professional mounting and assembly services in Metro Atlanta. Clean, careful, and built to last.</p>
-    <div class="hero-btns rev d4">
-      <a href="quote.html#quote" class="nbk" style="font-size:14px;padding:14px 26px">🛠 Request a Quote →</a>
-      <a href="tel:4049196460" class="ob">📞 Call / Text (404) 919-6460</a>
-    </div>
-  </div>
-</div>
-</section>
-<!-- STATS -->
-<div class="stbar">
-<div class="stbar-in">
-  <div class="stit rev d1"><span class="stn" data-t="48">0</span><div class="stl">Hr Turnaround</div></div>
-  <div class="stit rev d2"><span class="stn" data-t="100" data-s="%">0</span><div class="stl">Level Guaranteed</div></div>
-  <div class="stit rev d3"><span class="stn" data-t="0" data-p="$">0</span><div class="stl">Hidden Fees</div></div>
-  <div class="stit rev d4"><span class="stn" data-t="5" data-s=" Services">0</span><div class="stl">Specialties</div></div>
-</div>
-</div>
-<!-- MARQUEE -->
-<div class="mq">
-<div class="mtr">
-  <span class="mi">TV Mounting <span class="msep"></span></span>
-  <span class="mi">Shelf Mounting <span class="msep"></span></span>
-  <span class="mi">Furniture Assembly <span class="msep"></span></span>
-  <span class="mi">Curtain Rod Installation <span class="msep"></span></span>
-  <span class="mi">Picture & Mirror Hanging <span class="msep"></span></span>
-  <span class="mi">Atlanta · Duluth · Lawrenceville <span class="msep"></span></span>
-  <span class="mi">TV Mounting <span class="msep"></span></span>
-  <span class="mi">Shelf Mounting <span class="msep"></span></span>
-  <span class="mi">Furniture Assembly <span class="msep"></span></span>
-  <span class="mi">Curtain Rod Installation <span class="msep"></span></span>
-  <span class="mi">Picture & Mirror Hanging <span class="msep"></span></span>
-  <span class="mi">Atlanta · Duluth · Lawrenceville <span class="msep"></span></span>
-</div>
-</div>
-<!-- CTA STRIP -->
-<div class="cta-strip">
-<div class="cta-strip-in">
-  <div class="cta-strip-text">
-    <strong>Need something mounted or built this week?</strong>
-    <span>Free quotes · Same-week scheduling · Metro Atlanta</span>
-  </div>
-  <div class="cta-strip-btns">
-    <a href="tel:4049196460" class="cta-btn-dark">📞 Call (404) 919-6460</a>
-    <a href="quote.html#quote" class="cta-btn-out">✉ Get a Quote</a>
-  </div>
-</div>
-</div>
-
-<!-- ══ ABOUT ══ -->
-<section id="about">
-<div class="about-in">
-  <div class="revl">
-    <div class="photo-frame">
-      <div class="ph-tl"></div>
-      <div class="photo-scene">
-        <!-- TO REPLACE: delete the <svg> below and paste <img src="images/kamran-photo.jpg" alt="Kamran from Kavro Works" style="width:100%;height:100%;object-fit:cover"> -->
-        <img src="images/image.png" alt="Kamran from Kavro Works" style="width:100%;height:100%;object-fit:cover">
-      </div>
-      <div class="photo-label-bar">
-        <div class="photo-name">Kamran</div>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <div class="about-accent rev">— Atlanta based, since 2026</div>
-    <div class="sec-ey rev d1"><span class="ey-l"></span> About Me</div>
-    <h2 class="rev d2">I build it right.<br><em>First time.</em></h2>
-    <div class="rev d3">
-      <p class="about-p">I'm Kamran. I started Kavro Works because people kept telling me the same story: damaged appliances, wobbly furniture, crooked TVs, and shelves that pulled out of drywall.</p>
-      <p class="about-p">Every job gets careful measuring, the right hardware for your wall, and a clean space when I leave. No shortcuts. If it's not solid, I'm not done.</p>
-      <p class="about-p">Serving homes and apartments across metro Atlanta. I show up on time and stand behind the work.</p>
-    </div>
-    <div class="acard revr d4">
-      <div class="krow"><span class="kkey">Based</span><span class="kval">Atlanta, GA</span></div>
-      <div class="krow"><span class="kkey">Coverage</span><span class="kval">Metro Atlanta area</span></div>
-      <div class="krow"><span class="kkey">Quality</span><span class="kval">Measured right. Mounted strong. Finished clean.</span></div>
-    </div>
-    <div class="about-ctas rev d5">
-      <a href="tel:4049196460" class="al">📞 (404) 919-6460</a>
-      <a href="quote.html#quote" class="al">✉ Get a Quote</a>
-    </div>
-  </div>
-</div>
-</section>
-
-<section class="home-preview">
-  <div class="sec-ey rev"><span class="ey-l"></span> Start Here</div>
-  <h2 class="rev d1">Choose the section you need.</h2>
-  <div class="preview-grid">
-    <a class="preview-card rev d1" href="services.html">
-      <h3>Services & Starting Prices</h3>
-      <p>See what I mount, assemble, and install, with starting prices and how pricing works.</p>
-      <span>View Services →</span>
-    </a>
-    <a class="preview-card rev d2" href="work.html">
-      <h3>Gallery, Reviews & Area</h3>
-      <p>Look through examples, customer reviews, and the metro Atlanta service area.</p>
-      <span>View Work →</span>
-    </a>
-    <a class="preview-card rev d3" href="quote.html">
-      <h3>Quote & Availability</h3>
-      <p>Check available time windows and request a quote before any payment is collected.</p>
-      <span>Request Quote →</span>
-    </a>
-  </div>
-</section>
-
-
-
-<section class="page-cta rev">
-  <div class="page-cta-inner">
-    <div>
-      <h2>Ready for a quote?</h2>
-      <p>Send the job details first. I’ll confirm the final price and appointment time before any payment is collected.</p>
-    </div>
-    <div class="page-cta-actions">
-      <a href="quote.html#quote" class="nbk">Request Quote & Time</a>
-      <a href="tel:4049196460" class="ob">📞 Call Now</a>
-    </div>
-  </div>
-</section>
-
-</main>
-<!-- ══ FOOTER ══ -->
-<footer>
-<div class="ftop">
-  <div>
-    <a href="index.html" class="logo" style="display:inline-flex;margin-bottom:12px">
-      <img src="images/LOGOKAVRO (1).png" alt="Kavro Works logo" style="width:36px;height:36px;object-fit:contain;display:block;">
-      <div class="lt"><span class="ln" style="font-size:20px">Kavro Works</span><span class="ls">Est. 2026 · Atlanta</span></div>
-    </a>
-    <p class="ftag2">Mounting and assembly done right across metro Atlanta. Show up. Work clean. Stand behind it.</p>
-    <div class="footer-call">
-      <p>📞 (404) 919-6460</p>
-      <small>Call or text — I'll get back fast</small>
-    </div>
-    <div class="fsoc" style="margin-top:12px">
-      <a href="https://www.instagram.com/kavroworks" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-      <a href="https://www.linkedin.com/in/kamran-bokhari-012978368/" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-    </div>
-  </div>
-  <div class="fc"><h4>Services</h4><a href="services.html">TV Mounting</a><a href="services.html">Shelf Mounting</a><a href="services.html">Furniture Assembly</a><a href="services.html">Curtain Rods</a><a href="services.html">Mirror Hanging</a></div>
-  <div class="fc"><h4>Site</h4><a href="index.html">Home</a><a href="services.html">Services & Pricing</a><a href="work.html">Work & Reviews</a><a href="quote.html">Quote & Contact</a></div>
-  <div class="fc"><h4>Contact</h4><a href="tel:4049196460">(404) 919-6460</a><a href="quote.html#quote">Get a Quote</a><p>Metro Atlanta, GA</p></div>
-</div>
-<div class="fbot">
-  <div>© 2026 Kavro Works · Kamran. All rights reserved.</div>
-  <div style="font-family:'Caveat',cursive;font-size:14px;color:var(--g3)">Atlanta's go-to mounting & assembly pro.</div>
-</div>
-</footer>
-<script src="script.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#20150f"><title>Mounting, Installation & Assembly in Metro Atlanta | Kavro Works</title><meta name="description" content="Kavro Works helps with TV mounting, blinds, furniture assembly, ceiling fans and more across Metro Atlanta. Call or text Kamran at (404) 919-6460."><link rel="canonical" href="https://kavroworks.com/"><meta property="og:title" content="Mounting, Installation & Assembly in Metro Atlanta | Kavro Works"><meta property="og:description" content="Kavro Works helps with TV mounting, blinds, furniture assembly, ceiling fans and more across Metro Atlanta. Call or text Kamran at (404) 919-6460."><meta property="og:type" content="website"><meta property="og:image" content="https://kavroworks.com/images/bed-after.webp"><link rel="icon" href="images/favicon.png"><link rel="apple-touch-icon" href="images/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "HomeAndConstructionBusiness", "name": "Kavro Works", "url": "https://kavroworks.com/", "telephone": "+14049196460", "email": "kavroworks@gmail.com", "image": "https://kavroworks.com/images/bed-after.webp", "areaServed": ["Atlanta", "Lawrenceville", "Duluth", "Suwanee", "Lilburn", "Snellville", "Norcross"], "sameAs": ["https://www.instagram.com/kavroworks"]}</script></head>
+<body id="top"><div class="wood-bg" aria-hidden="true"></div><a href="#main" class="skip-link">Skip to content</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="index.html" aria-label="Kavro Works home"><img src="images/logo.png" alt="" width="44" height="44"><span>KAVRO<span class="brand-works">WORKS<span class="brand-dot">.</span></span></span></a>
+<button type="button" class="menu-toggle js-only" aria-controls="site-nav" aria-expanded="false"><span class="menu-lines" aria-hidden="true"></span><span class="sr-only">Open menu</span></button>
+<nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="services.html">Services & pricing</a><a href="work.html">Work & reviews</a><a href="contact.html">Contact</a><a href="offers.html" class="mobile-offer">Referral offer</a></nav>
+<a class="button button-accent header-cta" href="sms:+14049196460" data-sms=""><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8M8 14h5"/></svg><span>Text me</span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a>
+</div></header><main id="main">
+<section class="home-hero"><div class="container hero-grid"><div class="hero-copy"><span class="eyebrow location-label"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> Metro Atlanta, Georgia</span><h1>Your to-do list,<br><em>taken care of.</em></h1><p class="lead">The blinds you’ve been meaning to replace. The bed still in its box. The fan ready for an upgrade.</p><p class="hero-intro">I’m Kamran. I mount, install, and assemble the things that make your home work for you.</p><div class="button-row"><a class="button button-accent" href="sms:+14049196460" data-sms=""><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8M8 14h5"/></svg><span>Text me your job</span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a><a href="work.html" class="text-link">See my work <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div><p class="contact-note"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Can’t reach me? Text me. I aim to reply within an hour.</p></div>
+<div class="hero-project"><a href="work.html#bed" class="hero-photo" aria-label="See the IKEA bed assembly project"><img class="" src="images/bed-after.webp" srcset="images/bed-after-small.webp 480w, images/bed-after.webp 1086w" sizes="(max-width: 700px) 92vw, 50vw" alt="Completed black IKEA bed frame with storage drawers in front of a wood slat wall" width="1086" height="1448" loading="eager" decoding="async" fetchpriority="high"><span class="photo-corner">From a recent job <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></a><div class="hero-photo-caption"><span>01 / IKEA bed assembly</span><span>Ready to settle in.</span></div><a class="before-note" href="work.html#bed"><img class="" src="images/bed-before.webp" srcset="images/bed-before-small.webp 480w, images/bed-before.webp 1200w" sizes="(max-width: 700px) 92vw, 50vw" alt="The same bed frame during assembly" width="1200" height="1600" loading="lazy" decoding="async"><span>Started here.<br><strong>See the transformation ↗</strong></span></a></div></div></section>
+<div class="promise-strip"><div class="container"><span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Work directly with Kamran</span><span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Price confirmed before booking</span><span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Homes & apartments</span></div></div>
+<section class="container section services-intro"><div><span class="eyebrow">A hand with the everyday</span><h2>One less thing<br><em>to put off.</em></h2><p>From a single shelf to a room full of flat-pack furniture, there’s a good chance I can help.</p><a href="services.html" class="text-link">All services & starting prices <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div><div class="service-preview-list">
+<a href="services.html#mounting"><span class="list-number">01</span><div><h3>Mount it.</h3><p>TVs, shelves, mirrors, wall décor, curtain rods & blinds.</p></div><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+<a href="services.html#installation"><span class="list-number">02</span><div><h3>Install it.</h3><p>Ceiling fans, light fixtures, disposals & small home hardware.</p></div><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+<a href="services.html#assembly"><span class="list-number">03</span><div><h3>Build it.</h3><p>Beds, desks, dressers, tables & IKEA-style furniture.</p></div><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></section>
+<section class="paper-section"><div class="container section"><div class="section-heading"><div><span class="eyebrow">The work speaks</span><h2>Little changes.<br><em>Better rooms.</em></h2></div><a href="work.html" class="text-link">Explore all five projects <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div><div class="home-project-grid"><a href="work.html#blinds" class="home-project"><img class="" src="images/blinds-after.webp" srcset="images/blinds-after-small.webp 361w, images/blinds-after.webp 902w" sizes="(max-width: 700px) 92vw, 50vw" alt="White zebra blinds installed above a brown leather sofa" width="902" height="1600" loading="lazy" decoding="async"><div><span class="eyebrow">Blinds & window treatments</span><h3>A fresh outlook.</h3><span class="text-link">See before & after <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div></a><a href="work.html#fan" class="home-project"><img class="" src="images/fan-after.webp" srcset="images/fan-after-small.webp 362w, images/fan-after.webp 904w" sizes="(max-width: 700px) 92vw, 50vw" alt="New ceiling fan and light installed in a lavender bedroom" width="904" height="1600" loading="lazy" decoding="async"><div><span class="eyebrow">Ceiling fan installation</span><h3>A change overhead.</h3><span class="text-link">See before & after <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></span></div></a></div></div></section>
+<section class="container section about-section"><figure class="about-photo"><img src="images/kamran.webp" alt="Kamran, the person behind Kavro Works" width="750" height="1000" loading="lazy" decoding="async"><figcaption>Kamran / The person behind Kavro Works</figcaption></figure><div class="about-copy"><span class="eyebrow">A local business. A familiar face.</span><h2>Hi, I’m Kamran.<br><em>I’ll take it from here.</em></h2><p>I run Kavro Works here in Metro Atlanta. When you text the number on this site, you’re talking to the person doing the work.</p><p>I take time to measure, choose the right hardware, and leave the space clean. Send me what you have in mind, and we’ll work out the details together.</p><a class="text-link" href="contact.html">Let’s talk about your project <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div></section>
+<section class="container offer-section"><div class="offer-ticket"><div class="offer-value" aria-label="50 percent off"><strong>50<span>%</span></strong><span>OFF</span></div><div class="offer-copy"><span class="eyebrow" data-offer-badge>Referral giveaway · draft preview</span><h2>A little word of mouth.<br><em>A chance to save.</em></h2><p>Tell five friends about Kavro Works and share a post for a chance to get 50% off. Details are being finalized.</p><a href="offers.html" class="text-link">See the offer preview <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a><p class="small" data-offer-disclaimer>Preview only. Entries are not open yet.</p></div><div class="offer-clock"><span class="eyebrow" data-countdown-heading>15-day preview countdown</span><div class="countdown" data-countdown role="timer" aria-live="off" aria-label="Referral offer preview countdown"><div><strong data-time="days">—</strong><span>days</span></div><span class="time-colon">:</span><div><strong data-time="hours">—</strong><span>hours</span></div><span class="time-colon">:</span><div><strong data-time="minutes">—</strong><span>mins</span></div><span class="time-colon">:</span><div><strong data-time="seconds">—</strong><span>secs</span></div></div><p class="timer-date" data-timer-date>Preview deadline: October 27, 2026 · 2:50 PM ET</p></div></div></section>
+<section class="container section process-section"><div><span class="eyebrow">Keep it simple</span><h2>Photo. Text.<br><em>Sorted.</em></h2></div><ol class="process-list"><li><span>01</span><div><h3>Show me the job</h3><p>Text a photo or product link, your city, and what you need done.</p></div></li><li><span>02</span><div><h3>We agree on the details</h3><p>I confirm the price, what’s included, and a time that works.</p></div></li><li><span>03</span><div><h3>I get to work</h3><p>Careful installation, a finished project, and your space left tidy.</p></div></li></ol></section><section class="closing-cta"><div class="container closing-inner"><div><span class="eyebrow">One text gets it started</span><h2>What’s on<br><em>your list?</em></h2><p>Send a photo, your city, and what you need done.</p></div><div><a class="button button-accent" href="sms:+14049196460" data-sms=""><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8M8 14h5"/></svg><span>Text me your job</span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a><a href="tel:+14049196460" class="closing-phone">Or call (404) 919-6460 <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div></div></section></main><footer class="site-footer"><div class="container footer-top"><div><a class="brand" href="index.html" aria-label="Kavro Works home"><img src="images/logo.png" alt="" width="44" height="44"><span>KAVRO<span class="brand-works">WORKS<span class="brand-dot">.</span></span></span></a><p>Mounting. Installation. Assembly.<br>A little help around your home.</p><a href="https://www.instagram.com/kavroworks" target="_blank" rel="noopener noreferrer" class="text-link">Instagram <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a></div>
+<div><span class="eyebrow">Take a look</span><a href="services.html">Services & pricing</a><a href="work.html">Work & reviews</a><a href="offers.html">Referral offer</a></div>
+<div><span class="eyebrow">Let’s talk</span><a href="tel:+14049196460">(404) 919-6460</a><a href="mailto:kavroworks@gmail.com">kavroworks@gmail.com</a><a href="contact.html#service-area">Metro Atlanta, Georgia</a></div></div>
+<div class="container footer-bottom"><span>© 2026 Kavro Works · Kamran</span><span>Built with care. Done right.</span><a href="#top">Back to top ↑</a></div></footer>
+<div class="mobile-contact" aria-label="Quick contact"><a href="tel:+14049196460"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 16.9-.1 3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.1 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg><span>Call Kamran</span></a><a class="mobile-text" href="sms:+14049196460" data-sms=""><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z"/><path d="M8 10h8M8 14h5"/></svg><span>Text your job</span><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></a></div>
+<div class="toast" role="status" aria-live="polite" aria-atomic="true" id="toast"></div>
+<dialog class="copy-dialog" id="copy-dialog" aria-labelledby="copy-title"><button type="button" class="icon-button dialog-close" data-close-copy aria-label="Close"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button><h2 id="copy-title">Copy this text</h2><p>Press and hold, or select the text and copy it.</p><textarea id="copy-fallback" readonly aria-label="Text to copy"></textarea><button class="button button-accent" type="button" data-close-copy>Done</button></dialog></body></html>

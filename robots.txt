@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /offers.html
+Sitemap: https://kavroworks.com/sitemap.xml
