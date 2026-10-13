@@ -221,3 +221,48 @@ main,.site-footer{z-index:1}
     font-size: 11px;
   }
 }
+
+/* Instagram reel: desktop */
+.reel-frame {
+  width: min(100%, 400px);
+  height: 710px;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: #fff;
+}
+
+.reel-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobile: reel first, headline underneath */
+@media (max-width: 650px) {
+  .reel-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+    padding: 24px 20px 36px;
+  }
+
+  .reel-frame {
+    position: relative;
+    inset: auto;
+    z-index: 3;
+    order: -1;
+    width: 100%;
+    max-width: 400px;
+    height: 710px;
+    margin-inline: auto;
+    border-radius: 12px;
+  }
+
+  .reel-copy {
+    position: relative;
+    z-index: 3;
+  }
+}
