@@ -306,3 +306,120 @@ if (typeof document !== 'undefined') {
     if (timers.length) { tick(); setInterval(tick, 1000); }
   })();
 }
+
+/* KAVRO WORKS — HOMEPAGE REFRESH
+   Paste this entire block at the very END of your existing script.js.
+   Keep all your existing JavaScript above it. */
+
+(() => {
+  'use strict';
+  const init = () => {
+    const hero = document.querySelector('.kw-film-hero');
+    if (!hero || hero.dataset.kwInitialized) return;
+    hero.dataset.kwInitialized = 'true';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // The project photo remains a normal link to the work page.
+    document.querySelectorAll('[data-kw-compare]').forEach(card => {
+      const image = card.querySelector('[data-kw-image]');
+      const label = card.querySelector('[data-kw-photo-label]');
+      const views = {
+        before: { src: 'images/bed-before.webp', alt: 'The IKEA bed frame and its components during assembly', label: 'Before · in progress' },
+        after: { src: 'images/bed-after.webp', alt: 'Completed black IKEA bed frame with drawers in front of a wood slat wall', label: 'After' }
+      };
+      card.querySelectorAll('[data-kw-phase]').forEach(button => {
+        button.addEventListener('click', () => {
+          const view = views[button.dataset.kwPhase];
+          if (!view || !image) return;
+          image.src = view.src;
+          image.alt = view.alt;
+          if (label) label.textContent = view.label;
+          card.querySelectorAll('[data-kw-phase]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+        });
+      });
+    });
+
+    const video = document.querySelector('#kw-home-video');
+    const toggle = document.querySelector('#kw-video-toggle');
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    let failed = false;
+    let loaded = false;
+    let wanted = !reduced.matches && !connection?.saveData;
+    let inView = true;
+
+    const updateButton = () => {
+      if (!toggle || !video) return;
+      toggle.textContent = video.paused ? 'Play video' : 'Pause video';
+      toggle.setAttribute('aria-label', video.paused ? 'Play background video' : 'Pause background video');
+    };
+    const showPoster = () => {
+      failed = true;
+      wanted = false;
+      video?.pause();
+      hero.classList.remove('kw-video-ready');
+      if (toggle) toggle.hidden = true;
+    };
+    const play = async () => {
+      if (!video || failed || !wanted || !inView || document.hidden) return;
+      if (!loaded) {
+        if (!video.dataset.videoSrc) return;
+        loaded = true;
+        video.src = video.dataset.videoSrc;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.load();
+      }
+      try { await video.play(); } catch { updateButton(); }
+    };
+    if (video && toggle) {
+      video.addEventListener('error', showPoster);
+      video.addEventListener('playing', () => {
+        if (failed) return;
+        hero.classList.add('kw-video-ready');
+        updateButton();
+      });
+      video.addEventListener('play', updateButton);
+      video.addEventListener('pause', updateButton);
+      toggle.hidden = false;
+      updateButton();
+      toggle.addEventListener('click', () => {
+        if (video.paused) { wanted = true; void play(); }
+        else { wanted = false; video.pause(); }
+      });
+      reduced.addEventListener('change', event => {
+        if (event.matches) { wanted = false; video.pause(); }
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) video.pause();
+        else if (wanted) void play();
+      });
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          inView = entries[0].isIntersecting;
+          if (inView && wanted) void play();
+          else video.pause();
+        }, { threshold: .05 });
+        observer.observe(hero);
+      } else { void play(); }
+    }
+
+    // Reveal content only when motion is allowed; it is visible without JS.
+    if (!reduced.matches && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('kw-is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .08 });
+      document.querySelectorAll('.kw-reveal').forEach(item => {
+        if (item.getBoundingClientRect().top < window.innerHeight * .9) return;
+        item.classList.add('kw-will-reveal');
+        observer.observe(item);
+      });
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+  else init();
+})();
