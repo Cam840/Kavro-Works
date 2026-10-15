@@ -5,8 +5,8 @@ const KAVRO_CONFIG = {
   googleReviewsUrl: '', // Paste the Google "Get more reviews" link here.
   promotion: {
     live: false, // Preview only until the details below are complete.
-    startsAt: '2026-10-12T14:50:28-04:00',
-    endsAt: '2026-10-27T14:50:28-04:00', // One deadline for everyone; never resets.
+    startsAt: '2026-10-15T17:31:05-04:00',
+    endsAt: '2026-10-30T17:31:05-04:00', // One deadline for everyone; never resets.
     sharePostUrl: '',
     prizeDetails: '', // Specify what 50% applies to and the maximum discount.
     eligibility: '', // Eligible entrants / area and any entry limits.
@@ -256,54 +256,82 @@ if (typeof document !== 'undefined') {
     }
 
     // A single real date powers every timer. Empty rules keep the giveaway in preview.
-    const promotion = KAVRO_CONFIG.promotion;
-    const timers = all('[data-countdown]');
-    let lastOfferState;
-    const dateLabel = value => new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York', month: 'long', day: 'numeric', year: 'numeric',
-      hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
-    }).format(new Date(value));
-    function paintOffer(state) {
-      if (state === lastOfferState) return;
-      lastOfferState = state;
-      const live = state === 'live';
-      const ended = state === 'ended';
-      const badge = live ? 'Limited time · referral giveaway' : ended ? 'Referral offer · countdown ended' : 'Referral giveaway · draft preview';
-      all('[data-offer-badge]').forEach(node => { node.textContent = badge; });
-      all('[data-countdown-heading]').forEach(node => { node.textContent = live ? 'Time left to enter' : ended ? 'This countdown has ended' : '15-day preview countdown'; });
-      all('[data-timer-date]').forEach(node => {
-        node.textContent = state === 'unavailable' ? 'Offer date is being finalized.' : `${live ? 'Entry deadline' : 'Preview deadline'}: ${dateLabel(promotion.endsAt)}`;
-      });
-      const disclaimer = live ? 'Entry is by text. Share confirmation is reviewed by Kamran; an entry is not a guaranteed discount.' : ended ? 'Entries are closed. Contact Kamran for future offers.' : 'Preview only. The post, prize details, and rules are being finalized. Entries are not open.';
-      all('[data-offer-disclaimer]').forEach(node => { node.textContent = disclaimer; });
-      all('[data-offer-entry]').forEach(link => {
-        link.hidden = !live;
-        if (live) setSMS(link, 'Hi Kamran! I would like to enter the referral giveaway. I have read the rules, told five friends, and shared the designated post. Here are my details and confirmation: ');
-      });
-      if (live) {
-        all('[data-offer-description]').forEach(node => { node.textContent = promotion.prizeDetails; });
-        all('[data-offer-rules]').forEach(node => {
-          node.replaceChildren();
-          [promotion.eligibility, promotion.winnerSelection, ...promotion.officialRules].forEach(text => {
-            const paragraph = document.createElement('p'); paragraph.textContent = text; node.append(paragraph);
-          });
-          const post = document.createElement('a'); post.href = promotion.sharePostUrl;
-          post.textContent = 'Open the designated post ↗'; post.className = 'text-link';
-          post.target = '_blank'; post.rel = 'noopener noreferrer'; node.append(post);
-          node.closest('details').hidden = false;
-        });
-      } else { all('.offer-rules').forEach(node => { node.hidden = true; }); }
-    }
-    function tick() {
-      const state = promotionState(promotion);
-      paintOffer(state);
-      const parts = countdownParts(promotion.endsAt);
-      timers.forEach(timer => {
-        all('[data-time]', timer).forEach(node => { node.textContent = parts ? String(parts[node.dataset.time]).padStart(2, '0') : '—'; });
-        timer.setAttribute('aria-label', parts ? `${state === 'live' ? 'Entry' : 'Preview'} countdown: ${parts.days} days, ${parts.hours} hours, ${parts.minutes} minutes remaining` : 'Offer date is being finalized');
-      });
-    }
-    if (timers.length) { tick(); setInterval(tick, 1000); }
+    // Referral discount and one shared countdown deadline.
+const promotion = KAVRO_CONFIG.promotion;
+const timers = all('[data-countdown]');
+
+const deadlineLabel = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'America/New_York',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: '2-digit',
+  timeZoneName: 'short'
+}).format(new Date(promotion.endsAt));
+
+function tickReferralOffer() {
+  const parts = countdownParts(promotion.endsAt);
+  const ended = parts?.expired === true;
+
+  all('[data-offer-badge]').forEach(node => {
+    node.textContent = ended
+      ? 'Referral offer ended'
+      : 'Limited-time referral offer';
+  });
+
+  all('[data-countdown-heading]').forEach(node => {
+    node.textContent = ended
+      ? 'This offer has ended'
+      : 'Time left to claim';
+  });
+
+  all('[data-timer-date]').forEach(node => {
+    node.textContent = `Offer ends: ${deadlineLabel}`;
+  });
+
+  all('[data-offer-description]').forEach(node => {
+    node.textContent =
+      'Tell five friends about KavroWorks and share a post about ' +
+      'the business to get 50% off your next job.';
+  });
+
+  all('[data-offer-disclaimer]').forEach(node => {
+    node.textContent = ended
+      ? 'Contact me to ask about current offers.'
+      : 'Text me your sharing confirmation before booking.';
+  });
+
+  all('[data-offer-entry]').forEach(link => {
+    link.hidden = ended;
+    link.textContent = 'Text me to claim the offer →';
+
+    setSMS(
+      link,
+      'Hi Kamran! I told five friends about KavroWorks and shared ' +
+      'a post about the business. I would like to claim the 50% ' +
+      'referral offer. Here is my sharing confirmation: '
+    );
+  });
+
+  timers.forEach(timer => {
+    all('[data-time]', timer).forEach(node => {
+      node.textContent = parts
+        ? String(parts[node.dataset.time]).padStart(2, '0')
+        : '—';
+    });
+
+    timer.setAttribute(
+      'aria-label',
+      ended ? 'Referral offer ended' : 'Referral offer countdown'
+    );
+  });
+}
+
+tickReferralOffer();
+if (timers.length) {
+  setInterval(tickReferralOffer, 1000);
+}
   })();
 }
 
