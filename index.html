@@ -154,6 +154,24 @@
   }
 }
 
+.kw-home .kw-portrait-frame figcaption >
+.kw-portrait-stamp:last-child {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  color: #5b3a22;
+  font-family: var(--sans);
+  font-size: 7.5px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: .02em;
+  text-align: center;
+  white-space: normal;
+  opacity: 1;
+}
+
 </style>
 </head>
 <body id="top" class="kw-home">
@@ -394,7 +412,9 @@
     <img src="images/KamranBokhari.png" alt="Kamran, the person behind Kavro Works" width="1198" height="1313" loading="lazy" decoding="async">
     <figcaption>
 <span class="kw-signature">Kamran</span>
-<span class="kw-portrait-stamp">MEASURE TWICE.<br>MAKE IT RIGHT.</span>
+<span class="kw-portrait-stamp">
+  MEASURE<br>TWICE.<br>MAKE IT RIGHT.
+</span>
 </figcaption>
   </div>
   </figure>
@@ -418,21 +438,32 @@
 <strong class="kw-discount-number"><span class="kw-discount-digits">50</span><span class="kw-discount-percent">%</span></strong><span class="kw-discount-off">OFF</span>
 </div>
 <div class="offer-copy">
-<span class="eyebrow" data-offer-badge>Referral giveaway · draft preview</span>
-<h2>A little word of mouth.<br>
-<em>A chance to save.</em>
-</h2>
-<p>Tell five friends about Kavro Works and share a post for a chance to get 50% off. Details are being finalized.</p>
-<a href="offers.html" class="text-link">See the offer preview <svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-<path d="M4 12h15M13 5l7 7-7 7">
-</path>
-</svg>
-</a>
-<p class="small" data-offer-disclaimer>Preview only. Entries are not open yet.</p>
+  <span class="eyebrow" data-offer-badge>
+    Limited-time referral offer
+  </span>
+
+  <h2>A little word of mouth.<br>
+    <em>A thank-you in return.</em>
+  </h2>
+
+  <p data-offer-description>
+    Tell five friends about KavroWorks and share a post about
+    the business to get 50% off your next job.
+  </p>
+
+  <a href="sms:+14049196460"
+     class="text-link"
+     data-offer-entry>
+    Text me to claim the offer →
+  </a>
+
+  <p class="small" data-offer-disclaimer>
+    Text me your sharing confirmation before booking.
+  </p>
 </div>
 <div class="offer-clock">
-<span class="eyebrow" data-countdown-heading>15-day preview countdown</span>
-<div class="countdown" data-countdown role="timer" aria-live="off" aria-label="Referral offer preview countdown">
+<span class="eyebrow" data-countdown-heading>Time left to claim</span>
+<div class="countdown" data-countdown role="timer" aria-live="off" aria-label="Referral offer countdown">
 <div>
 <strong data-time="days">—</strong>
 <span>days</span>
@@ -453,7 +484,7 @@
 <span>secs</span>
 </div>
 </div>
-<p class="timer-date" data-timer-date>Preview deadline: October 27, 2026 · 2:50 PM ET</p>
+<p class="timer-date" data-timer-date>Offer ends October 30, 2026 at 5:31 PM ET</p>
 </div>
 </div>
 </section>
