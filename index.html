@@ -172,6 +172,23 @@
   opacity: 1;
 }
 
+.offer-ticket {
+  position: relative;
+}
+
+.kw-coupon-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.kw-coupon-link:focus-visible {
+  outline: 3px solid #8c4c1c;
+  outline-offset: -6px;
+}
+
 </style>
 </head>
 <body id="top" class="kw-home">
@@ -434,6 +451,9 @@
 </section>
 <section class="container offer-section">
 <div class="offer-ticket">
+  <a class="kw-coupon-link"
+   href="offers.html"
+   aria-label="View the 50% off referral offer"></a>
 <div class="offer-value" aria-label="50 percent off">
 <strong class="kw-discount-number"><span class="kw-discount-digits">50</span><span class="kw-discount-percent">%</span></strong><span class="kw-discount-off">OFF</span>
 </div>
@@ -451,11 +471,9 @@
     the business to get 50% off your next job.
   </p>
 
-  <a href="sms:+14049196460"
-     class="text-link"
-     data-offer-entry>
-    Text me to claim the offer →
-  </a>
+  <span class="text-link">
+  See offer details →
+</span>
 
   <p class="small" data-offer-disclaimer>
     Text me your sharing confirmation before booking.
